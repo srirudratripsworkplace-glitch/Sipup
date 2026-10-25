@@ -28,7 +28,7 @@ const sold = "o.status IN ('confirmed','processing','dispatched','delivered')"
 
 export async function selectedStaff(connection, id) {
   if (id === null || id === undefined) return null
-  const result = await connection.query('SELECT id, name FROM staff WHERE id = ? AND is_active = TRUE FOR SHARE', [id])
+  const result = await connection.query('SELECT id, name FROM staff WHERE id = ? AND is_active = TRUE LOCK IN SHARE MODE', [id])
   if (!result.rowCount) { const error = new Error('The selected staff member is unavailable. Select another member or None of the above.'); error.status = 400; throw error }
   return { id: Number(result.rows[0].id), name: result.rows[0].name }
 }
