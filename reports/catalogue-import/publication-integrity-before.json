@@ -1,0 +1,46 @@
+{
+  "orders": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "order_items": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "order_vat_breakdowns": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "payments": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "refunds": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "refund_tax_lines": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "stock_movements": {
+    "rows": 162,
+    "sha256": "86df110598d69cf0b8f4abab10d963dd8063ccc7274d13918d9322eb8d484006"
+  },
+  "product_images": {
+    "rows": 81,
+    "sha256": "07b348f5d83a6096649664519837d43defb1ff4a40a8d685bc5128e0ceff7f2f"
+  },
+  "bulk_pricing": {
+    "rows": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "categories": {
+    "rows": 14,
+    "sha256": "33b18c7c087381d1de102d01db39619477d75b403ad3ab8e2d0622994afcbea6"
+  },
+  "products": {
+    "rows": 162,
+    "sha256": "fb3f7a5d66ec322e51e7a046759ed956c60d0289308d9087619a56877811a8b8"
+  }
+}

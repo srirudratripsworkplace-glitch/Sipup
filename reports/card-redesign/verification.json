@@ -1,0 +1,26 @@
+{
+  "desktop": {
+    "width": 1440,
+    "documentWidth": 1425,
+    "imageFit": "contain",
+    "aisles": [
+      "136 PRODUCTS\nAmerican",
+      "26 PRODUCTS\nGlobal"
+    ],
+    "flag": true,
+    "globe": true
+  },
+  "mobile": {
+    "width": 390,
+    "documentWidth": 390,
+    "cardWidth": 351
+  },
+  "stepper_cases": 3,
+  "cart_cases": 3,
+  "vat_toggle_preserves_gross": true,
+  "build_passed": true,
+  "quantity_capped_at_stock": {
+    "quantity": "20",
+    "increaseDisabled": true
+  }
+}

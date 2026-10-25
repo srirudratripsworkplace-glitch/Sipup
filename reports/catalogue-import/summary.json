@@ -1,0 +1,19 @@
+{
+  "productRecords": 162,
+  "structurallyValid": 162,
+  "newProducts": 162,
+  "existingProducts": 0,
+  "duplicateRecords": 0,
+  "matchedImages": 81,
+  "missingImages": 81,
+  "ambiguousImages": 11,
+  "unmatchedProducts": 70,
+  "brandIssues": 67,
+  "priceDiscrepancies": 16,
+  "vatIssues": 0,
+  "sourceVatUnconfirmed": 162,
+  "ready": 66,
+  "requiresReview": 96,
+  "proposedInitialCases": 3240,
+  "approvalDigest": "060a200ab1bab800d32fde8cefea269edf844be9459293193704c1433abbfec2"
+}

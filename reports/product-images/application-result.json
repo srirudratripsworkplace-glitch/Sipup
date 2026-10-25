@@ -1,0 +1,102 @@
+{
+  "mode": "applied",
+  "completedAt": "2026-10-16T05:05:58.954Z",
+  "products": 162,
+  "localFilesVerified": 162,
+  "previousImageRows": 81,
+  "savedImageRows": 162,
+  "protectedDataUnchanged": true,
+  "before": {
+    "products": {
+      "count": 162,
+      "sha256": "d3e8f1acda12974a8cb27250451cb44c6c17244d554442c8c3d3b86293dc75ae"
+    },
+    "product_variants": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "stock_movements": {
+      "count": 162,
+      "sha256": "1b1d91ed600b7a07c7b8beb8cf0a538bf8e2666bae7aae7e9b4ad0718f255b23"
+    },
+    "orders": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "order_items": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "order_vat_breakdowns": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "payments": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "refunds": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "refund_tax_lines": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "categories": {
+      "count": 14,
+      "sha256": "b08fa0d5a39a188d9a7fad0bcade18fe29f0c1e76555858caad14d25effb967a"
+    },
+    "bulk_pricing": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "after": {
+    "products": {
+      "count": 162,
+      "sha256": "d3e8f1acda12974a8cb27250451cb44c6c17244d554442c8c3d3b86293dc75ae"
+    },
+    "product_variants": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "stock_movements": {
+      "count": 162,
+      "sha256": "1b1d91ed600b7a07c7b8beb8cf0a538bf8e2666bae7aae7e9b4ad0718f255b23"
+    },
+    "orders": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "order_items": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "order_vat_breakdowns": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "payments": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "refunds": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "refund_tax_lines": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "categories": {
+      "count": 14,
+      "sha256": "b08fa0d5a39a188d9a7fad0bcade18fe29f0c1e76555858caad14d25effb967a"
+    },
+    "bulk_pricing": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "backupFile": "reports/product-images/database-backup-2026-10-16T05-05-58-685Z.json"
+}

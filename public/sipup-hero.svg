@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#dfe6d4"/><stop offset="1" stop-color="#aebda5"/></linearGradient>
+    <linearGradient id="can" x2="1"><stop stop-color="#e8ecb9"/><stop offset=".5" stop-color="#d7ed58"/><stop offset="1" stop-color="#9fbe35"/></linearGradient>
+    <linearGradient id="bottle" x2="1"><stop stop-color="#2a624b"/><stop offset=".5" stop-color="#45916a"/><stop offset="1" stop-color="#204d39"/></linearGradient>
+    <filter id="shadow" x="-.4" y="-.2" width="1.8" height="1.6"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v900H0z"/>
+  <circle cx="1000" cy="180" r="210" fill="#f4f1dc" opacity=".38"/>
+  <circle cx="165" cy="710" r="180" fill="#d1dfc8" opacity=".68"/>
+  <ellipse cx="604" cy="741" rx="390" ry="55" fill="#324f3c" opacity=".24" filter="url(#shadow)"/>
+  <g transform="translate(200 220) rotate(-9 140 260)">
+    <path fill="#f3f3df" d="M105 61h90l14 35v398l-16 22h-86l-18-22V96z"/>
+    <path fill="#d9dfc8" d="M105 61h90v34h-90zM107 518h86v24h-86z"/>
+    <path fill="#fff" d="M105 72h90v8h-90zM107 526h86v6h-86z" opacity=".75"/>
+    <rect x="105" y="195" width="90" height="136" rx="42" fill="#2e7353"/>
+    <path d="M127 235c18-35 44-34 54 0-10 35-37 41-54 0z" fill="#d6ec58"/>
+    <text x="150" y="369" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#294b37">SIPUP</text>
+    <text x="150" y="391" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" letter-spacing="3" fill="#73836e">REFRESH</text>
+  </g>
+  <g transform="translate(465 145) rotate(5 150 290)">
+    <path fill="url(#can)" d="M82 35h136l-10 37 17 24v454l-19 28H94l-19-28V96l17-24z"/>
+    <path fill="#e8efc8" d="M82 35h136l-10 37H92zM94 550h112l19 28H75z"/>
+    <path fill="#f8f7e6" d="M84 42h132v8H84zM86 556h128v7H86z" opacity=".8"/>
+    <ellipse cx="150" cy="42" rx="52" ry="7" fill="#bdc88e"/>
+    <rect x="115" y="217" width="70" height="104" rx="35" fill="#306d4f"/>
+    <path d="M132 264c14-27 35-26 46 0-11 27-32 31-46 0z" fill="#d4ed54"/>
+    <text x="150" y="368" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#294b37">SIPUP</text>
+    <text x="150" y="391" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" letter-spacing="3" fill="#5c744c">GOOD ENERGY</text>
+    <path fill="#d0dbad" d="M89 105h8v414h-8zM202 105h6v414h-6z" opacity=".65"/>
+  </g>
+  <g transform="translate(757 245) rotate(10 125 235)">
+    <path fill="url(#bottle)" d="M99 5h57v45l21 26v77c47 39 76 78 76 147v183c0 34-24 60-59 60H60c-36 0-59-26-59-60V300c0-69 28-108 76-147V76l22-26z" transform="translate(40 0)"/>
+    <path fill="#194b36" d="M161 15h57v25h-57z" transform="translate(40 0)"/>
+    <path fill="#bed76c" d="M152 194h137v147H152z" transform="translate(40 0)"/>
+    <path d="M196 231c18-35 44-34 54 0-10 35-37 41-54 0z" fill="#2f6949" transform="translate(40 0)"/>
+    <text x="260" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#294b37" transform="translate(0 0)">SIPUP</text>
+    <path fill="#ffffff" d="M145 91h5v93h-5z" opacity=".35" transform="translate(40 0)"/>
+  </g>
+  <g fill="#477452" opacity=".75">
+    <path d="M100 207c55-58 105-60 145-29-49 5-86 17-123 45z"/>
+    <path d="M1027 537c49-49 94-53 130-29-44 5-77 16-111 40z"/>
+    <circle cx="1081" cy="652" r="8"/><circle cx="163" cy="257" r="7"/><circle cx="1001" cy="245" r="6"/>
+  </g>
+</svg>

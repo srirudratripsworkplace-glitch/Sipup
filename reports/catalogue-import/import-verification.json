@@ -1,0 +1,16 @@
+{
+  "total_valid_products": 162,
+  "imported_products": 162,
+  "updated_products": 0,
+  "duplicate_skus": 0,
+  "matched_images": 81,
+  "without_confirmed_images": 81,
+  "products_with_20_cases": 162,
+  "total_stock_cases": 3240,
+  "published_products": 0,
+  "vat_rates": {
+    "standard": 147,
+    "zero": 15
+  },
+  "failed_records": []
+}

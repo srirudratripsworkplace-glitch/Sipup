@@ -1,0 +1,1184 @@
+{
+  "noHorizontalOverflow": true,
+  "initialScale": 1,
+  "mobileInputSize": 16,
+  "aisleSwipe": true,
+  "results": [
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/shop",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/cart",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/checkout",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/account/login",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 280,
+      "path": "/contact",
+      "documentWidth": 280
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/shop",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/cart",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/checkout",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/account/login",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/contact",
+      "documentWidth": 320
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/shop",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/cart",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/checkout",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/account/login",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 360,
+      "path": "/contact",
+      "documentWidth": 360
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/shop",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/cart",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/checkout",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/account/login",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/contact",
+      "documentWidth": 390
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/shop",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/cart",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/checkout",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/account/login",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 430,
+      "path": "/contact",
+      "documentWidth": 430
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/shop",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/cart",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/checkout",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/account/login",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 600,
+      "path": "/contact",
+      "documentWidth": 600
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/",
+      "documentWidth": 745
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/shop",
+      "documentWidth": 745
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 745
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/cart",
+      "documentWidth": 745
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/checkout",
+      "documentWidth": 745
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/account/login",
+      "documentWidth": 760
+    },
+    {
+      "theme": "light",
+      "width": 760,
+      "path": "/contact",
+      "documentWidth": 745
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/",
+      "documentWidth": 753
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/shop",
+      "documentWidth": 753
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 753
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/cart",
+      "documentWidth": 753
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/checkout",
+      "documentWidth": 753
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/account/login",
+      "documentWidth": 768
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/contact",
+      "documentWidth": 753
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/",
+      "documentWidth": 805
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/shop",
+      "documentWidth": 805
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 805
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/cart",
+      "documentWidth": 805
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/checkout",
+      "documentWidth": 805
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/account/login",
+      "documentWidth": 820
+    },
+    {
+      "theme": "light",
+      "width": 820,
+      "path": "/contact",
+      "documentWidth": 805
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/shop",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/cart",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/checkout",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/account/login",
+      "documentWidth": 1024
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "path": "/contact",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/shop",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/cart",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/checkout",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/account/login",
+      "documentWidth": 1101
+    },
+    {
+      "theme": "light",
+      "width": 1101,
+      "path": "/contact",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/shop",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/cart",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/checkout",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/account/login",
+      "documentWidth": 1280
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/contact",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/shop",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/cart",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/checkout",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/account/login",
+      "documentWidth": 1440
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/contact",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/shop",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/cart",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/checkout",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/account/login",
+      "documentWidth": 1920
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "path": "/contact",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/shop",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/cart",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/checkout",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/account/login",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 280,
+      "path": "/contact",
+      "documentWidth": 280
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/shop",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/cart",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/checkout",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/account/login",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/contact",
+      "documentWidth": 320
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/shop",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/cart",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/checkout",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/account/login",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 360,
+      "path": "/contact",
+      "documentWidth": 360
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/shop",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/cart",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/checkout",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/account/login",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/contact",
+      "documentWidth": 390
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/shop",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/cart",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/checkout",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/account/login",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 430,
+      "path": "/contact",
+      "documentWidth": 430
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/shop",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/cart",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/checkout",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/account/login",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 600,
+      "path": "/contact",
+      "documentWidth": 600
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/",
+      "documentWidth": 745
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/shop",
+      "documentWidth": 745
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 745
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/cart",
+      "documentWidth": 745
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/checkout",
+      "documentWidth": 745
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/account/login",
+      "documentWidth": 760
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "path": "/contact",
+      "documentWidth": 745
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/",
+      "documentWidth": 753
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/shop",
+      "documentWidth": 753
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 753
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/cart",
+      "documentWidth": 753
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/checkout",
+      "documentWidth": 753
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/account/login",
+      "documentWidth": 768
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/contact",
+      "documentWidth": 753
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/",
+      "documentWidth": 805
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/shop",
+      "documentWidth": 805
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 805
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/cart",
+      "documentWidth": 805
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/checkout",
+      "documentWidth": 805
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/account/login",
+      "documentWidth": 820
+    },
+    {
+      "theme": "dark",
+      "width": 820,
+      "path": "/contact",
+      "documentWidth": 805
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/shop",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/cart",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/checkout",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/account/login",
+      "documentWidth": 1024
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "path": "/contact",
+      "documentWidth": 1009
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/shop",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/cart",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/checkout",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/account/login",
+      "documentWidth": 1101
+    },
+    {
+      "theme": "dark",
+      "width": 1101,
+      "path": "/contact",
+      "documentWidth": 1086
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/shop",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/cart",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/checkout",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/account/login",
+      "documentWidth": 1280
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/contact",
+      "documentWidth": 1265
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/shop",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/cart",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/checkout",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/account/login",
+      "documentWidth": 1440
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/contact",
+      "documentWidth": 1425
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/shop",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/product/gatorade-glacier-cherry-591ml-24-pack-d6240f12863c821d5aa7",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/cart",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/checkout",
+      "documentWidth": 1905
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/account/login",
+      "documentWidth": 1920
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "path": "/contact",
+      "documentWidth": 1905
+    }
+  ]
+}

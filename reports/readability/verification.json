@@ -1,0 +1,1968 @@
+[
+  {
+    "name": "home-desktop",
+    "width": 1440,
+    "documentWidth": 1425,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "A.",
+        "size": "17px",
+        "color": "rgb(57, 65, 60)",
+        "text": "Shop all"
+      },
+      {
+        "selector": "A.",
+        "size": "17px",
+        "color": "rgb(57, 65, 60)",
+        "text": "American"
+      },
+      {
+        "selector": "A.",
+        "size": "17px",
+        "color": "rgb(57, 65, 60)",
+        "text": "Global"
+      },
+      {
+        "selector": "A.",
+        "size": "17px",
+        "color": "rgb(57, 65, 60)",
+        "text": "Wholesale"
+      },
+      {
+        "selector": "H1.",
+        "size": "86px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Good stock.Good energy."
+      },
+      {
+        "selector": "H2.",
+        "size": "49px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Shop by aisle."
+      },
+      {
+        "selector": "H2.",
+        "size": "49px",
+        "color": "rgb(20, 39, 31)",
+        "text": "The SipUp essentials"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Search products, brands or SKU..."
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "BrandAll brands7UPAirheadsCoca-ColaDr PepperFantaF"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All brands7UPAirheadsCoca-ColaDr PepperFantaFaygoF"
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "Category / subcategoryAll productsAmericanAmerican"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All productsAmericanAmerican / CandyGlobal / Candy"
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "SortFeaturedPrice: low to highPrice: high to lowNe"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "FeaturedPrice: low to highPrice: high to lowNewest"
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Glacier Cherry 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Glacier Cherry · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Glacier Freeze 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Glacier Freeze · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Orange 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Orange · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Fruit Punch 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Fruit Punch · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Lemon Lime 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Lemon Lime · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Pascall Cadbury Clinkers 160g"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Pascall / Cadbury · Case of 18 × 160g"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Clinkers · 160g · 18 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Fireworks 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Fireworks · 710ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Dreaming Orange 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Dreaming Orange · 710ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      }
+    ]
+  },
+  {
+    "name": "home-mobile",
+    "width": 390,
+    "documentWidth": 390,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "H1.",
+        "size": "51px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Good stock.Good energy."
+      },
+      {
+        "selector": "H2.",
+        "size": "35px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Shop by aisle."
+      },
+      {
+        "selector": "H2.",
+        "size": "35px",
+        "color": "rgb(20, 39, 31)",
+        "text": "The SipUp essentials"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Search products, brands or SKU..."
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "BrandAll brands7UPAirheadsCoca-ColaDr PepperFantaF"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "13px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All brands7UPAirheadsCoca-ColaDr PepperFantaFaygoF"
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "Category / subcategoryAll productsAmericanAmerican"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "13px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All productsAmericanAmerican / CandyGlobal / Candy"
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "SortFeaturedPrice: low to highPrice: high to lowNe"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "13px",
+        "color": "rgb(20, 39, 31)",
+        "text": "FeaturedPrice: low to highPrice: high to lowNewest"
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Glacier Cherry 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Glacier Cherry · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Glacier Freeze 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Glacier Freeze · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Orange 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Orange · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Fruit Punch 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Fruit Punch · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Lemon Lime 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Lemon Lime · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Pascall Cadbury Clinkers 160g"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Pascall / Cadbury · Case of 18 × 160g"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Clinkers · 160g · 18 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Fireworks 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Fireworks · 710ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Dreaming Orange 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Dreaming Orange · 710ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "20px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Super Pop 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "13px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      }
+    ]
+  },
+  {
+    "name": "shop-tablet",
+    "width": 768,
+    "documentWidth": 753,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "A.active",
+        "size": "17px",
+        "color": "rgb(42, 102, 75)",
+        "text": "Shop all"
+      },
+      {
+        "selector": "A.",
+        "size": "17px",
+        "color": "rgb(57, 65, 60)",
+        "text": "American"
+      },
+      {
+        "selector": "A.",
+        "size": "17px",
+        "color": "rgb(57, 65, 60)",
+        "text": "Global"
+      },
+      {
+        "selector": "A.active",
+        "size": "17px",
+        "color": "rgb(42, 102, 75)",
+        "text": "Wholesale"
+      },
+      {
+        "selector": "H1.",
+        "size": "53px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Good stock.Good energy."
+      },
+      {
+        "selector": "H2.",
+        "size": "34px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Shop by aisle."
+      },
+      {
+        "selector": "H2.",
+        "size": "34px",
+        "color": "rgb(20, 39, 31)",
+        "text": "The SipUp essentials"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Search products, brands or SKU..."
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "BrandAll brands7UPAirheadsCoca-ColaDr PepperFantaF"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All brands7UPAirheadsCoca-ColaDr PepperFantaFaygoF"
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "Category / subcategoryAll productsAmericanAmerican"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All productsAmericanAmerican / CandyGlobal / Candy"
+      },
+      {
+        "selector": "LABEL.sort-select",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "SortFeaturedPrice: low to highPrice: high to lowNe"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "FeaturedPrice: low to highPrice: high to lowNewest"
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Glacier Cherry 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Glacier Cherry · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Glacier Freeze 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Glacier Freeze · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Orange 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Orange · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Fruit Punch 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Fruit Punch · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Gatorade Lemon Lime 591ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "· Case of 24 × 591ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Lemon Lime · 591ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Pascall Cadbury Clinkers 160g"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Pascall / Cadbury · Case of 18 × 160g"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Clinkers · 160g · 18 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Fireworks 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Fireworks · 710ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "15px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Cases"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      },
+      {
+        "selector": "A.product-name",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Faygo Dreaming Orange 710ml"
+      },
+      {
+        "selector": "P.product-pack",
+        "size": "14px",
+        "color": "rgb(95, 99, 94)",
+        "text": "Faygo · Case of 24 × 710ml"
+      },
+      {
+        "selector": "P.case-specification",
+        "size": "15px",
+        "color": "rgb(67, 86, 74)",
+        "text": "Dreaming Orange · 710ml · 24 items per case"
+      },
+      {
+        "selector": "SMALL.price-vat-label",
+        "size": "13px",
+        "color": "rgb(67, 86, 74)",
+        "text": "inc. VAT"
+      }
+    ]
+  },
+  {
+    "name": "login-mobile",
+    "width": 390,
+    "documentWidth": 390,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "H1.",
+        "size": "42px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Good to haveyou back."
+      },
+      {
+        "selector": "LABEL.",
+        "size": "14px",
+        "color": "rgb(38, 62, 48)",
+        "text": "Email address"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": "owner@example.com"
+      },
+      {
+        "selector": "LABEL.",
+        "size": "14px",
+        "color": "rgb(38, 62, 48)",
+        "text": "Password"
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "name": "admin-products-desktop",
+    "width": 1440,
+    "documentWidth": 1425,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "H1.",
+        "size": "45px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Products."
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Search name, SKU or category..."
+      },
+      {
+        "selector": "LABEL.admin-filter",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "VAT treatmentAll productsNeeds reviewStandard-rate"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "14px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All productsNeeds reviewStandard-rated (20%)Reduce"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "PRODUCT"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "SKU"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "VAT TREATMENT"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "VAT RATE"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "NET PRICE"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "VAT"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "GROSS PRICE"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "STATUS"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "China Fanta EU Banana Chocolate 500mlCase of 12 × "
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-FA44511AF8EE725CBB2F"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£10.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.20"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£13.19"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "China Fanta Orange 500mlCase of 24 × 500ml"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-49C2E7B410F2F4B28F5D"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£18.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£3.80"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£22.79"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Cinnamon 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-9B08D89C333140888064"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£11.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.40"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£14.39"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Spearmint 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-EA62F4CEBF0D70515139"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£11.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.40"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£14.39"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Mint Bliss 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-A1ED1C67F8A3837AC201"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£11.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.40"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£14.39"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Island Berry Lime 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-6B50295E025E261D4E79"
+      }
+    ]
+  },
+  {
+    "name": "admin-products-mobile",
+    "width": 390,
+    "documentWidth": 390,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "H1.",
+        "size": "32px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Products."
+      },
+      {
+        "selector": "INPUT.",
+        "size": "16px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Search name, SKU or category..."
+      },
+      {
+        "selector": "LABEL.admin-filter",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "VAT treatmentAll productsNeeds reviewStandard-rate"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "14px",
+        "color": "rgb(20, 39, 31)",
+        "text": "All productsNeeds reviewStandard-rated (20%)Reduce"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "PRODUCT"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "SKU"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "VAT TREATMENT"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "VAT RATE"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "NET PRICE"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "VAT"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "GROSS PRICE"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": "STATUS"
+      },
+      {
+        "selector": "TH.",
+        "size": "13px",
+        "color": "rgb(49, 70, 56)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "China Fanta EU Banana Chocolate 500mlCase of 12 × "
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-FA44511AF8EE725CBB2F"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£10.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.20"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£13.19"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "China Fanta Orange 500mlCase of 24 × 500ml"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-49C2E7B410F2F4B28F5D"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£18.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£3.80"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£22.79"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Cinnamon 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-9B08D89C333140888064"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£11.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.40"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£14.39"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Spearmint 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-EA62F4CEBF0D70515139"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£11.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.40"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£14.39"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Mint Bliss 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-A1ED1C67F8A3837AC201"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Standard-rated (20%)"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "20%"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£11.99"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£2.40"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "£14.39"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Published"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": ""
+      },
+      {
+        "selector": "TD.table-product",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "Trident Island Berry Lime 31gCase of 12 × 31g"
+      },
+      {
+        "selector": "TD.",
+        "size": "14px",
+        "color": "rgb(82, 96, 87)",
+        "text": "IMP-6B50295E025E261D4E79"
+      }
+    ]
+  },
+  {
+    "name": "admin-dashboard-desktop",
+    "width": 1440,
+    "documentWidth": 1425,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "H1.",
+        "size": "45px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Good morning."
+      },
+      {
+        "selector": "H2.",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Confirmed sales trend"
+      },
+      {
+        "selector": "LABEL.admin-filter",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "PeriodLast 7 daysLast 8 weeksLast 12 months"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "14px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Last 7 daysLast 8 weeksLast 12 months"
+      },
+      {
+        "selector": "H2.",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Recent bookings"
+      },
+      {
+        "selector": "H2.",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Top movers"
+      }
+    ]
+  },
+  {
+    "name": "admin-dashboard-mobile",
+    "width": 390,
+    "documentWidth": 390,
+    "bodyFont": "18px",
+    "text": [
+      {
+        "selector": "H1.",
+        "size": "32px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Good morning."
+      },
+      {
+        "selector": "H2.",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Confirmed sales trend"
+      },
+      {
+        "selector": "LABEL.admin-filter",
+        "size": "18px",
+        "color": "rgb(74, 81, 76)",
+        "text": "PeriodLast 7 daysLast 8 weeksLast 12 months"
+      },
+      {
+        "selector": "SELECT.",
+        "size": "14px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Last 7 daysLast 8 weeksLast 12 months"
+      },
+      {
+        "selector": "H2.",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Recent bookings"
+      },
+      {
+        "selector": "H2.",
+        "size": "18px",
+        "color": "rgb(20, 39, 31)",
+        "text": "Top movers"
+      }
+    ]
+  }
+]

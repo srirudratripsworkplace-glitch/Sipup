@@ -1,0 +1,707 @@
+[
+  {
+    "title": "Faygo Red Pop 710ml",
+    "handle": "faygo-red-pop-710ml",
+    "body": "",
+    "variants": [
+      {
+        "id": 51676211052757,
+        "product_id": 9013105885397,
+        "title": "Default Title",
+        "price": "2.99",
+        "sku": null,
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2025-07-07T21:21:32-04:00",
+        "updated_at": "2026-10-16T00:56:29-04:00",
+        "taxable": true,
+        "barcode": null,
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "kg",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "CAD",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 47041523187925,
+        "product_id": 9013105885397,
+        "position": 1,
+        "created_at": "2025-07-07T21:21:21-04:00",
+        "updated_at": "2026-04-30T01:15:05-04:00",
+        "alt": "Faygo Red Pop 710ml Farah Foods",
+        "width": 194,
+        "height": 259,
+        "src": "https://cdn.shopify.com/s/files/1/0577/0516/9062/files/images_54.jpg?v=1777526105",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://farahfoods.ca/products/faygo-red-pop-710ml"
+  },
+  {
+    "title": "Takis Blue Heat Tortila Chips 90g",
+    "handle": "takis-blue-heat-tortila-chips-90g",
+    "body": "<p>Takis Blue Heat Tortila Chips 90g</p>",
+    "variants": [
+      {
+        "id": 50401598505250,
+        "product_id": 9871173353762,
+        "title": "Default Title",
+        "price": "149.00",
+        "sku": "8412600047040",
+        "position": 1,
+        "compare_at_price": "300.00",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2025-10-08T16:26:10+03:00",
+        "updated_at": "2026-10-16T07:56:32+03:00",
+        "taxable": false,
+        "barcode": "8412600047040",
+        "grams": 0,
+        "image_id": null,
+        "weight": 0,
+        "weight_unit": "g",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "EGP",
+        "compare_at_price_currency": "EGP",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 61877590229282,
+        "product_id": 9871173353762,
+        "position": 1,
+        "created_at": "2025-10-08T16:26:22+03:00",
+        "updated_at": "2026-06-11T11:54:57+03:00",
+        "alt": null,
+        "width": 2048,
+        "height": 2048,
+        "src": "https://cdn.shopify.com/s/files/1/0677/2939/1906/files/Cafelax-Takis-Blue-Heat-Tortila-Chips-90g.png?v=1781168097",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://www.cafelax.com/products/takis-blue-heat-tortila-chips-90g"
+  },
+  {
+    "title": "Gushers All Blue Sour Blue Raspberry & Blueberry Grape | 4.25 oz Bag",
+    "handle": "gushers-all-blue-sour-blue-raspberry-blueberry-grape",
+    "body": "<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">If you're a fan of all things blue, this one's for you. Gushers All Blue brings together two seriously good flavors in one bag. Sweet, smooth blueberry grape and a sour blue raspberry that hits that perfect tangy note without going overboard.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Every piece gives you that classic Gushers moment: a soft, chewy shell that bursts open with a rush of liquid flavor right in the middle. It never gets old! Whether you're a longtime Gushers lover or just discovering the magic, the All Blue bag is a must-have. Grab one and see what all the fuss is about — your taste buds will be glad you did!</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Net Wt. 4.25 oz</p>",
+    "variants": [
+      {
+        "id": 46026349084906,
+        "product_id": 8670546133226,
+        "title": "Default Title",
+        "price": "4.49",
+        "sku": null,
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2026-05-05T13:30:26-04:00",
+        "updated_at": "2026-10-16T00:56:43-04:00",
+        "taxable": true,
+        "barcode": "016000236431",
+        "grams": 142,
+        "image_id": null,
+        "weight": 5,
+        "weight_unit": "oz",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "USD",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 42411372478698,
+        "product_id": 8670546133226,
+        "position": 1,
+        "created_at": "2026-06-13T05:47:11-04:00",
+        "updated_at": "2026-06-13T05:47:13-04:00",
+        "alt": "Yellow and blue Gushers bag showing sour blue raspberry and blueberry grape fruit snacks, 4.25 oz net weight.",
+        "width": 1080,
+        "height": 1080,
+        "src": "https://cdn.shopify.com/s/files/1/0562/6744/0309/files/Gushers_All_Blue_4.25_oz_Bag.png?v=1781344033",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://rainbowlandcandyco.com/products/gushers-all-blue-sour-blue-raspberry-blueberry-grape"
+  },
+  {
+    "title": "Nik-L-Nip Cry Baby Sour Wax Bottles 39g (4 Pack)",
+    "handle": "nik-l-nip-cry-baby-sour-wax-bottles-39g-4-pack",
+    "body": "<p>Experience a burst of tangy fun with Nik-L-Nip Cry Baby Sour Wax Bottles. Each 39g pack contains four mini wax bottles filled with irresistibly sour liquid candy, perfect for a quick, playful treat. The unique wax bottle design lets you savor every drop in a fun, interactive way. Ideal for those who love a zesty candy adventure, these sour mini drinks deliver a punch of flavour that keeps you coming back for more. Add a pack to your snack collection and turn any moment into a sour sensation.</p>",
+    "variants": [
+      {
+        "id": 57134754496777,
+        "product_id": 15597004849417,
+        "title": "Default Title",
+        "price": "600.00",
+        "sku": "NIKLNIP-0002",
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2026-06-16T02:08:54+01:00",
+        "updated_at": "2026-10-16T05:56:45+01:00",
+        "taxable": true,
+        "barcode": "059642740744",
+        "grams": 39,
+        "image_id": 81088528744713,
+        "weight": 39,
+        "weight_unit": "g",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "INR",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 80959225004297,
+        "product_id": 15597004849417,
+        "position": 1,
+        "created_at": "2026-06-16T02:08:54+01:00",
+        "updated_at": "2026-06-16T02:08:58+01:00",
+        "alt": null,
+        "width": 1080,
+        "height": 1080,
+        "src": "https://cdn.shopify.com/s/files/1/0834/4040/2697/files/nik-l-nip-cry-baby-sour-wax-bottles-39g-832033.png?v=1781572138",
+        "variant_ids": []
+      },
+      {
+        "id": 81088528744713,
+        "product_id": 15597004849417,
+        "position": 2,
+        "created_at": "2026-07-03T18:18:49+01:00",
+        "updated_at": "2026-07-03T18:18:52+01:00",
+        "alt": null,
+        "width": 1024,
+        "height": 1024,
+        "src": "https://cdn.shopify.com/s/files/1/0834/4040/2697/files/ShopifyImage_586adee0-80c5-4303-981c-83967e64a6ff.jpg?v=1783099132",
+        "variant_ids": [
+          57134754496777
+        ]
+      }
+    ],
+    "url": "https://instock.net/products/nik-l-nip-cry-baby-sour-wax-bottles-39g-4-pack"
+  },
+  {
+    "title": "Faygo Soft Drink - Black Cherry (24 x 710mL) (Can Dep)",
+    "handle": "faygo-soft-drink-black-cherry-24-x-710ml-can-dep",
+    "body": "<p data-start=\"116\" data-end=\"176\"><span style=\"text-decoration: underline;\"><strong data-start=\"116\" data-end=\"174\">Faygo Soft Drink – Black Cherry (24 x 710mL) (Can Dep)</strong></span></p>\n<p data-start=\"178\" data-end=\"419\">Savor the rich, fruity taste of <strong data-start=\"210\" data-end=\"232\">Faygo Black Cherry</strong>, a fizzy soft drink bursting with bold cherry flavor. Each pack includes <strong data-start=\"306\" data-end=\"329\">24 bottles of 710mL</strong>, perfect for sharing, stocking in stores, or enjoying at parties and casual gatherings.</p>\n<p data-start=\"421\" data-end=\"440\"><strong data-start=\"421\" data-end=\"438\">Key Features:</strong></p>\n<ul data-start=\"441\" data-end=\"738\">\n<li data-start=\"441\" data-end=\"503\">\n<p data-start=\"443\" data-end=\"503\">Bold black cherry-flavored soda with a crisp, fizzy finish</p>\n</li>\n<li data-start=\"504\" data-end=\"564\">\n<p data-start=\"506\" data-end=\"564\">Large 710mL bottles – perfect for satisfying big thirsts</p>\n</li>\n<li data-start=\"565\" data-end=\"627\">\n<p data-start=\"567\" data-end=\"627\">Pack of 24 – convenient for retailers, events, or bulk use</p>\n</li>\n<li data-start=\"628\" data-end=\"688\">\n<p data-start=\"630\" data-end=\"688\">Sweet, fruity, and refreshing – a favorite Faygo classic</p>\n</li>\n<li data-start=\"689\" data-end=\"738\">\n<p data-start=\"691\" data-end=\"738\">(Can Dep) – deposit applicable where required</p>\n</li>\n</ul>\n<p data-start=\"740\" data-end=\"758\"><strong data-start=\"740\" data-end=\"756\">Perfect For:</strong></p>\n<ul data-start=\"759\" data-end=\"912\">\n<li data-start=\"759\" data-end=\"803\">\n<p data-start=\"761\" data-end=\"803\">Retailers, convenience stores, and cafés</p>\n</li>\n<li data-start=\"804\" data-end=\"860\">\n<p data-start=\"806\" data-end=\"860\">Parties, family gatherings, and casual get-togethers</p>\n</li>\n<li data-start=\"861\" data-end=\"912\">\n<p data-start=\"863\" data-end=\"912\">Anyone who enjoys rich, fruity, fizzy beverages</p>\n</li>\n</ul>",
+    "variants": [
+      {
+        "id": 43696906436824,
+        "product_id": 7949857554648,
+        "title": "Default Title",
+        "price": "39.99",
+        "sku": "073800004615",
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2023-02-22T15:16:39-05:00",
+        "updated_at": "2026-10-16T00:56:58-04:00",
+        "taxable": true,
+        "barcode": "073800004615",
+        "grams": 18144,
+        "image_id": null,
+        "weight": 40,
+        "weight_unit": "lb",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "CAD",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 39047973142744,
+        "product_id": 7949857554648,
+        "position": 1,
+        "created_at": "2023-02-22T15:33:44-05:00",
+        "updated_at": "2025-09-25T16:04:52-04:00",
+        "alt": "Faygo Soft Drink - Black Cherry (24 x 710ml) (Can Dep) - Quecan",
+        "width": 1024,
+        "height": 1024,
+        "src": "https://cdn.shopify.com/s/files/1/0018/2815/9523/products/Faygo_Soft_Drink_-_Black_Cherry_24_x_710mL_Can_Dep.jpg?v=1758830692",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://quecan.com/products/faygo-soft-drink-black-cherry-24-x-710ml-can-dep"
+  },
+  {
+    "title": "Faygo Soft Drink - Redpop (24 x 710ml) (Can Dep)",
+    "handle": "faygo-soft-drink-redpop-24-x-710ml-can-dep",
+    "body": "<p data-mce-fragment=\"1\"><span style=\"text-decoration: underline;\"><strong>Faygo Soft Drink - Redpop (24 x 710ml) (Can Dep)</strong></span></p>\n<p data-mce-fragment=\"1\">Faygo Redpop - Another one of the three original icing flavours the owners turned into pop. Try their classic strawberry Redpop soda is a definite must try!</p>",
+    "variants": [
+      {
+        "id": 42181693702360,
+        "product_id": 7531686559960,
+        "title": "Default Title",
+        "price": "39.99",
+        "sku": "073800006916",
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2021-11-27T20:47:33-05:00",
+        "updated_at": "2026-10-16T00:56:58-04:00",
+        "taxable": true,
+        "barcode": "073800006916",
+        "grams": 18144,
+        "image_id": null,
+        "weight": 40,
+        "weight_unit": "lb",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "CAD",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 36287784648920,
+        "product_id": 7531686559960,
+        "position": 1,
+        "created_at": "2021-12-01T13:02:27-05:00",
+        "updated_at": "2023-02-05T13:25:36-05:00",
+        "alt": "Faygo Soft Drink - Redpop (24 x 710ml) (Can Dep) - Quecan",
+        "width": 145,
+        "height": 456,
+        "src": "https://cdn.shopify.com/s/files/1/0018/2815/9523/products/FaygoRedPop710ml.png?v=1675621536",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://quecan.com/products/faygo-soft-drink-redpop-24-x-710ml-can-dep"
+  },
+  {
+    "title": "Sour Patch Kids Red, White, and Blue - 3.08oz",
+    "handle": "sour-patch-kids-red-white-and-blue",
+    "body": "<p>Score big with your sweet tooth with the Sour Patch Kids Red, White &amp; Blue Theater Box, a patriotic edition of the classic \"Sour Then Sweet\" treat. This 3.08 oz box features a star-spangled mix of soft and chewy candies in vibrant red, white, and blue, making it perfect for game days, summer celebrations, 4th of July picnics, or movie nights.</p>",
+    "variants": [
+      {
+        "id": 46374289473793,
+        "product_id": 8811011899649,
+        "title": "Default Title",
+        "price": "1.55",
+        "sku": "39433",
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": null,
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2025-06-07T05:22:37-04:00",
+        "updated_at": "2026-10-16T00:57:00-04:00",
+        "taxable": false,
+        "barcode": "070462011326",
+        "grams": 181,
+        "image_id": null,
+        "weight": 0.4,
+        "weight_unit": "lb",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "USD",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 48630183690497,
+        "product_id": 8811011899649,
+        "position": 1,
+        "created_at": "2026-05-26T17:12:13-04:00",
+        "updated_at": "2026-05-26T17:12:14-04:00",
+        "alt": null,
+        "width": 1080,
+        "height": 1080,
+        "src": "https://cdn.shopify.com/s/files/1/0732/4044/5185/files/39433.png?v=1779829934",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://blaircandy.com/products/sour-patch-kids-red-white-and-blue"
+  },
+  {
+    "title": "Faygo Redpop Drink 710ML",
+    "handle": "faygo-redpop-drink-710ml",
+    "body": "<h2>\n<meta charset=\"utf-8\">A Sweet Strawberry Classic with Bold Retro Soda Vibes<br>\n</h2>\n<p data-end=\"598\" data-start=\"310\">Enjoy a true American classic with the <strong data-end=\"377\" data-start=\"349\">Faygo Redpop Drink 710ML</strong>, a legendary strawberry soda that’s been a fan favorite for generations. Made by <span class=\"hover:entity-accent entity-underline inline cursor-pointer align-baseline\"><span class=\"whitespace-normal\">Faygo</span></span>, Redpop is known for its bold, sweet strawberry flavor and iconic status in the world of retro sodas.</p>\n<p data-end=\"869\" data-start=\"600\">This vibrant red soda delivers a smooth, candy-like strawberry taste with a refreshing, fizzy finish that makes every sip satisfying. It’s a perfect choice for anyone who loves <strong data-end=\"831\" data-start=\"777\">exotic drinks, rare sodas, and nostalgic beverages</strong> that stand out from everyday options.</p>\n<p data-end=\"1179\" data-start=\"871\">Packaged in a large <strong data-end=\"907\" data-start=\"891\">710ML bottle</strong>, Faygo Redpop is great for sharing, collecting, or enjoying over multiple servings. Whether you’re pairing it with snacks, adding it to your collection of imported drinks, or just craving something sweet and refreshing, this soda delivers classic flavor with a fun twist.</p>\n<p data-end=\"1449\" data-start=\"1181\">Faygo has built a reputation for unique and bold soda flavors, and Redpop is one of its most recognizable and beloved creations. Its bright color and retro branding make it a standout addition to any shelf, fridge, or collection of <strong data-end=\"1448\" data-start=\"1413\">limited and hard-to-find drinks</strong>.</p>\n<p data-end=\"1621\" data-start=\"1451\">At Extreme Snacks, we bring you iconic beverages from across North America, and Faygo Redpop is a must-have for anyone exploring <strong data-end=\"1620\" data-start=\"1580\">rare drinks and classic soda culture</strong>.</p>\n<h3 data-end=\"1640\" data-start=\"1623\" data-section-id=\"12jh0uk\">Key Features:</h3>\n<ul data-end=\"1970\" data-start=\"1641\">\n<li data-end=\"1704\" data-start=\"1641\" data-section-id=\"1qe5rzw\">710ML bottle – large size for sharing or extended enjoyment</li>\n<li data-end=\"1741\" data-start=\"1705\" data-section-id=\"w9hqag\">Sweet strawberry (Redpop) flavor</li>\n<li data-end=\"1780\" data-start=\"1742\" data-section-id=\"nu1jyr\">Smooth, fizzy, and refreshing soda</li>\n<li data-end=\"1825\" data-start=\"1781\" data-section-id=\"vok8j7\">Classic U.S soda brand with retro appeal</li>\n<li data-end=\"1878\" data-start=\"1826\" data-section-id=\"7zytqr\">Perfect for collectors of rare and exotic drinks</li>\n<li data-end=\"1935\" data-start=\"1879\" data-section-id=\"1qi6r62\">Great for pairing with snacks or enjoying on its own</li>\n<li data-end=\"1970\" data-start=\"1936\" data-section-id=\"132r7vl\">Bright, eye-catching red color</li>\n</ul>\n<p data-end=\"2055\" data-start=\"1972\">If you’re into nostalgic sodas and bold fruity flavors, this is a must-try classic.</p>\n<div class=\"flex flex-col text-sm\">\n<section data-turn=\"assistant\" data-scroll-anchor=\"true\" data-testid=\"conversation-turn-42\" data-turn-id=\"request-WEB:dbc8baf9-952f-4441-a9d5-227e1337d163-42\" dir=\"auto\" class=\"text-token-text-primary w-full focus:outline-none [--shadow-height:45px] has-data-writing-block:pointer-events-none has-data-writing-block:-mt-(--shadow-height) has-data-writing-block:pt-(--shadow-height) [&amp;:has([data-writing-block])&gt;*]:pointer-events-auto scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]\">\n<div class=\"text-base my-auto mx-auto pb-10 [--thread-content-margin:var(--thread-content-margin-xs,calc(var(--spacing)*4))] @w-sm/main:[--thread-content-margin:var(--thread-content-margin-sm,calc(var(--spacing)*6))] @w-lg/main:[--thread-content-margin:var(--thread-content-margin-lg,calc(var(--spacing)*16))] px-(--thread-content-margin)\">\n<div class=\"[--thread-content-max-width:40rem] @w-lg/main:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn\">\n<div class=\"flex max-w-full flex-col gap-4 grow\">\n<div data-turn-start-message=\"true\" class=\"min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal outline-none keyboard-focused:focus-ring [.text-message+&amp;]:mt-1\" data-message-model-slug=\"gpt-5-3\" dir=\"auto\" data-message-id=\"9c3c9651-b4bb-41a1-8131-309cf653e0a7\" data-message-author-role=\"assistant\" tabindex=\"0\">\n<div class=\"flex w-full flex-col gap-1 empty:hidden\">\n<div class=\"markdown prose dark:prose-invert w-full wrap-break-word light markdown-new-styling\">\n<h2 data-end=\"2433\" data-start=\"2426\" data-section-id=\"1xvwnkw\">FAQs</h2>\n<p data-end=\"2551\" data-start=\"2435\"><strong data-end=\"2476\" data-start=\"2435\">1. What does Faygo Redpop taste like?</strong><br data-end=\"2479\" data-start=\"2476\">It has a sweet, candy-like strawberry flavor with a smooth fizzy finish.</p>\n<p data-end=\"2624\" data-start=\"2553\"><strong data-end=\"2587\" data-start=\"2553\">2. Is Faygo Redpop carbonated?</strong><br data-end=\"2590\" data-start=\"2587\">Yes, it’s a carbonated soft drink.</p>\n<p data-end=\"2713\" data-start=\"2626\"><strong data-end=\"2653\" data-start=\"2626\">3. Where is Faygo from?</strong><br data-end=\"2656\" data-start=\"2653\">Faygo is a Detroit-based soda brand in the United States.</p>\n<p data-end=\"2780\" data-start=\"2715\"><strong data-end=\"2745\" data-start=\"2715\">4. Is this a large bottle?</strong><br data-end=\"2748\" data-start=\"2745\">Yes, it comes in a 710ML bottle.</p>\n<p data-end=\"2878\" data-start=\"2782\"><strong data-end=\"2813\" data-start=\"2782\">5. Is Faygo Redpop popular?</strong><br data-end=\"2816\" data-start=\"2813\">Yes, it’s one of Faygo’s most iconic and best-selling flavors.</p>\n<hr data-end=\"2883\" data-start=\"2880\">\n<h2 data-end=\"2905\" data-start=\"2885\" data-section-id=\"l8wp1v\">Collection Link</h2>\n<a title=\"Faygo\" href=\"https://www.extremesnacks.ca/collections/faygo-soda-drink-collection\">Faygo Soda Drink Collection | Largest Variety!</a><br>\n</div>\n</div>\n</div>\n</div>\n<div class=\"z-0 flex min-h-[46px] justify-start\"><br></div>\n<div class=\"mt-3 w-full empty:hidden\">\n<div class=\"text-center\"><br></div>\n</div>\n</div>\n</div>\n</section>\n</div>\n<!---->",
+    "variants": [
+      {
+        "id": 48679969030441,
+        "product_id": 9301310275881,
+        "title": "Default Title",
+        "price": "228.28",
+        "sku": "",
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2024-05-28T20:28:25-04:00",
+        "updated_at": "2026-10-16T00:58:49-04:00",
+        "taxable": true,
+        "barcode": "073800006916",
+        "grams": 680,
+        "image_id": null,
+        "weight": 24,
+        "weight_unit": "oz",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "INR",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 46175431819561,
+        "product_id": 9301310275881,
+        "position": 1,
+        "created_at": "2024-05-28T20:48:48-04:00",
+        "updated_at": "2026-04-10T19:16:10-04:00",
+        "alt": "Faygo Redpop Drink 710ML - Extreme Snacks",
+        "width": 1790,
+        "height": 2387,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/faygo-redpop-drink-710ml-extreme-snacks.jpg?v=1775862970",
+        "variant_ids": []
+      },
+      {
+        "id": 50276420059433,
+        "product_id": 9301310275881,
+        "position": 2,
+        "created_at": "2025-03-28T18:45:27-04:00",
+        "updated_at": "2026-04-11T00:00:58-04:00",
+        "alt": "IMG-3808 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/IMG-3808.png?v=1775880058",
+        "variant_ids": []
+      },
+      {
+        "id": 50276419961129,
+        "product_id": 9301310275881,
+        "position": 3,
+        "created_at": "2025-03-28T18:45:27-04:00",
+        "updated_at": "2026-04-11T00:01:04-04:00",
+        "alt": "IMG-3811 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/IMG-3811.png?v=1775880064",
+        "variant_ids": []
+      },
+      {
+        "id": 50276419862825,
+        "product_id": 9301310275881,
+        "position": 4,
+        "created_at": "2025-03-28T18:45:27-04:00",
+        "updated_at": "2026-04-11T00:01:11-04:00",
+        "alt": "IMG-3809 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/IMG-3809.png?v=1775880071",
+        "variant_ids": []
+      },
+      {
+        "id": 50276420124969,
+        "product_id": 9301310275881,
+        "position": 5,
+        "created_at": "2025-03-28T18:45:28-04:00",
+        "updated_at": "2026-04-11T00:01:18-04:00",
+        "alt": "IMG-3810 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/IMG-3810.png?v=1775880078",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://extremesnacks.ca/products/faygo-redpop-drink-710ml"
+  },
+  {
+    "title": "SAMYANG Original Korean Ramen Multipack 120g × 5",
+    "handle": "samyang-ramen-multipack-120g-5pk",
+    "body": "<!-- 🚀 Conversion Summary Box -->\n<div style=\"border: 1px solid #e5e7eb; background: #ffffff; padding: 12px 14px; border-radius: 8px; margin: 14px 0; font-size: 14px; line-height: 1.5;\">\n<ul style=\"margin: 0; padding-left: 18px;\">\n<li>Korea’s first instant ramen, introduced in 1963</li>\n<li>Classic savory broth with satisfying chewy noodles</li>\n<li>5-pack multipack ideal for families and pantry stocking</li>\n</ul>\n</div>\n<!-- 🚚 Shipping Information -->\n<div style=\"border: 1px solid #e5e7eb; background: #f9fafb; padding: 8px 12px; border-radius: 6px; margin: 12px 0; font-size: 14px; line-height: 1.4;\">📦 Shipping from Auckland $8.99~ / North Island Zone 1 $12.99~ / North Island Zone 2 $14.99~ / South Island $22.99~ · Free shipping: Auckland $99+ / North Island $150+, $200+ </div>\n<p>삼양 라면 멀티팩 (120g × 5입)</p>\n<h3>Quick Highlight</h3>\n<p>The original SAMYANG Ramen since 1963, known for its savory broth and timeless Korean comfort taste.</p>\n<h3>Description</h3>\n<p>SAMYANG Ramen Multipack represents the origin of Korean instant noodles, first launched in 1963. Featuring a deep, savory soup base and perfectly chewy noodles, it delivers a comforting and familiar flavor that has been enjoyed for generations. This multipack is ideal for family meals, sharing, or keeping a reliable classic ramen on hand for everyday enjoyment.</p>\n<h3>Product Details</h3>\n<ul>\n<li>Flavor: Original Korean ramen</li>\n<li>Net Weight: 600g (120g × 5 packs)</li>\n<li>Calories: Approx. 500 kcal per serving</li>\n<li>Type: Instant noodle soup</li>\n<li>Cooking Time: 4–5 minutes</li>\n<li>Packaging: Multipack (5 individual packs)</li>\n<li>Storage: Store in a cool, dry place away from direct sunlight</li>\n<li>Allergens: Contains wheat, soy, milk, egg, pork, beef, and shellfish (clam, squid)</li>\n</ul>\n<h3>Suggested Uses</h3>\n<ul>\n<li>Enjoy as a quick and comforting meal anytime</li>\n<li>Add egg, vegetables, or meat for extra nutrition</li>\n<li>Pair with kimchi for a classic Korean combination</li>\n<li>Perfect for family meals or sharing with friends</li>\n</ul>",
+    "variants": [
+      {
+        "id": 47707118207219,
+        "product_id": 9211087585523,
+        "title": "Default Title",
+        "price": "10.90",
+        "sku": null,
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2025-08-30T18:39:45+12:00",
+        "updated_at": "2026-10-16T17:59:13+13:00",
+        "taxable": true,
+        "barcode": "",
+        "grams": 1000,
+        "image_id": null,
+        "weight": 1,
+        "weight_unit": "kg",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "NZD",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 44755022184691,
+        "product_id": 9211087585523,
+        "position": 1,
+        "created_at": "2025-08-30T18:38:22+12:00",
+        "updated_at": "2025-08-30T18:38:24+12:00",
+        "alt": null,
+        "width": 492,
+        "height": 492,
+        "src": "https://cdn.shopify.com/s/files/1/0765/8576/3059/files/120GSamyangRamenMultipack.jpg?v=1756535904",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://asianfood.nz/products/samyang-ramen-multipack-120g-5pk"
+  },
+  {
+    "title": "Fanta Lychee Flavoured Bottle 500ML - China Edition",
+    "handle": "fanta-lychee-flavoured-bottle-500ml-china-edition",
+    "body": "<h2>\n<meta charset=\"utf-8\">A Crisp, Floral, and Ultra-Rare Lychee Fanta from Asia</h2>\n<p data-start=\"331\" data-end=\"742\">Experience one of the most refreshing and exotic Fanta flavours ever released — <strong data-start=\"411\" data-end=\"466\">Fanta Lychee Flavoured Bottle 500ML – China Edition</strong>. This crisp, fruity, floral soda is a China-exclusive flavour designed for fans who love light, aromatic drinks that go beyond traditional North American options. If you’re a collector, lychee lover, or exotic beverage hunter, this is a must-add to your Extreme Snacks stash.</p>\n<p data-start=\"744\" data-end=\"1153\">Fanta Lychee captures the naturally sweet, juicy, tropical taste of real lychee fruit — a flavour beloved across Asia for its perfume-like aroma and refreshing bite. From the very first sip, you’ll get a burst of sweet lychee nectar layered with Fanta’s iconic bubbly finish. It’s bright, cooling, and extremely easy to drink, making it perfect for warm weather, sharing with friends, or filming a taste test.</p>\n<p data-start=\"1155\" data-end=\"1532\">Since this flavour is exclusive to the Chinese market, it’s nearly impossible to find in Canada unless you're shopping through specialty stores like Extreme Snacks. Every bottle is imported fresh, featuring vibrant packaging and authentic Chinese labeling. Many Fanta collectors consider this one of the cleanest and most refreshing flavours in the entire international lineup.</p>\n<p data-start=\"1534\" data-end=\"1849\">At <strong data-start=\"1537\" data-end=\"1555\">Extreme Snacks</strong>, we specialize in the world’s rarest, most unusual, and hardest-to-find drinks from around the globe. Fanta Lychee fits perfectly into the exotic beverage category — refreshing, fruity, unique, and fun to try whether you're expanding your soda collection or discovering new flavours from Asia.</p>\n<h3 data-start=\"1851\" data-end=\"1877\"><strong data-start=\"1855\" data-end=\"1877\">Why You’ll Love It</strong></h3>\n<ul data-start=\"1878\" data-end=\"2220\">\n<li data-start=\"1878\" data-end=\"1933\">\n<p data-start=\"1880\" data-end=\"1933\">🍈 Sweet, floral lychee flavour with a crisp finish</p>\n</li>\n<li data-start=\"1934\" data-end=\"1987\">\n<p data-start=\"1936\" data-end=\"1987\">🇨🇳 China-exclusive Fanta — rare and collectible</p>\n</li>\n<li data-start=\"1988\" data-end=\"2027\">\n<p data-start=\"1990\" data-end=\"2027\">🥤 500 mL bottle imported from Asia</p>\n</li>\n<li data-start=\"2028\" data-end=\"2097\">\n<p data-start=\"2030\" data-end=\"2097\">📸 Perfect for taste tests, content creation &amp; exotic drink hauls</p>\n</li>\n<li data-start=\"2098\" data-end=\"2166\">\n<p data-start=\"2100\" data-end=\"2166\">🌺 Light, refreshing flavour profile unlike North American sodas</p>\n</li>\n<li data-start=\"2167\" data-end=\"2220\">\n<p data-start=\"2169\" data-end=\"2220\">⭐ A must-try for lychee fans and Fanta collectors</p>\n</li>\n</ul>\n<p data-start=\"2222\" data-end=\"2342\">Add this refreshing fruit soda to your collection before it disappears — Asian Fanta drops never stay in stock for long!</p>",
+    "variants": [
+      {
+        "id": 52265184526633,
+        "product_id": 9959957725481,
+        "title": "Default Title",
+        "price": "380.92",
+        "sku": null,
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2025-12-12T14:24:03-05:00",
+        "updated_at": "2026-10-16T01:02:53-04:00",
+        "taxable": true,
+        "barcode": "4897148040014",
+        "grams": 510,
+        "image_id": null,
+        "weight": 18,
+        "weight_unit": "oz",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "INR",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 53958915850537,
+        "product_id": 9959957725481,
+        "position": 1,
+        "created_at": "2025-12-12T14:24:45-05:00",
+        "updated_at": "2026-04-11T08:58:06-04:00",
+        "alt": "37B344BE-08D7-490C-A4D5-79F2C343785A - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/37B344BE-08D7-490C-A4D5-79F2C343785A.jpg?v=1775912286",
+        "variant_ids": []
+      },
+      {
+        "id": 53958915817769,
+        "product_id": 9959957725481,
+        "position": 2,
+        "created_at": "2025-12-12T14:24:45-05:00",
+        "updated_at": "2026-04-11T08:58:02-04:00",
+        "alt": "4EB2A89D-DD91-4807-A075-C171CF237624 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/4EB2A89D-DD91-4807-A075-C171CF237624.png?v=1775912282",
+        "variant_ids": []
+      },
+      {
+        "id": 53958915785001,
+        "product_id": 9959957725481,
+        "position": 3,
+        "created_at": "2025-12-12T14:24:45-05:00",
+        "updated_at": "2026-04-11T08:57:56-04:00",
+        "alt": "7C67EB62-D97B-45B8-BD02-5C85D49154D5 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/7C67EB62-D97B-45B8-BD02-5C85D49154D5.jpg?v=1775912276",
+        "variant_ids": []
+      },
+      {
+        "id": 53958915752233,
+        "product_id": 9959957725481,
+        "position": 4,
+        "created_at": "2025-12-12T14:24:45-05:00",
+        "updated_at": "2026-04-11T08:57:53-04:00",
+        "alt": "1E293E65-1950-44A9-91E7-FC05487A7A0B - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/1E293E65-1950-44A9-91E7-FC05487A7A0B.png?v=1775912273",
+        "variant_ids": []
+      },
+      {
+        "id": 53958915719465,
+        "product_id": 9959957725481,
+        "position": 5,
+        "created_at": "2025-12-12T14:24:45-05:00",
+        "updated_at": "2026-04-11T08:57:45-04:00",
+        "alt": "35CE90A9-B408-40BE-8D43-217359C106AF - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/35CE90A9-B408-40BE-8D43-217359C106AF.jpg?v=1775912265",
+        "variant_ids": []
+      },
+      {
+        "id": 53958915686697,
+        "product_id": 9959957725481,
+        "position": 6,
+        "created_at": "2025-12-12T14:24:45-05:00",
+        "updated_at": "2026-04-11T08:57:42-04:00",
+        "alt": "D97542D5-844D-49B4-9253-288B2028B815 - Extreme Snacks",
+        "width": 3000,
+        "height": 4000,
+        "src": "https://cdn.shopify.com/s/files/1/0688/6382/0073/files/D97542D5-844D-49B4-9253-288B2028B815.jpg?v=1775912262",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://extremesnacks.ca/products/fanta-lychee-flavoured-bottle-500ml-china-edition"
+  },
+  {
+    "title": "FAYGO BLACK CHERRY 710ML",
+    "handle": "faygo-black-cherry-710ml",
+    "body": "FAYGO",
+    "variants": [
+      {
+        "id": 32714277716039,
+        "product_id": 4926785683527,
+        "title": "Default Title",
+        "price": "400.00",
+        "sku": "",
+        "position": 1,
+        "compare_at_price": "",
+        "fulfillment_service": "manual",
+        "inventory_management": "shopify",
+        "option1": "Default Title",
+        "option2": null,
+        "option3": null,
+        "created_at": "2020-12-02T08:07:29+11:00",
+        "updated_at": "2026-10-16T16:04:33+11:00",
+        "taxable": false,
+        "barcode": null,
+        "grams": 800,
+        "image_id": null,
+        "weight": 0.8,
+        "weight_unit": "kg",
+        "requires_shipping": true,
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "price_currency": "INR",
+        "compare_at_price_currency": "",
+        "quantity_price_breaks": []
+      }
+    ],
+    "images": [
+      {
+        "id": 15643726479431,
+        "product_id": 4926785683527,
+        "position": 1,
+        "created_at": "2020-12-02T08:07:32+11:00",
+        "updated_at": "2020-12-02T08:07:32+11:00",
+        "alt": null,
+        "width": 800,
+        "height": 800,
+        "src": "https://cdn.shopify.com/s/files/1/2395/5885/products/FAYGOBLACKCHERRY710ML.jpg?v=1606856852",
+        "variant_ids": []
+      }
+    ],
+    "url": "https://redfernconveniencestore.com/products/faygo-black-cherry-710ml"
+  }
+]

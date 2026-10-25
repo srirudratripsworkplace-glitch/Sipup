@@ -1,0 +1,13 @@
+{
+  "productCount": 22,
+  "stockMovementCount": 22,
+  "beforeFingerprint": "6be975c8299b498745801dd82cd700589aa299294d8a8213ebfb40a0df8c90de",
+  "afterFingerprint": "6be975c8299b498745801dd82cd700589aa299294d8a8213ebfb40a0df8c90de",
+  "unchanged": true,
+  "migrations": [
+    "001_initial_mysql_schema",
+    "002_customer_accounts",
+    "003_product_level_vat",
+    "004_vat_refund_snapshots"
+  ]
+}

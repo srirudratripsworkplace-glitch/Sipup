@@ -1,0 +1,776 @@
+{
+  "workbookHash": "f3ac1925da789cfb239d7cf5da4ccb5ab125d94aabb23000fd4a4f3235592f47",
+  "pdfHash": "e2c2b3aa15551104ea4c5b93f8dc8613d0e518819872f5f39fe0d10f4ac2361e",
+  "reviewNote": "Image associations inspected against packaging, nearby labels, headings and source pack identity. This does not approve any database import.",
+  "brands": {
+    "Mike & Ike TB": "Mike & Ike",
+    "Hot Tamales": "Hot Tamales",
+    "Airheads": "Airheads",
+    "Laffy Taffy": "Laffy Taffy",
+    "Fanta Cans": "Fanta",
+    "Coca Cola": "Coca-Cola",
+    "Sprite Chill": "Sprite",
+    "Pepsi": "Pepsi",
+    "Dr Pepper": "Dr Pepper",
+    "7up": "7UP",
+    "Malaysian Fanta Can": "Fanta",
+    "Mirinda Can": "Mirinda",
+    "Fanta": "Fanta",
+    "Monster": "Monster",
+    "Monster Java": "Monster",
+    "China Fanta": "Fanta",
+    "China Fanta EU": "Fanta",
+    "Gushers": "Gushers",
+    "Roll ups": "Fruit Roll-Ups",
+    "Faygo": "Faygo",
+    "Pascall Cadbury": "Pascall / Cadbury",
+    "Samyang Noodles 5pk": "Samyang"
+  },
+  "images": {
+    "IMP-4A293F15C515C3DF39B4": {
+      "assetId": "p1-5",
+      "assetHash": "ce95288ae9c972cc632d542eecc7b308ae08e89dbb66ad52ac35e2f60dbf5b0d",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-75C30799A6D93DE32DC8": {
+      "assetId": "p1-6",
+      "assetHash": "57315e6b658f5cb2e4d3b2839ad469fd993165469b37cbde75d9685b06415f20",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-8F064550524A9967D71A": {
+      "assetId": "p1-7",
+      "assetHash": "a2a09206dd15ecfc9e3d71575f93ca525c93d499dbd3919152f00d30fbe3604a",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-01B0D940832B9FCAA812": {
+      "assetId": "p1-8",
+      "assetHash": "606bea0ab262ef9bc06a803e46a798d9afe0b19935fffad4511329bc3d13f53a",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-7362D236775936F9CBA6": {
+      "assetId": "p1-10",
+      "assetHash": "1aee7134e0665bb447466f046fc1b2e507bd5b2253c30503e053db392c63c7d2",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-1AED218A05983464E336": {
+      "assetId": "p1-11",
+      "assetHash": "980395ef64c9620240644869697ceae41954d9b062c79cb2287d7a7aa9b762b0",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-FB55D40F3976FB33E562": {
+      "assetId": "p1-12",
+      "assetHash": "aee2c996555bf65ace27906e099fbe41f08089af31810ba26052c616d1a21f31",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-0DC5C4DB03161F292408": {
+      "assetId": "p1-14",
+      "assetHash": "3ef9b5e6d40e3cc9bd2990ee4063d39e61f09ca693f23a490409b310e6cfbeb0",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-5AB926050D33C338DFA3": {
+      "assetId": "p1-13",
+      "assetHash": "f6abcf33bed240a93d1af9165e214dbe25cb812e8903aeafd50cbabfcbb77b13",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-ED1E1614D78F744A0131": {
+      "assetId": "p1-4",
+      "assetHash": "a3a6b0f70b93974b001a44119b2ef2c1ab7577bd59e5ed999ffb9437a3ed7229",
+      "confirmed": true,
+      "evidence": "Catalogue page 1: packaging/flavour inspected against heading; 4.25oz, case 12."
+    },
+    "IMP-C5B2B8E9D8D1141D17F7": {
+      "assetId": "p2-2",
+      "assetHash": "facd2149843d26b540e11e3c18713e2256c4d151cebe303b853e3fdad7ab9352",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.55oz, case 36."
+    },
+    "IMP-FA84B3E287B8F8A8786D": {
+      "assetId": "p2-3",
+      "assetHash": "68f70c00a04adf4a128ba0545426eb2fa93133bd5824751738809e22804b8392",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.55oz, case 36."
+    },
+    "IMP-14B5A0C91AA08E292893": {
+      "assetId": "p2-4",
+      "assetHash": "a82cef2786ca965727a0d85bec75c2cdf451dc073daa48db8604e4e5948f211f",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.55oz, case 36."
+    },
+    "IMP-CD8800EAD6CA4859DE59": {
+      "assetId": "p2-6",
+      "assetHash": "e29f3e4c52593824e1dc45a32661c0bf3cf8822fe0f5ae5810190dd13ebb0252",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.55oz, case 36."
+    },
+    "IMP-A2B8DA2CC548C40F87CC": {
+      "assetId": "p2-5",
+      "assetHash": "7aafe3470ed14e495875c9519eb625f049c113add928d5db8f7c17f216298cf0",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.55oz, case 36."
+    },
+    "IMP-7D30C029822D7BB7512C": {
+      "assetId": "p2-7",
+      "assetHash": "76aa93bbfae6a53a8ce818cacc79050a0b1dbe01c65edeb82e7aace666bd1a99",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.81oz, case 24."
+    },
+    "IMP-BF2479B0B478E54CF334": {
+      "assetId": "p2-8",
+      "assetHash": "04b919a576611b21ead89607b0136f12221467441f0c076d223488139d9cc676",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.81oz, case 24."
+    },
+    "IMP-A52520776A66C33FB08D": {
+      "assetId": "p2-9",
+      "assetHash": "e454d4b4595ed4cc688adafcf2e550dbd04b3e5f1e758082f54f668815cd1392",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.81oz, case 24."
+    },
+    "IMP-8208040CEC78AD24E37F": {
+      "assetId": "p2-10",
+      "assetHash": "9891c0d3af56ad80bcd90ad4861e1b69c366a66fff2a7ce05e08867889e6b7a9",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.81oz, case 24."
+    },
+    "IMP-C5477930BD76F47C587F": {
+      "assetId": "p2-11",
+      "assetHash": "5addafe8eb69c35fc7769e4294f9848638742e3509bdd2165c1e84ece8920704",
+      "confirmed": true,
+      "evidence": "Catalogue page 2: packaging/flavour inspected against heading; 0.81oz, case 24."
+    },
+    "IMP-7C8E947574E48151CFE5": {
+      "assetId": "p3-3",
+      "assetHash": "84b115d1609e591d36707d4f3edcf5e91ad93f66c8b3520e96b6ada6968e858a",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-98BF0BFC44F4C1A7B3F2": {
+      "assetId": "p3-4",
+      "assetHash": "cde895e59761c1446fa41303359d5fef92791ade7545c8e6e35b093cb8d6aa61",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-F6C13DCD13F93EF34D12": {
+      "assetId": "p3-5",
+      "assetHash": "5aaba1a4ab3a61d7107adba6c54e6aafd315416fbed6a809cb5206066b820fe8",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-27E78ED664A4B497CC72": {
+      "assetId": "p3-6",
+      "assetHash": "bff46dd52ff3dc2ecb6b397026b69b82944a39a499780edacc698c9b0a3287e3",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-F1658280145641BC8B7C": {
+      "assetId": "p3-7",
+      "assetHash": "55be18fc3833ffc35b8c9c4cb369ff33656bc2bbf2a639daa079fa4d5ebe081e",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-4D945AE2280AB2F633B4": {
+      "assetId": "p3-8",
+      "assetHash": "f146afd92956936457be3da371d75713e1b8e4d1376c301982a5883b40c0796c",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-A22A6DA25E945EE77585": {
+      "assetId": "p3-15",
+      "assetHash": "3d2a684e4437e0a10b7a1af7a6db754231935a1326c0f9628e2ca1e534de88e5",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-6290B693176E1136D278": {
+      "assetId": "p3-14",
+      "assetHash": "e370818c4506374ab710ca343f46020a6c6a7ec88f5f1a2cf0dd8d142d56bfb0",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 24."
+    },
+    "IMP-C749F5CE4B6475D1B92A": {
+      "assetId": "p3-2",
+      "assetHash": "d58b920d26c064f6596d631bda741beb02c29e09994b9623dedba71c790fced3",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-529607F897CFC1EA8E9C": {
+      "assetId": "p3-20",
+      "assetHash": "91d41ab7b26814cba87cf6a2b75f6d2887feb79086badd8bf011c1d8f8ca5c2d",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-736AF2A344960561D3F8": {
+      "assetId": "p3-10",
+      "assetHash": "f1dd52ce1d93de69b4233626e6bceb807bca7df2677dcb71ba8b4848ef637da1",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-C7F630AD7B954A9ADFD6": {
+      "assetId": "p3-11",
+      "assetHash": "9507836918b9e61256046aacceec8d6de1eb361ac056f928712613c519a61ff1",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-AD478309A1B3D0740013": {
+      "assetId": "p3-12",
+      "assetHash": "d1ae49b27ffe65f0376e383cfc8813ebe9ae1d339d01ff892c06cc1946333d78",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-1C61B6B3E3AE895867C4": {
+      "assetId": "p3-13",
+      "assetHash": "b6a1b2e3099744d63ea74d8e35d75a4ee82b480bcee33b1969df6476c8e0d90a",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-F4CF69DF12393C8FB456": {
+      "assetId": "p3-9",
+      "assetHash": "3803995f86b355dca279b99631ffa348fe003b41a0bc81f2302e612f00fc4ad1",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-33B03A0417536BD1FF03": {
+      "assetId": "p3-21",
+      "assetHash": "dee97d4c3df9af4a4228df20b4501f399127907e361400af2450d44d5d4f772d",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-BD0DFE2FA33D993348A6": {
+      "assetId": "p3-22",
+      "assetHash": "6a7573755e76e4608e39e0bc0cc56f28c5ec09c268b6d4088ed9d8654668e499",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-2AE9795DB7066075B83A": {
+      "assetId": "p3-16",
+      "assetHash": "4120d2505fd341f21a114073b13602b2a9a7ffe4187956363c90c78bda4f5cc0",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-D863A603285344727C97": {
+      "assetId": "p3-17",
+      "assetHash": "5986ab6f237a34b38d27ce708a4f7552f89667e2e123be9af97fdd5980e4ffd8",
+      "confirmed": true,
+      "evidence": "Catalogue page 3: packaging/flavour inspected against heading; 355ml, case 12."
+    },
+    "IMP-FA26D4887EA1771E67CD": {
+      "assetId": "p4-9",
+      "assetHash": "47656fd4474c2a8c8e7302042c586d35988085c33e533971f5669aa86f0711c0",
+      "confirmed": true,
+      "evidence": "Catalogue page 4: packaging/flavour inspected against heading; 320ml, case 12."
+    },
+    "IMP-0861D6FBB04286A5B9F3": {
+      "assetId": "p4-12",
+      "assetHash": "ffb2cc0ad28a7328a6ebb94bb3de7bb5ed3ae88f1290420ca7842e094cfc3e5a",
+      "confirmed": true,
+      "evidence": "Catalogue page 4: packaging/flavour inspected against heading; 320ml, case 12."
+    },
+    "IMP-6E6EDA20F0237CE112A5": {
+      "assetId": "p4-13",
+      "assetHash": "9aa785ccc119b2807421fdf1fc2e90f3b44ea1f8d06e265652d154d21f07907d",
+      "confirmed": true,
+      "evidence": "Catalogue page 4: packaging/flavour inspected against heading; 330ml, case 24."
+    },
+    "IMP-044EC7AECA333D8CDE83": {
+      "assetId": "p4-10",
+      "assetHash": "13c34e53fd199c3a3dffeb285715862bc83ad6b024376892344fab145c9d2d3f",
+      "confirmed": true,
+      "evidence": "Catalogue page 4: packaging/flavour inspected against heading; 330ml, case 24."
+    },
+    "IMP-6F788537D8AE97092985": {
+      "assetId": "p4-14",
+      "assetHash": "fefd78f9c4e95d5cd177541c0ea07fbd9ac5ab19dcbafbcd597c43bd40148b0d",
+      "confirmed": true,
+      "evidence": "Catalogue page 4: packaging/flavour inspected against heading; 330ml, case 24."
+    },
+    "IMP-A2E492807ECEE763234C": {
+      "assetId": "p5-8",
+      "assetHash": "aebe2afe39c76b122f81349eb54e0b229bfe784ea599a56a94b4a2672f637ad1",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-1C6FA8D801D7DD351567": {
+      "assetId": "p5-10",
+      "assetHash": "e00eae741e7053f1acbb4318eb1fe475e986fff618004499fb2b6ccf0ecadff3",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-3FC260F761351366DCF5": {
+      "assetId": "p5-11",
+      "assetHash": "812103bc90d8c850b88580f78de896c6b777359b61654ad575ed9c23b9cd6df8",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-9C2612668B59B6DE2397": {
+      "assetId": "p5-12",
+      "assetHash": "f9732e7eb895501dcc107b2c3d4895eba1f0741702f5536c29042ddf4e73e5ab",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-02E4F5042403A8A89684": {
+      "assetId": "p5-13",
+      "assetHash": "c09f5cb1fa5305bf36c95241609a5e355e5ef3936cb8b032eb7eebb7157afb4f",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-64DDB07A8633C5A22035": {
+      "assetId": "p5-9",
+      "assetHash": "c2e35230622d18f4883426a6d752ffc69ee18435e64b512927220e716635b0b5",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-A6639A059B67F53AA9B4": {
+      "assetId": "p5-20",
+      "assetHash": "f6c2cbe3d14172c4c8547ba2343a6fbe171aa8f12b3987765ed01e85c270c95c",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-3E5E0857C052ABFA80F2": {
+      "assetId": "p5-19",
+      "assetHash": "8a568317261f3861f74480863c7e4c8b1503727a677a8012473708125576eb87",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 473ml, case 24."
+    },
+    "IMP-60465BD0267E1F5367D3": {
+      "assetId": "p5-14",
+      "assetHash": "718ded8d2598907264e94b7837e59e1fe66a315759fd8a1f422a1d08a4e3d660",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 444ml, case 12."
+    },
+    "IMP-330826E8DA782F86CC8B": {
+      "assetId": "p5-15",
+      "assetHash": "413cf2748df526a902b835fbcddfa6bfbe62c39b138c0676f9597b68d42ca431",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 444ml, case 12."
+    },
+    "IMP-064C769C79AF2594658F": {
+      "assetId": "p5-16",
+      "assetHash": "275d676c12e1281f359fe948c4095ba8a07df78d6545aaa3efaa13f5d3769737",
+      "confirmed": true,
+      "evidence": "Catalogue page 5: packaging/flavour inspected against heading; 444ml, case 12."
+    },
+    "IMP-C3F3CE9A91618CC8D1D3": {
+      "assetId": "p6-7",
+      "assetHash": "5520ec05429253dd25669be8e61666a1b1c180f4534dc4d6e50421fa02da21fe",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-D678937A06427D3699BD": {
+      "assetId": "p6-6",
+      "assetHash": "ef55124c31b065e059a85aea170a504d0f9b6b9ded42f35013b3002f9e1d229c",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-658D8AC773C1711B159F": {
+      "assetId": "p6-5",
+      "assetHash": "aefd0011898a197ee013160322297d2732412e2942c853f629374511136fb0e3",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-528CC080771CB4B04D8A": {
+      "assetId": "p6-8",
+      "assetHash": "c7b4796faa5940b497b1099f0bb75e788fcad5f18504b0c505a0deedad1e6a95",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-2613AAB6792FF9355161": {
+      "assetId": "p6-9",
+      "assetHash": "111c444480c64cf085915892e28ccdab5c8d9d455cb23e1ab79448047ad53ca9",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-7E9A3191F88DEE043C89": {
+      "assetId": "p6-10",
+      "assetHash": "3fa2ecc7816b6ed2d565b0c43b7b48160a8e1bb522cf305a637d849d77e23271",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-4CDE302290C2E154C4F2": {
+      "assetId": "p6-11",
+      "assetHash": "351c2bf648e9cbb6078da4d789b8cadbe37be99d4666eede0b86731c3dc130cc",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-47D2E6C5329544CBFD7E": {
+      "assetId": "p6-12",
+      "assetHash": "1cc643eabbf22c5f5931967242fde9e1696ae2f10f1d4e9fa99fddd748c8b520",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-F60F98BC0790870EBA62": {
+      "assetId": "p6-14",
+      "assetHash": "21fcd5da93d1625d72d1e3f725e8eb0a1b3f2a1bd821693a3660bf694200816d",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-9E9FCC93DD066F0543A7": {
+      "assetId": "p6-15",
+      "assetHash": "b4b5e180e8e8942627385166b8d30bdf7b88ad1386477f33730a213fe5302e9e",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-FA44511AF8EE725CBB2F": {
+      "assetId": "p6-16",
+      "assetHash": "a68e4ba6bc8bf8a7997f8eca19b1c63cd7c84184486e586f596fb5a9999809c9",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 12."
+    },
+    "IMP-49C2E7B410F2F4B28F5D": {
+      "assetId": "p6-13",
+      "assetHash": "e212ed4a050377bdd8f2375f16eec451b03b80649a443c056506c8dbce418c41",
+      "confirmed": true,
+      "evidence": "Catalogue page 6: packaging/flavour inspected against heading; 500ml, case 24."
+    },
+    "IMP-D56D3AD8742102BEFDB9": {
+      "assetId": "crop-row-152",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    "IMP-2163D0ED6C876C342845": {
+      "assetId": "crop-row-153",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    "IMP-EFE2DE3C2D66381192C2": {
+      "assetId": "crop-row-154",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    "IMP-472DDEF3EDCD7199E975": {
+      "assetId": "crop-row-155",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    "IMP-E8BD714D65E565ABE60C": {
+      "assetId": "crop-row-156",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    "IMP-0B223FCAB471A340AFAE": {
+      "assetId": "crop-row-157",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    "IMP-30B805961B1959401BD2": {
+      "assetId": "crop-row-142",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    "IMP-53D0FE2AA6B7EBA431A8": {
+      "assetId": "crop-row-143",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    "IMP-EB9BC3A3C0981D9C8CE4": {
+      "assetId": "crop-row-144",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    "IMP-3961E8791E661437E114": {
+      "assetId": "crop-row-145",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    "IMP-3563CC8DCD6536FCB05E": {
+      "assetId": "crop-row-146",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    "IMP-54DAA8BB5216D6DB7C64": {
+      "assetId": "crop-row-147",
+      "confirmed": false,
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    "IMP-CB41E4C096966DED4547": {
+      "assetId": "crop-row-148",
+      "confirmed": false,
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    "IMP-9BDC4F64BC064B2DA4C8": {
+      "assetId": "crop-row-149",
+      "confirmed": false,
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    "IMP-49C9CD5A22887EAC7983": {
+      "assetId": "crop-row-150",
+      "confirmed": false,
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    "IMP-D62E481E7000EF62BAE2": {
+      "assetId": "crop-row-151",
+      "confirmed": false,
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    "IMP-4DA0F4268296AC7D4649": {
+      "assetId": "crop-row-158",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 15; crop excludes surrounding text."
+    },
+    "IMP-E05011BDAD9EE106792F": {
+      "assetId": "crop-row-137",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 16; crop excludes surrounding text."
+    },
+    "IMP-49F695B5C34BC0DDC67E": {
+      "assetId": "crop-row-136",
+      "confirmed": true,
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 16; crop excludes surrounding text."
+    },
+    "IMP-252E754617A369F617F7": {
+      "assetId": "crop-row-139",
+      "confirmed": false,
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    "IMP-47A375EF7E294E822A39": {
+      "assetId": "p1-9",
+      "confirmed": false,
+      "evidence": "Source Jolly Jose differs from packaging Jolly Joes."
+    },
+    "IMP-8E25BD75BB2749F67E15": {
+      "assetId": "p1-15",
+      "confirmed": false,
+      "evidence": "Embedded image includes a catalogue caption; crop needs review."
+    },
+    "IMP-59C0AAE23B99C9EC7F86": {
+      "assetId": "p1-3",
+      "confirmed": false,
+      "evidence": "Packaging weight differs from heading/source."
+    },
+    "IMP-73DDCF1942A5E17C69BC": {
+      "assetId": "p4-11",
+      "confirmed": false,
+      "evidence": "Source Strawberry differs from packaging Strawberry Kiwi."
+    }
+  },
+  "products": {},
+  "crops": [
+    {
+      "id": "crop-row-152",
+      "parent": "p7-1",
+      "rect": [
+        165,
+        302,
+        155,
+        460
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-153",
+      "parent": "p7-1",
+      "rect": [
+        530,
+        315,
+        160,
+        455
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-154",
+      "parent": "p7-1",
+      "rect": [
+        890,
+        300,
+        165,
+        465
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-155",
+      "parent": "p7-1",
+      "rect": [
+        160,
+        975,
+        160,
+        440
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-156",
+      "parent": "p7-1",
+      "rect": [
+        495,
+        950,
+        180,
+        460
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-157",
+      "parent": "p7-1",
+      "rect": [
+        890,
+        965,
+        165,
+        450
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 7; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-142",
+      "parent": "p11-1",
+      "rect": [
+        108,
+        318,
+        302,
+        425
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-143",
+      "parent": "p11-1",
+      "rect": [
+        438,
+        317,
+        329,
+        429
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-144",
+      "parent": "p11-1",
+      "rect": [
+        800,
+        318,
+        322,
+        435
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-145",
+      "parent": "p11-1",
+      "rect": [
+        248,
+        950,
+        312,
+        408
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-146",
+      "parent": "p11-1",
+      "rect": [
+        637,
+        950,
+        300,
+        410
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 11; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-147",
+      "parent": "p12-1",
+      "rect": [
+        107,
+        365,
+        311,
+        410
+      ],
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    {
+      "id": "crop-row-148",
+      "parent": "p12-1",
+      "rect": [
+        468,
+        360,
+        294,
+        405
+      ],
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    {
+      "id": "crop-row-149",
+      "parent": "p12-1",
+      "rect": [
+        803,
+        360,
+        309,
+        405
+      ],
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    {
+      "id": "crop-row-150",
+      "parent": "p12-1",
+      "rect": [
+        204,
+        1005,
+        311,
+        413
+      ],
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    {
+      "id": "crop-row-151",
+      "parent": "p12-1",
+      "rect": [
+        663,
+        998,
+        312,
+        410
+      ],
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    },
+    {
+      "id": "crop-row-158",
+      "parent": "p15-1",
+      "rect": [
+        423,
+        529,
+        345,
+        498
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 15; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-137",
+      "parent": "p16-1",
+      "rect": [
+        775,
+        260,
+        375,
+        392
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 16; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-136",
+      "parent": "p16-1",
+      "rect": [
+        192,
+        939,
+        346,
+        387
+      ],
+      "evidence": "Product packaging and matching flavour/pack caption inspected on page 16; crop excludes surrounding text."
+    },
+    {
+      "id": "crop-row-139",
+      "parent": "p16-1",
+      "rect": [
+        395,
+        261,
+        360,
+        391
+      ],
+      "evidence": "Candidate crop: source weight/name differs from catalogue label; requires administrator review."
+    }
+  ]
+}

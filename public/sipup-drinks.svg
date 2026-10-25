@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#dce6d4"/><stop offset="1" stop-color="#9eb59f"/></linearGradient><linearGradient id="can" x2="1"><stop stop-color="#adc543"/><stop offset=".5" stop-color="#d6eb5c"/><stop offset="1" stop-color="#829d32"/></linearGradient></defs>
+  <path fill="url(#bg)" d="M0 0h760v650H0z"/><circle cx="610" cy="120" r="120" fill="#f2f0db" opacity=".45"/>
+  <ellipse cx="381" cy="534" rx="236" ry="32" fill="#1d4835" opacity=".18"/>
+  <g transform="translate(161 110) rotate(-8 110 210)"><path fill="#397451" d="M68 45h88v37l16 23v322l-20 27H70l-20-27V105l18-23z"/><path fill="#244d37" d="M68 45h88v25H68z"/><path fill="#d0e58a" d="M60 218h105v119H60z"/><circle cx="111" cy="271" r="29" fill="#34704c"/><path d="M97 271c10-19 23-19 31 0-8 19-21 21-31 0z" fill="#d4ed54"/><text x="112" y="317" text-anchor="middle" font-family="Arial" font-weight="700" font-size="12" fill="#264a35">SIPUP</text></g>
+  <g transform="translate(342 75)"><path fill="url(#can)" d="M58 18h130l-9 30 15 21v355l-19 25H71l-19-25V69l15-21z"/><path fill="#e8edc4" d="M58 18h130l-9 30H67zM71 424h112l19 25H52z"/><circle cx="123" cy="223" r="42" fill="#32704e"/><path d="M102 223c15-31 37-30 50 0-13 30-35 34-50 0z" fill="#d4ed54"/><text x="123" y="299" text-anchor="middle" font-family="Arial" font-weight="700" font-size="19" fill="#264a35">SIPUP</text><text x="123" y="319" text-anchor="middle" font-family="Arial" font-size="8" letter-spacing="2" fill="#526d4b">REFRESH</text></g>
+  <path d="M79 487c48-62 92-67 136-40-47 8-82 23-119 54zM571 505c44-50 81-54 117-32-39 7-68 19-100 44z" fill="#527e55"/>
+</svg>

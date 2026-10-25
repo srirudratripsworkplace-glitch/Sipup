@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f0eee1"/><stop offset="1" stop-color="#dbe3d1"/></linearGradient>
+    <linearGradient id="can" x2="1"><stop stop-color="#b9d247"/><stop offset=".5" stop-color="#d9ed62"/><stop offset="1" stop-color="#93aa38"/></linearGradient>
+    <linearGradient id="bag" x2="1"><stop stop-color="#efbc63"/><stop offset="1" stop-color="#d9874b"/></linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h700v700H0z"/>
+  <circle cx="527" cy="148" r="92" fill="#f8f5e5" opacity=".7"/>
+  <circle cx="143" cy="570" r="126" fill="#cbd9bf" opacity=".55"/>
+  <ellipse cx="356" cy="563" rx="203" ry="23" fill="#344e3a" opacity=".16"/>
+  <g transform="translate(235 126)">
+    <path fill="url(#can)" d="M37 17h164l-11 37 18 26v328l-22 27H51l-22-27V80l19-26z"/>
+    <path fill="#eaf0ce" d="M37 17h164l-11 37H48zM51 408h135l22 27H29z"/>
+    <ellipse cx="119" cy="19" rx="59" ry="7" fill="#bdc991"/>
+    <path fill="#ffffff" d="M41 31h8v355h-8zM187 80h8v306h-8z" opacity=".4"/>
+    <circle cx="119" cy="222" r="45" fill="#367451"/>
+    <path d="M100 221c15-31 36-30 48 0-12 29-34 33-48 0z" fill="#d4ed54"/>
+    <text x="119" y="302" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#244a34">SIPUP</text>
+    <text x="119" y="323" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" letter-spacing="3" fill="#556d49">GOOD ENERGY</text>
+  </g>
+  <g transform="translate(110 333) rotate(-12)">
+    <path fill="url(#bag)" d="M0 20 30 0h116l30 20-16 201H15z"/>
+    <path fill="#f8d894" d="M16 29h144l-10 25H26z"/>
+    <circle cx="88" cy="120" r="38" fill="#f4e2a7"/>
+    <path d="M60 122c15-27 42-27 56 0-14 25-41 27-56 0z" fill="#d98c4c"/>
+    <text x="88" y="181" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#704c32">CRUNCH</text>
+  </g>
+  <path d="M532 440c31-41 70-52 105-37-38 8-63 24-88 54z" fill="#5c8d5a"/>
+  <path d="M91 170c31-39 65-47 96-31-33 7-56 21-78 49z" fill="#739766"/>
+</svg>

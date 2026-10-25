@@ -1,0 +1,143 @@
+{
+  "verified_at": "2026-10-15T11:15:36.820Z",
+  "valid_products": 162,
+  "published_products": 162,
+  "vat_confirmed": 162,
+  "source_prices_preserved": true,
+  "vat_rates": {
+    "0": 15,
+    "20": 147
+  },
+  "vat_mismatches": 0,
+  "duplicate_products": 0,
+  "matched_images": 81,
+  "without_matched_images": 81,
+  "products_with_20_cases": 162,
+  "categories": [
+    {
+      "name": "American",
+      "parent": null,
+      "products": 136
+    },
+    {
+      "name": "Candy",
+      "parent": "American",
+      "products": 68
+    },
+    {
+      "name": "Candys",
+      "parent": "Global",
+      "products": 1
+    },
+    {
+      "name": "Drinks",
+      "parent": "American",
+      "products": 30
+    },
+    {
+      "name": "Drinks",
+      "parent": "Global",
+      "products": 19
+    },
+    {
+      "name": "Global",
+      "parent": null,
+      "products": 26
+    },
+    {
+      "name": "Gum",
+      "parent": "American",
+      "products": 11
+    },
+    {
+      "name": "Monster",
+      "parent": "American",
+      "products": 11
+    },
+    {
+      "name": "Snacks",
+      "parent": "American",
+      "products": 16
+    },
+    {
+      "name": "Snacks",
+      "parent": "Global",
+      "products": 6
+    }
+  ],
+  "integrity_preserved": true,
+  "integrity": {
+    "orders": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "order_items": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "order_vat_breakdowns": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "payments": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "refunds": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "refund_tax_lines": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "stock_movements": {
+      "rows": 162,
+      "sha256": "86df110598d69cf0b8f4abab10d963dd8063ccc7274d13918d9322eb8d484006"
+    },
+    "product_images": {
+      "rows": 81,
+      "sha256": "07b348f5d83a6096649664519837d43defb1ff4a40a8d685bc5128e0ceff7f2f"
+    },
+    "bulk_pricing": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "categories": {
+      "rows": 14,
+      "sha256": "33b18c7c087381d1de102d01db39619477d75b403ad3ab8e2d0622994afcbea6"
+    },
+    "products": {
+      "rows": 162,
+      "sha256": "fb3f7a5d66ec322e51e7a046759ed956c60d0289308d9087619a56877811a8b8"
+    }
+  },
+  "examples": [
+    {
+      "netPence": 1000,
+      "vatPence": 200,
+      "grossPence": 1200,
+      "rate": 20
+    },
+    {
+      "netPence": 1000,
+      "vatPence": 0,
+      "grossPence": 1000,
+      "rate": 0
+    }
+  ],
+  "tests": {
+    "integration_passed": 29,
+    "build_passed": true,
+    "browser_visual_check": false
+  },
+  "running_storefront": {
+    "url": "http://127.0.0.1:5173",
+    "homepage_status": 200,
+    "transformed_react_status": 200,
+    "proxied_product_count": 162,
+    "category_groups": 2,
+    "confirmed_image_files_checked": 81,
+    "image_failures": 0
+  }
+}
