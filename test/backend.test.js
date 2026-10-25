@@ -3,6 +3,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import mysql from 'mysql2/promise'
 import bcrypt from 'bcryptjs'
+import sharp from 'sharp'
 import { spawnSync } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
@@ -49,7 +50,7 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
       assert.equal(after.rows[0].vat_treatment, null)
       assert.equal(after.rows[0].vat_confirmed, 0)
       const versions = await pool.query('SELECT version FROM schema_migrations')
-      assert.equal(versions.rowCount, 5)
+      assert.equal(versions.rowCount, 6)
     })
     await pool.query('INSERT INTO admins (email,password_hash) VALUES (?,?)', ['admin@example.test', await bcrypt.hash('Test-Password-123!', 4)])
     server = app.listen(0, '127.0.0.1')
@@ -62,7 +63,7 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
       let data; try { data = JSON.parse(raw) } catch { data = raw }
       return { status: response.status, data, cookie: response.headers.get('set-cookie')?.split(';')[0] }
     }
-    let adminCookie, customerCookie
+    let adminCookie, customerCookie, uploadedImage
     await t.test('admin routes reject public requests and customer sessions', async () => {
       assert.equal((await request('/admin/vat/dashboard')).status, 401)
       assert.equal((await request('/admin/vat/export.csv')).status, 401)
@@ -73,6 +74,32 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
       assert.equal(register.status, 201, JSON.stringify(register.data)); customerCookie = register.cookie
       assert.equal((await request('/admin/products', 'GET', undefined, customerCookie)).status, 401)
       assert.equal((await request('/orders', 'POST', {})).status, 401)
+    })
+    await t.test('image uploads require admin, validate contents, deduplicate and serve database bytes', async () => {
+      const bytes = await sharp({ create: { width: 4, height: 4, channels: 3, background: '#ff8800' } }).png().toBuffer()
+      const upload = (body, cookie = adminCookie, type = 'image/png') => fetch(`${base}/admin/product-media`, {
+        method: 'POST', headers: { 'Content-Type': type, Cookie: cookie || '' }, body,
+      })
+      assert.equal((await upload(bytes, '')).status, 401)
+      assert.equal((await upload(bytes, customerCookie)).status, 401)
+      assert.equal((await upload(Buffer.from('fake png'))).status, 400)
+      assert.equal((await upload(Buffer.from('<svg/>'), adminCookie, 'image/svg+xml')).status, 400)
+      assert.equal((await upload(Buffer.alloc(5 * 1024 * 1024 + 1))).status, 413)
+      const response = await upload(bytes)
+      assert.equal(response.status, 201)
+      uploadedImage = (await response.json()).image_url
+      assert.match(uploadedImage, /^\/api\/product-media\/[a-f0-9]{64}$/)
+      assert.equal((await (await upload(bytes)).json()).image_url, uploadedImage)
+      const row = (await pool.query('SELECT * FROM product_media WHERE sha256 = ?', [uploadedImage.split('/').pop()])).rows[0]
+      const image = await fetch(`http://127.0.0.1:${server.address().port}${uploadedImage}`)
+      assert.equal(image.status, 200)
+      assert.equal(image.headers.get('content-type'), 'image/webp')
+      assert.match(image.headers.get('cache-control'), /immutable/)
+      assert.deepEqual(Buffer.from(await image.arrayBuffer()), row.image_data)
+      assert.equal((await fetch(`http://127.0.0.1:${server.address().port}/api/product-media/${'0'.repeat(64)}`)).status, 404)
+      const { persistImageUrl } = await import('../server/product-media.js')
+      await assert.rejects(persistImageUrl(pool, `/api/product-media/${'0'.repeat(64)}`), /no longer exists/)
+      await assert.rejects(persistImageUrl(pool, '/products/../../.env'), /Invalid local/)
     })
     const productBody = (sku, price, treatment = 'standard') => ({ name: `Test ${sku}`, sku, category: 'Test category',
       price_pence: price, vat_treatment: treatment, vat_confirmed: true, price_entry_mode: 'exclusive', stock_quantity: 100 })
@@ -85,12 +112,13 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
         const result = await request('/admin/products', 'POST', body, adminCookie)
         assert.equal(result.status, 201, JSON.stringify(result.data))
       }
-      const inclusive = await request('/admin/products', 'POST', { ...productBody('INCLUSIVE', 1200),image_url:`/products/${'a'.repeat(64)}.webp`, price_entry_mode: 'inclusive', sale_price_pence: 960,
+      const inclusive = await request('/admin/products', 'POST', { ...productBody('INCLUSIVE', 1200),image_url:uploadedImage, price_entry_mode: 'inclusive', sale_price_pence: 960,
         bulk_prices: [{ min_quantity: 10, unit_price_pence: 840 }] }, adminCookie)
       assert.equal(inclusive.status, 201, JSON.stringify(inclusive.data))
       const products = (await request('/admin/products', 'GET', undefined, adminCookie)).data.products
       for (const sku of ['A','B','C','D','INCLUSIVE']) ids.push(Number(products.find((p) => p.sku === sku).id))
       const normalized = products.find((p) => p.sku === 'INCLUSIVE')
+      assert.equal(normalized.image_url, uploadedImage); assert.equal(normalized.images[0].image_url, uploadedImage)
       assert.equal(normalized.price_pence, 1000); assert.equal(normalized.sale_price_pence, 800)
       assert.equal(normalized.bulk_prices[0].unit_price_pence, 700)
       const publicProducts = (await request('/products')).data.products

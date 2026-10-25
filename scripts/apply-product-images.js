@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import sharp from 'sharp'
 import { pool } from '../server/pool.js'
+import { persistImageUrl } from '../server/product-media.js'
 
 const directory='reports/product-images'
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex')
@@ -43,13 +44,13 @@ try {
   await writeFile(backupFile,JSON.stringify({createdAt:new Date().toISOString(),protectedTables:before,images:priorImages},null,2))
   for(const p of images) {
    await connection.query('DELETE FROM product_images WHERE product_id=?',[p.id])
-   await connection.query('INSERT INTO product_images (product_id,image_url,alt_text,sort_order) VALUES (?,?,?,0)',[p.id,p.imageUrl,p.name])
+   await connection.query('INSERT INTO product_images (product_id,image_url,alt_text,sort_order) VALUES (?,?,?,0)',[p.id,await persistImageUrl(connection,p.imageUrl),p.name])
   }
  }
  const saved=(await connection.query('SELECT product_id,image_url,alt_text FROM product_images ORDER BY product_id,sort_order,id')).rows
  if(commit) for(const p of images) {
   const rows=saved.filter(row=>row.product_id===p.id)
-  if(rows.length!==1||rows[0].image_url!==p.imageUrl||rows[0].alt_text!==p.name) throw new Error(`Saved mapping verification failed: ${p.id}`)
+  if(rows.length!==1||rows[0].image_url!==await persistImageUrl(connection,p.imageUrl)||rows[0].alt_text!==p.name) throw new Error(`Saved mapping verification failed: ${p.id}`)
  }
  const after=await fingerprints()
  if(JSON.stringify(before)!==JSON.stringify(after)) throw new Error('Product or business data changed unexpectedly.')

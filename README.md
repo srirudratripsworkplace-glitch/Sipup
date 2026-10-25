@@ -35,7 +35,9 @@ The first server start creates the configured admin account if it does not exist
 - Payment and refund entries are separate ledger records. Payment processing is not integrated; admins record payments and refunds received outside SipUp.
 - Configure the WhatsApp number in **Admin → Settings** using its international country code (digits are recommended). The number is not hardcoded in the source.
 - Configure VAT and delivery settings only after owner review. Starter legal pages are review placeholders, not legal advice or approved policy text.
-- Product images are managed as image URLs. Use a trusted HTTPS image host; do not place private storage credentials in the browser.
+- Product image uploads are stored as WebP binary contents in MySQL `product_media`; `product_images` links products to `/api/product-media/<sha256>` URLs. The API serves image bytes with immutable caching. Upload cover and gallery images through the admin product editor (up to 5 MB per file). Explicit HTTPS URLs remain supported as externally hosted images.
+- To migrate an existing file-based catalogue, run `npm run db:migrate` then `npm run db:images` while its original `public/products/` files are available. This stores and byte-verifies all WebP assets and changes image references in one transaction; reruns are safe. Product details, pricing, stock and orders are untouched. The local originals from the initial migration are archived in ignored `import-data/product-image-backup/`; the shop needs no product image files in its frontend build.
+- Deployment and database backups must include `product_media` as well as `products` and `product_images`. GitHub contains application code; it does not contain the running database. Import scripts may generate temporary files in `public/products/`, but catalogue import saves their contents into MySQL before linking them to products.
 - The optional development seed provides 22 sample products across Drinks, Snacks, Sweets and Energy, with product photos, regular prices and selected discount prices. Existing SKUs and admin-edited prices are preserved.
 
 ## Hostinger deployment (Node.js hosting with MySQL)

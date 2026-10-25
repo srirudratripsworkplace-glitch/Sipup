@@ -10,6 +10,7 @@
     "build": "tsc -b && cross-env NODE_ENV=production vite build",
     "start": "node server/index.js",
     "db:migrate": "node server/migrate.js",
+    "db:images": "node scripts/migrate-product-images.js",
     "db:seed": "node server/seed.js",
     "test": "node --test",
     "test:integration": "node scripts/mysql-integration.js",

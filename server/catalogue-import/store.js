@@ -1,4 +1,5 @@
 import { digest } from './products.js'
+import { persistImageUrl } from '../product-media.js'
 
 const gbp = (pence) => (pence / 100).toFixed(2)
 async function category(connection, name, parentId = null, parentName = '') {
@@ -43,7 +44,7 @@ export async function applyPlan(pool, plan, approvalDigest, { includeReviewAsDra
         stock_quantity,min_quantity,pack_size,is_published,catalogue_details)
         VALUES (?,?,?,?,?,?,?,?,?,?,?,20,1,?,FALSE,?)`,[categoryId,row.name,row.slug,row.sku,row.brand,'',gbp(row.tax.netPence),
         row.treatment,row.tax.rate,false,row.priceMode,`Case of ${row.units} × ${row.size}`,metadata])
-      if (row.image) await client.query('INSERT INTO product_images (product_id,image_url,alt_text,sort_order) VALUES (?,?,?,0)',[result.insertId,`/products/${row.image.filename}`,row.name])
+      if (row.image) await client.query('INSERT INTO product_images (product_id,image_url,alt_text,sort_order) VALUES (?,?,?,0)',[result.insertId,await persistImageUrl(client,`/products/${row.image.filename}`),row.name])
       await client.query('INSERT INTO stock_movements (product_id,quantity_delta,reason,actor) VALUES (?,20,?,?)',[result.insertId,'catalogue_import_initial_cases','catalogue-import'])
       await client.query('INSERT INTO audit_logs (action,entity_type,entity_id,details) VALUES (?,?,?,?)',['catalogue_import','product',result.insertId,{approvalDigest:expected,sku:row.sku,stock_cases:20,metadata}])
       created++

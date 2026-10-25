@@ -35,3 +35,6 @@ mysql-test-*
 # Generated browser profiles and build caches
 **/chrome-profile/
 *.tsbuildinfo
+
+# Product image files are temporary import inputs; runtime images live in MySQL
+/public/products/

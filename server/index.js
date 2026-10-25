@@ -11,6 +11,7 @@ import { createHash, randomUUID } from 'node:crypto'
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pool } from './pool.js'
+import { storeImage, persistImageUrl } from './product-media.js'
 import { calculateDelivery, calculateLine, calculatePrice, VAT_RATES } from '../shared/vat.js'
 import { refundSources, allocateRefund } from './refund-tax.js'
 import { reportFilters, vatReport } from './vat-report.js'
@@ -690,6 +691,22 @@ app.post('/api/auth/logout', asyncRoute(async (req, res) => {
   res.status(204).end()
 }))
 
+app.get('/api/product-media/:hash', asyncRoute(async (req, res) => {
+  if (!/^[a-f0-9]{64}$/.test(req.params.hash)) return res.status(404).end()
+  const result = await pool.query('SELECT mime_type, image_data FROM product_media WHERE sha256 = ?', [req.params.hash])
+  if (!result.rowCount) return res.status(404).end()
+  res.set('Cache-Control', 'public, max-age=31536000, immutable')
+  res.set('ETag', `"${req.params.hash}"`)
+  res.type(result.rows[0].mime_type).send(result.rows[0].image_data)
+}))
+
+app.post('/api/admin/product-media', requireAdmin,
+  express.raw({ type: ['image/jpeg', 'image/png', 'image/webp', 'image/avif', 'image/gif'], limit: '5mb' }),
+  asyncRoute(async (req, res) => {
+    if (!Buffer.isBuffer(req.body)) return res.status(400).json({ error: 'Upload a JPEG, PNG, WebP, AVIF or GIF image.' })
+    res.status(201).json({ image_url: await storeImage(pool, req.body) })
+  }))
+
 app.get('/api/auth/me', requireAdmin, (req, res) => res.json({ admin: { email: req.admin.email } }))
 
 app.get('/api/admin/dashboard', requireAdmin, asyncRoute(async (req, res) => {
@@ -1126,8 +1143,9 @@ app.post('/api/admin/orders/:id/payments', requireAdmin, asyncRoute(async (req, 
 }))
 
 const productImageUrl = z.union([
+  z.string().regex(/^\/api\/product-media\/[a-f0-9]{64}$/),
   z.string().url().max(1000).refine(value=>/^https?:\/\//i.test(value),'Use an HTTP(S) image URL.'),
-  z.string().regex(/^\/products\/[a-f0-9]{64}\.webp$/),
+  z.string().regex(/^\/products\/(?:web\/)?[a-zA-Z0-9-]+\.webp$/),
 ])
 export const productSchema = z.object({
   category_id: idSchema.nullable().optional(),
@@ -1304,7 +1322,7 @@ async function saveProductImages(connection, productId, imageUrls, name) {
   for (const [index, imageUrl] of [...new Set(imageUrls.filter(Boolean))].entries()) {
     await connection.query(
       'INSERT INTO product_images (product_id, image_url, alt_text, sort_order) VALUES (?, ?, ?, ?)',
-      [productId, imageUrl, name, index],
+      [productId, await persistImageUrl(connection, imageUrl), name, index],
     )
   }
 }
@@ -1482,6 +1500,7 @@ if (production) {
 app.use((error, _req, res, _next) => {
   console.error('Request failed:', error.code || error.name || 'UnknownError')
   if (res.headersSent) return
+  if (error.type === 'entity.too.large') return res.status(413).json({ error: 'Uploaded data exceeds the allowed size.' })
   if(error.status===400) return res.status(400).json({error:error.message})
   res.status(500).json({ error: 'Something went wrong. Please try again.' })
 })

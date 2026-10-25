@@ -112,6 +112,11 @@ try {
     }
     await pool.query('INSERT INTO schema_migrations (version) VALUES (?)', ['005_catalogue_import'])
   }
+  if (!applied.has('006_product_media')) {
+    const sql = await readFile(new URL('./migrations/006_product_media.sql', import.meta.url), 'utf8')
+    await pool.query(sql)
+    await pool.query('INSERT INTO schema_migrations (version) VALUES (?)', ['006_product_media'])
+  }
   console.log('MySQL schema is up to date.')
 } catch (error) {
   console.error('MySQL migration failed:', error.message)
