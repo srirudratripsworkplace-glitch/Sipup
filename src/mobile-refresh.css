@@ -181,7 +181,7 @@
   .home-catalog .catalog-tools .category-pills { grid-column: 1 / -1; grid-row: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; gap: 7px; overflow: visible; padding: 0; }
   .home-catalog .catalog-tools .category-pill { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; min-width: 0; min-height: 105px; padding: 12px 4px; border: 1px solid #d9e2ce; border-radius: 17px; background: #fffefa; color: #29432e; font-size: 12px; font-weight: 700; white-space: normal; text-align: center; }
   .home-category-icon { display: grid; place-items: center; height: 30px; margin-bottom: 3px; color: #53734b; }
-  .home-category-icon .aisle-symbol { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; background: transparent; border: 0; border-radius: 0; }
+  .home-category-icon .aisle-symbol { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; color: inherit; background: transparent; border: 0; border-radius: 0; }
   .home-category-icon .aisle-symbol svg { width: 26px; height: 24px; }
   .home-category-icon .aisle-symbol-american svg { width: 28px; height: 20px; border-radius: 3px; }
   .home-category-caption { display: block; font-size: 8px; line-height: 1.4; font-weight: 500; color: #63745a; }
