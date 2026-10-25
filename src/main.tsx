@@ -8,6 +8,7 @@ import './storefront-redesign.css'
 import './responsive.css'
 import './themes.css'
 import './mobile-storefront.css'
+import './mobile-refresh.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

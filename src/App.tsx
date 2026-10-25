@@ -14,7 +14,7 @@ import { ThemeToggle } from './Theme'
 import {
   ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, BadgeCheck, Box, Check, ChevronDown,
   ChevronRight, CircleHelp, Clock3, Download, ExternalLink, Eye, EyeOff, Globe,
-  LayoutDashboard, LockKeyhole, LogOut, Menu, Minus, Package, Plus, Search, Settings, SlidersHorizontal,
+  Home, UserRound, LayoutDashboard, LockKeyhole, LogOut, Menu, Minus, Package, Plus, Search, Settings, SlidersHorizontal,
   ShieldCheck, ShoppingBag, ShoppingCart, Sparkles, Truck, X, Zap,
 } from 'lucide-react'
 import {
@@ -167,7 +167,7 @@ export default function App() {
     } finally { adding.current = false }
   }
   return (
-    <ShopperSession.Provider value={{ customer, setCustomer }}><div className="min-h-screen">
+    <ShopperSession.Provider value={{ customer, setCustomer }}><div className={`min-h-screen${!location.pathname.startsWith('/admin') && !location.pathname.startsWith('/staff') ? ' mobile-store-shell' : ''}`}>
       <RouteScroll />
       {(location.pathname.startsWith('/account') || location.pathname === '/admin/login') && <div className="account-theme-control"><ThemeToggle /></div>}
       <Routes>
@@ -184,6 +184,12 @@ export default function App() {
         <Route path="/:legal" element={<LegalPage store={store} />} />
         <Route path="*" element={<Storefront store={store} home={home} cart={cart} onAdd={onAdd} initialCategory="All" vatDisplayMode={vatDisplayMode} onVatDisplayModeChange={setVatDisplayMode} />} />
       </Routes>
+      {!location.pathname.startsWith('/admin') && !location.pathname.startsWith('/staff') && <nav className="mobile-bottom-nav" aria-label="Shopping navigation">
+        <NavLink to="/" end><Home size={21} /><span>Home</span></NavLink>
+        <NavLink to="/shop" className={({ isActive }) => isActive || location.pathname.startsWith('/category/') || location.pathname.startsWith('/product/') ? 'active' : ''}><Package size={21} /><span>Shop</span></NavLink>
+        <NavLink to="/cart"><span className="mobile-bag-icon"><ShoppingBag size={21} />{cart.items.length > 0 && <b>{cart.items.reduce((sum, item) => sum + item.quantity, 0)}</b>}</span><span>Bag</span></NavLink>
+        <NavLink to="/account" className={({ isActive }) => isActive ? 'active' : ''}><UserRound size={21} /><span>Account</span></NavLink>
+      </nav>}
       {toast && <div className="toast" role="status"><Check size={17} />{toast}</div>}
     </div></ShopperSession.Provider>
   )
@@ -222,11 +228,12 @@ function Header({ store, count }: { store: StoreSettings; count: number }) {
       {store.announcement && <div className="announcement"><Sparkles size={14} />{store.announcement}</div>}
       <header className="site-header">
         <button className="icon-btn mobile-menu" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="store-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-        <Link to="/" className="brand" aria-label="SipUp home"><BrandLogo /></Link>
+        <Link to="/" className="brand" aria-label="SipUp home"><BrandLogo /><span className="mobile-brand-caption">Wholesale.<br /><b>With good taste.</b></span></Link>
         <nav id="store-navigation" className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
           <NavLink to="/shop">Shop all</NavLink>
           {categories.filter(c=>!c.parent_id&&Number(c.product_count)>0).map(c=><NavLink key={c.id} to={`/category/${c.slug}`}>{c.name}</NavLink>)}
           <NavLink to="/shop?sort=featured">Wholesale</NavLink><NavLink to="/staff/login">Staff Login</NavLink>
+          <div className="mobile-menu-appearance"><span>Appearance</span><ThemeToggle /></div>
         </nav>
         <div className="header-actions">
           <ThemeToggle />
@@ -238,6 +245,7 @@ function Header({ store, count }: { store: StoreSettings; count: number }) {
           </Link>
         </div>
       </header>
+      {location.pathname !== '/shop' && !location.pathname.startsWith('/category/') && <form className="mobile-header-search" role="search" onSubmit={event => { event.preventDefault(); runSearch(search) }}><Search size={19} /><input aria-label="Find drinks, snacks and brands" type="search" placeholder="Find your next shelf favourite" value={search} onChange={event => setSearch(event.target.value)} /><button type="submit" aria-label="Search shop"><ArrowRight size={19} /></button></form>}
       {open && <button className="navigation-scrim" aria-label="Close navigation" onClick={() => setOpen(false)} />}
       <dialog ref={searchDialog} className="store-search-dialog" aria-labelledby="store-search-title" onClick={event => { if (event.target === event.currentTarget) searchDialog.current?.close() }}><div className="store-search-content"><button type="button" className="search-close icon-btn" aria-label="Close search" onClick={() => searchDialog.current?.close()}><X size={21} /></button><span className="eyebrow">THE GOOD STUFF, ONE SEARCH AWAY</span><h2 id="store-search-title">What are you looking for?</h2><form onSubmit={event => { event.preventDefault(); runSearch(search) }} role="search"><Search size={21} /><input autoFocus type="search" aria-label="Search the SipUp range" placeholder="Try a brand, flavour or product…" value={search} onChange={event => setSearch(event.target.value)} /><button className="button button-dark" type="submit">Search <ArrowRight size={17} /></button></form><div className="search-suggestions"><span>Try a favourite</span>{['Fanta', 'Monster', 'Haribo', 'Samyang'].map(term => <button key={term} type="button" onClick={() => runSearch(term)}>{term}<ArrowUpRight size={13} /></button>)}</div></div></dialog>
     </>
@@ -308,6 +316,7 @@ function Storefront({ store, home, cart, onAdd, initialCategory, vatDisplayMode,
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState(() => new URLSearchParams(location.search).get('search') || '')
   const [brand,setBrand]=useState('')
+  const [filtersOpen,setFiltersOpen]=useState(false)
   const [catalogueFilters,setCatalogueFilters]=useState<{categories:Category[];brands:string[]}>({categories:[],brands:[]})
   useEffect(()=>{api<typeof catalogueFilters>('/catalogue/filters').then(setCatalogueFilters).catch((e:Error)=>setError(e.message))},[])
   const [activeCategory, setCategory] = useState(initialCategory)
@@ -372,8 +381,12 @@ function Storefront({ store, home, cart, onAdd, initialCategory, vatDisplayMode,
           <form className="catalog-tools" onSubmit={onSearch} role="search">
             <div className="search-field"><Search size={18} /><input type="search" aria-label="Search products" placeholder="Search products, brands or flavour…" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1) }} /><button type="submit" aria-label="Search catalogue">Search <ArrowRight size={15} /></button></div>
             <div className="category-pills"><button type="button" className={activeCategory==='All'?'category-pill active':'category-pill'} onClick={()=>{setCategory('All');setPage(1)}}>All</button>{catalogueFilters.categories.filter(c=>!c.parent_id && Number(c.product_count)>0).map((category) => <button type="button" key={category.id} className={activeCategory === category.slug ? 'category-pill active' : 'category-pill'} onClick={() => { setCategory(category.slug); setPage(1) }}>{category.name}</button>)}</div>
-            <label className="sort-select"><span>Brand</span><select value={brand} onChange={e=>{setBrand(e.target.value);setPage(1)}}><option value="">All brands</option>{catalogueFilters.brands.map(b=><option key={b}>{b}</option>)}</select></label>
-            <label className="sort-select"><span>Category / subcategory</span><select value={activeCategory} onChange={e=>{setCategory(e.target.value);setPage(1)}}><option value="All">All products</option>{catalogueFilters.categories.filter(c=>Number(c.product_count)>0).map(c=><option key={c.id} value={c.slug}>{c.parent_id?`${catalogueFilters.categories.find(p=>p.id===c.parent_id)?.name} / `:''}{c.name}</option>)}</select></label>
+            <button type="button" className="mobile-filter-toggle" aria-expanded={filtersOpen} aria-controls="catalog-advanced-filters" onClick={()=>setFiltersOpen(open=>!open)}><SlidersHorizontal size={17} />Filters{brand && <span className="filter-active-dot" />}<ChevronDown size={16} /></button>
+            <div id="catalog-advanced-filters" className={`catalog-advanced-filters${filtersOpen?' is-open':''}`}>
+              <label className="sort-select"><span>Brand</span><select value={brand} onChange={e=>{setBrand(e.target.value);setPage(1)}}><option value="">All brands</option>{catalogueFilters.brands.map(b=><option key={b}>{b}</option>)}</select></label>
+              <label className="sort-select"><span>Category / subcategory</span><select value={activeCategory} onChange={e=>{setCategory(e.target.value);setPage(1)}}><option value="All">All products</option>{catalogueFilters.categories.filter(c=>Number(c.product_count)>0).map(c=><option key={c.id} value={c.slug}>{c.parent_id?`${catalogueFilters.categories.find(p=>p.id===c.parent_id)?.name} / `:''}{c.name}</option>)}</select></label>
+              {(brand || activeCategory!=='All') && <button type="button" className="clear-catalog-filters" onClick={()=>{setBrand('');setCategory('All');setPage(1)}}>Clear filters <X size={14}/></button>}
+            </div>
             <div className="catalog-price-tools">
               <div className="vat-toggle" role="group" aria-label="Product price display">
                 <button type="button" aria-pressed={vatDisplayMode === 'exclusive'} className={vatDisplayMode === 'exclusive' ? 'active' : ''} onClick={() => onVatDisplayModeChange('exclusive')}>Ex. VAT</button>

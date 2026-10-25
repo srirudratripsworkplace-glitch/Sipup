@@ -96,7 +96,7 @@ try {
   }
   for(const theme of ['light','dark']){
     await viewport(390);await navigate('/')
-    await evaluate(`localStorage.setItem('sipup-theme',${JSON.stringify(theme)})`)
+    await evaluate(`localStorage.setItem('sipup-appearance',${JSON.stringify(theme)})`)
     await navigate('/')
     await until(`document.documentElement.dataset.theme===${JSON.stringify(theme)} && !!document.querySelector('.aisle-card')`)
     for(const width of [320,360,390,430,768,820,1024,1101,1440]){
@@ -134,11 +134,11 @@ try {
     await until("document.documentElement.dataset.theme==='dark'")
     await navigate('/');assert.equal(await evaluate('document.documentElement.dataset.theme'),'dark')
   }
-  await evaluate("localStorage.removeItem('sipup-theme')")
+  await evaluate("localStorage.removeItem('sipup-appearance')")
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-color-scheme',value:'dark'}]})
-  await navigate('/');assert.equal(await evaluate('document.documentElement.dataset.theme'),'dark')
+  await navigate('/');assert.equal(await evaluate('document.documentElement.dataset.theme'),'light')
   assert.deepEqual(errors,[])
-  await writeFile(output+'/verification.json',JSON.stringify({verifiedAt:new Date().toISOString(),widths:[320,360,390,430,768,820,1024,1101,1440],themes:['light','dark'],noHorizontalOverflow:true,initialScale:1,mobileInputsAtLeast16px:true,toggleAndPersistence:true,systemDarkDefault:true,browserErrors:errors,results},null,2))
+  await writeFile(output+'/verification.json',JSON.stringify({verifiedAt:new Date().toISOString(),widths:[320,360,390,430,768,820,1024,1101,1440],themes:['light','dark'],noHorizontalOverflow:true,initialScale:1,mobileInputsAtLeast16px:true,toggleAndPersistence:true,lightDefaultOnDarkDevices:true,browserErrors:errors,results},null,2))
   console.log('Theme and mobile checks passed. Contrast findings: '+results.reduce((s,r)=>s+r.contrastFailures.length,0))
   await send('Browser.close',{},true).catch(()=>{})
 } finally {

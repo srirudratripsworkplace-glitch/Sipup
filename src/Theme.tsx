@@ -11,14 +11,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     document.documentElement.dataset.theme = theme
     document.documentElement.style.colorScheme = theme
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#111a16' : '#f6f4ed')
-    try { localStorage.setItem('sipup-theme', theme) } catch { /* The switch still works when storage is unavailable. */ }
   }, [theme])
   useEffect(() => {
-    const onStorage = (event: StorageEvent) => { if (event.key === 'sipup-theme' && (event.newValue === 'dark' || event.newValue === 'light')) setTheme(event.newValue) }
+    const onStorage = (event: StorageEvent) => { if (event.key === 'sipup-appearance') setTheme(event.newValue === 'dark' ? 'dark' : 'light') }
     window.addEventListener('storage', onStorage)
     return () => window.removeEventListener('storage', onStorage)
   }, [])
-  return <ThemeContext.Provider value={{ theme, toggle: () => setTheme(current => current === 'light' ? 'dark' : 'light') }}>{children}</ThemeContext.Provider>
+  const toggle = () => {
+    const next = theme === 'light' ? 'dark' : 'light'
+    try { localStorage.setItem('sipup-appearance', next) } catch { /* Appearance still works without storage. */ }
+    setTheme(next)
+  }
+  return <ThemeContext.Provider value={{ theme, toggle }}>{children}</ThemeContext.Provider>
 }
 
 export function ThemeToggle({ compact = false }: { compact?: boolean }) {

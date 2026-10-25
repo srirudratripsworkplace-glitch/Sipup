@@ -77,7 +77,7 @@ try {
   const product=data.products.find(p=>p.stock_quantity>0)
   for (const theme of ['light', 'dark']) {
     await viewport(390); await navigate('/')
-    await evaluate(`localStorage.setItem('sipup-theme',${JSON.stringify(theme)})`)
+    await evaluate(`localStorage.setItem('sipup-appearance',${JSON.stringify(theme)})`)
     for (const width of [280,320,360,390,430,600,760,768,820,1024,1101,1280,1440,1920]) {
       await viewport(width)
       for (const path of ['/', '/shop', '/product/'+product.slug, '/cart', '/checkout', '/account/login', '/contact']) {
@@ -94,9 +94,18 @@ try {
           assert.ok(aisle.sameRow)
           if(width<=760) {assert.ok(aisle.scrolls);assert.equal(aisle.overflow,'auto')}
           else assert.equal(aisle.scrolls,false)
-          if(width===390&&theme==='light') await screenshot('aisles-390','.aisles-section')
+          if(width===390&&theme==='light') { await screenshot('aisles-390','.aisles-section'); await screenshot('home-390','.hero') }
         }
         if(path==='/shop') {
+          if(width===390) {
+            assert.equal(await evaluate("getComputedStyle(document.querySelector('.mobile-bottom-nav')).display"),'grid')
+            assert.equal(await evaluate("getComputedStyle(document.querySelector('.catalog-advanced-filters')).display"),'none')
+            await evaluate("document.querySelector('.mobile-filter-toggle').click()")
+            assert.equal(await evaluate("document.querySelector('.mobile-filter-toggle').getAttribute('aria-expanded')"),'true')
+            assert.equal(await evaluate("getComputedStyle(document.querySelector('.catalog-advanced-filters')).display"),'grid')
+            await assertNoOverflow('expanded filters '+theme)
+            await evaluate("document.querySelector('.mobile-filter-toggle').click()")
+          }
           const clipped=await evaluate("[...document.querySelectorAll('.catalogue-card .card-stepper, .catalogue-card .card-cart-button')].filter(e=>e.scrollWidth>e.clientWidth+1).length")
           assert.equal(clipped,0,`Clipped purchase controls at ${width}`)
           if([320,390,760,1440].includes(width)) await screenshot(theme+'-cards-'+width,'.product-grid')
@@ -110,6 +119,17 @@ try {
       console.log(theme,width,'passed')
     }
   }
+  await viewport(390);await navigate('/')
+  await evaluate("localStorage.removeItem('sipup-appearance');localStorage.setItem('sipup-theme','dark')")
+  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-color-scheme',value:'dark'}]})
+  await navigate('/')
+  assert.equal(await evaluate('document.documentElement.dataset.theme'),'light')
+  await evaluate("document.querySelector('.mobile-menu').click()")
+  assert.equal(await evaluate("document.querySelector('.mobile-menu').getAttribute('aria-expanded')"),'true')
+  await evaluate("document.querySelector('.mobile-menu-appearance .theme-toggle').click()")
+  await until("document.documentElement.dataset.theme==='dark'")
+  await navigate('/shop')
+  assert.equal(await evaluate('document.documentElement.dataset.theme'),'dark')
   assert.deepEqual(errors,[])
   await writeFile(output+'/verification.json',JSON.stringify({noHorizontalOverflow:true,initialScale:1,mobileInputSize:16,aisleSwipe:true,results},null,2))
   await send('Browser.close',{},true).catch(()=>{})
