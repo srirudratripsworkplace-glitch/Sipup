@@ -1543,7 +1543,7 @@ app.use((error, _req, res, _next) => {
   res.status(500).json({ error: 'Something went wrong. Please try again.' })
 })
 
-async function bootstrap() {
+export async function bootstrap() {
   await pool.query('SELECT 1')
   if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
     if (process.env.ADMIN_PASSWORD.length < 12) throw new Error('ADMIN_PASSWORD must be at least 12 characters.')
