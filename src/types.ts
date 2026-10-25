@@ -67,6 +67,8 @@ export type HomeSettings = {
 }
 
 export type SavedOrder = {
+  staff_id: number | null
+  staff_name: string
   reference: string
   status: string
   customer: {
@@ -99,6 +101,8 @@ export type SavedOrder = {
 }
 
 export type Order = {
+  staff_id: number | null
+  staff_name: string
   id: number
   reference: string
   customer_name: string
@@ -118,6 +122,7 @@ export type Order = {
   created_at: string
   items: Array<{
     product_name: string
+    image_url: string
     sku: string
     quantity: number
     unit_price_pence: number

@@ -38,3 +38,6 @@ mysql-test-*
 
 # Product image files are temporary import inputs; runtime images live in MySQL
 /public/products/
+
+# Generated staff browser verification artifacts
+/reports/staff/

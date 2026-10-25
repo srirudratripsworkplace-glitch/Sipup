@@ -21,9 +21,19 @@ SipUp is a React, TypeScript and Express storefront for wholesale drinks and sna
 3. Apply the schema: `npm run db:migrate`.
 4. Optionally load development catalogue examples: `npm run db:seed`. Existing product SKUs are not overwritten.
 5. Start Vite and the API together: `npm run dev`.
-6. Open `http://localhost:5173`; create a customer account from **Sign in / Join** to place bookings. Store admins sign in at `/admin/login`.
+6. Open `http://localhost:5173`; create an account through **Store / Customer Login** to place bookings. Staff use `/staff/login`; store admins use `/admin/login`.
 
 The first server start creates the configured admin account if it does not exist. Changing `ADMIN_PASSWORD` later does not rotate an existing account. Change credentials through a controlled database/password-reset procedure.
+
+## Staff accounts and attributed sales
+
+- Apply migration `007_staff_accounts` using `npm run db:migrate`. Existing orders remain unassigned; no staff accounts or default passwords are created automatically.
+- In **Admin → Staff & Sales** (`/admin/staff`), create staff names, login emails and passwords (at least 12 characters). Grant **View own sales**, **View inventory**, and optionally **Adjust inventory**. Editing inventory requires viewing permission. Staff cannot access administrator routes, payments, customer account management or other staff members' sales.
+- Staff use the separate `/staff/login` entrance. Accounts use hashed passwords and revocable eight-hour sessions with a staff-specific cookie and token audience. Permissions and active status are checked on every API request. Password resets and deactivation revoke staff sessions. Inactive staff cannot be selected on new checkouts; historical orders remain linked to them.
+- Customers choose a staff name or **None of the above** at checkout. The server validates active staff and saves their ID and name with the order. Original attribution survives checkout retries and later staff name changes. Staff can see their assigned bookings and product lines; admin can inspect each staff report and the separate unassigned report.
+- Sales totals count confirmed, processing, dispatched and delivered orders. Bookings and cancelled orders are separate. Quantities are selling units (for example, cases); product revenue excludes VAT and delivery and is shown before refunds. These reports track order attribution, not commissions or collected payments.
+- Stock adjustments require a reason and the expected previous quantity. They update inventory and its stock-movement audit in one transaction; concurrent changes are rejected so staff must refresh.
+- `npm run test:integration` checks authentication boundaries, migrations, permissions, staff sales isolation and order attribution in a private MySQL instance. After `npm run build`, `npm run test:staff-ui` exercises the real desktop/mobile forms in Chrome against another private database; generated screenshots are ignored under `reports/staff/`.
 
 ## Database and business setup
 
@@ -39,6 +49,15 @@ The first server start creates the configured admin account if it does not exist
 - To migrate an existing file-based catalogue, run `npm run db:migrate` then `npm run db:images` while its original `public/products/` files are available. This stores and byte-verifies all WebP assets and changes image references in one transaction; reruns are safe. Product details, pricing, stock and orders are untouched. The local originals from the initial migration are archived in ignored `import-data/product-image-backup/`; the shop needs no product image files in its frontend build.
 - Deployment and database backups must include `product_media` as well as `products` and `product_images`. GitHub contains application code; it does not contain the running database. Import scripts may generate temporary files in `public/products/`, but catalogue import saves their contents into MySQL before linking them to products.
 - The optional development seed provides 22 sample products across Drinks, Snacks, Sweets and Energy, with product photos, regular prices and selected discount prices. Existing SKUs and admin-edited prices are preserved.
+
+## Order confirmation and Gmail email
+
+- Booking an order leaves stock unchanged. When admin changes it to **Confirmed** (or a later fulfilment status), the transaction locks the order and deducts its selling quantities once: 20 cases minus a confirmed 5-case booking leaves 15 cases. Repeated confirmation does not deduct again. Insufficient stock rolls back the entire confirmation. Cancellation restores deducted stock once; confirmed orders cannot return to the booking stage.
+- Migration `008_order_confirmation_emails` adds a durable confirmation email queue. The email and stock change are saved in the same transaction. The message snapshots the customer's address, order lines, quantities and totals; later product edits do not change it. Email failures leave the order confirmed and its inventory correct.
+- Configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASSWORD` and `MAIL_FROM` in the private `.env` or hosting environment. For the requested sender, use `smtp.gmail.com`, port `465`, secure `true`, user `srirudralimited@gmail.com`, and `MAIL_FROM=SipUp <srirudralimited@gmail.com>`. `SMTP_PASSWORD` must be a Gmail app password, not the normal account password. [Google's app-password setup](https://support.google.com/accounts/answer/185833) requires 2-Step Verification and describes accounts where this option is unavailable. Do not commit credentials.
+- Restart the API after configuring the sender. The server starts the email worker automatically, checks pending messages every 30 seconds, and wakes it on confirmation. Missing credentials leave emails pending. Failed attempts retry with increasing delays (up to 10 attempts); admin order details show pending/sent/failed status and offer an authorized retry. Already sent messages cannot be manually resent through this action. Cancellation suppresses confirmations that have not started sending.
+- A **Sent** status means the email provider accepted the message; it is not an inbox-delivery receipt. SMTP delivery can be repeated if a process stops after the provider accepts a message but before the database records success. Each order has one queue record and a stable Message-ID to limit duplicates; stock is never deducted by the email worker.
+- `npm run test:integration` verifies 20-to-15 stock deduction, concurrent confirmation, rollback, immutable email contents and retry behavior with a fake sender. It never requires or sends through real Gmail credentials. The browser checks also confirm the admin stock/status workflow and the scrolling ribbon's pause and reduced-motion behavior.
 
 ## Hostinger deployment (Node.js hosting with MySQL)
 

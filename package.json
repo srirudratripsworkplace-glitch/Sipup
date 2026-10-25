@@ -14,6 +14,7 @@
     "db:seed": "node server/seed.js",
     "test": "node --test",
     "test:integration": "node scripts/mysql-integration.js",
+    "test:staff-ui": "node scripts/mysql-integration.js --staff-ui",
     "preview": "vite preview",
     "products": "node scripts/products.js",
     "products:import": "node scripts/products.js"
@@ -46,6 +47,7 @@
     "lucide-react": "^1.55.0",
     "multer": "^2.4.0",
     "mysql2": "^3.24.5",
+    "nodemailer": "^10.2.1",
     "pdfjs-dist": "^6.4.299",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",

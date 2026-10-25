@@ -38,7 +38,8 @@ try {
   shutdownConfig = { host: '127.0.0.1', port, user: 'root', password }
   await connection.end()
   const result = await new Promise((done, reject) => {
-    const child = spawn(process.execPath, ['--test'], { stdio: 'inherit', windowsHide: true,
+    const args = process.argv.includes('--staff-ui') ? ['scripts/verify-staff-ui.js'] : ['--test']
+    const child = spawn(process.execPath, args, { stdio: 'inherit', windowsHide: true,
       env: { ...process.env, SIPUP_TEST_MYSQL: '1', DB_HOST: '127.0.0.1', DB_PORT: String(port), DB_USER: 'root', DB_PASSWORD: password,
         DB_SSL: 'false', JWT_SECRET: randomUUID() + randomUUID() } })
     child.on('error', reject); child.on('exit', done)

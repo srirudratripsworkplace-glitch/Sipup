@@ -1,0 +1,13 @@
+.order-products-list { display:grid; gap:12px; margin-bottom:10px; }
+.order-product-summary { display:flex; align-items:center; gap:12px; min-width:220px; max-width:380px; }
+.order-product-summary .order-product-thumbnail { display:block; flex:0 0 52px; width:52px; height:56px; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:var(--white); }
+.order-product-summary .order-product-thumbnail img { display:block; width:100%; height:100%; object-fit:contain; }
+a.order-product-thumbnail:hover { border-color:var(--green); }
+.order-product-copy { min-width:0; }
+.order-product-copy strong, .order-product-name { display:block; white-space:normal; overflow-wrap:anywhere; font:inherit; font-weight:700; color:var(--ink); }
+.order-product-name { padding:0; border:0; background:transparent; text-align:left; }
+.order-product-name:hover { text-decoration:underline; }
+.order-product-copy small { display:block; margin-top:4px; color:var(--muted); }
+.drawer-products .order-product-line { align-items:center; }
+.drawer-products .order-product-line > div { min-width:0; }
+.drawer-products .order-product-line > strong { flex-shrink:0; }

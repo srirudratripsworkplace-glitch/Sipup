@@ -141,10 +141,35 @@ CREATE TABLE IF NOT EXISTS customer_sessions (
   INDEX customer_sessions_expiry_idx (customer_id, expires_at, revoked_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+CREATE TABLE IF NOT EXISTS staff (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(254) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  permissions JSON NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS staff_sessions (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  staff_id BIGINT UNSIGNED NOT NULL,
+  token_hash CHAR(64) NOT NULL UNIQUE,
+  expires_at DATETIME NOT NULL,
+  revoked_at DATETIME NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT staff_sessions_staff_fk FOREIGN KEY (staff_id) REFERENCES staff(id) ON DELETE CASCADE,
+  INDEX staff_sessions_expiry_idx (staff_id, expires_at, revoked_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 CREATE TABLE IF NOT EXISTS orders (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   customer_id BIGINT UNSIGNED NOT NULL,
   reference VARCHAR(40) NOT NULL UNIQUE,
+  staff_id BIGINT UNSIGNED NULL,
+  staff_name VARCHAR(120) NOT NULL DEFAULT '',
   idempotency_key CHAR(36) NULL UNIQUE,
   status ENUM('booking','confirmed','processing','dispatched','delivered','cancelled') NOT NULL DEFAULT 'booking',
   subtotal_gbp DECIMAL(12,2) NOT NULL,
@@ -158,11 +183,32 @@ CREATE TABLE IF NOT EXISTS orders (
   stock_deducted BOOLEAN NOT NULL DEFAULT FALSE,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT orders_staff_fk FOREIGN KEY (staff_id) REFERENCES staff(id) ON DELETE SET NULL,
+  INDEX orders_staff_status_idx (staff_id,status,created_at),
   CONSTRAINT orders_customer_fk FOREIGN KEY (customer_id) REFERENCES customers(id),
   CONSTRAINT orders_totals_ck CHECK (subtotal_gbp >= 0 AND vat_gbp >= 0 AND delivery_gbp >= 0 AND total_gbp >= 0),
   INDEX orders_created_status_idx (created_at, status),
   INDEX orders_customer_date_idx (customer_id, created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS order_confirmation_emails (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  order_id BIGINT UNSIGNED NOT NULL UNIQUE,
+  message_key CHAR(36) NOT NULL UNIQUE,
+  recipient VARCHAR(254) NOT NULL,
+  payload JSON NOT NULL,
+  status ENUM('pending','sending','sent','failed','cancelled') NOT NULL DEFAULT 'pending',
+  attempts INT UNSIGNED NOT NULL DEFAULT 0,
+  next_attempt_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  locked_at DATETIME NULL,
+  lease_token CHAR(36) NULL,
+  last_error VARCHAR(100) NOT NULL DEFAULT '',
+  sent_at DATETIME NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT confirmation_emails_order_fk FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+  INDEX confirmation_emails_due_idx (status,next_attempt_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 CREATE TABLE IF NOT EXISTS delivery_details (
   order_id BIGINT UNSIGNED NOT NULL PRIMARY KEY,

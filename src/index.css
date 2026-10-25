@@ -558,7 +558,6 @@ img { display: block; max-width: 100%; }
   .hero-sticker b { font-size: 24px; }
   .hero-side-label { display: none; }
   .ticker { height: 39px; justify-content: flex-start; padding: 0 5%; gap: 19px; font-size: 13px; }
-  .ticker span:nth-child(5) { display: none; }
   .trust-strip { padding: 17px 5%; grid-template-columns: 1fr 1fr; row-gap: 15px; }
   .trust-strip > div { justify-content: flex-start; padding: 0 8px; border-right: 0; }
   .trust-strip > div:first-child { padding-left: 8px; }

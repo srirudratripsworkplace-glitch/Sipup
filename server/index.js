@@ -12,12 +12,15 @@ import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pool } from './pool.js'
 import { storeImage, persistImageUrl } from './product-media.js'
+import { registerStaffRoutes, selectedStaff } from './staff.js'
+import { enqueueConfirmation, createOrderEmailService } from './order-email.js'
 import { calculateDelivery, calculateLine, calculatePrice, VAT_RATES } from '../shared/vat.js'
 import { refundSources, allocateRefund } from './refund-tax.js'
 import { reportFilters, vatReport } from './vat-report.js'
 import { pathToFileURL } from 'node:url'
 
 export const app = express()
+export const orderEmails = createOrderEmailService(pool)
 const port = Number(process.env.PORT || 3000)
 const production = process.env.NODE_ENV === 'production'
 const cookieName = 'sipup_session'
@@ -308,6 +311,7 @@ app.get('/api/products/:slug', asyncRoute(async (req, res) => {
 }))
 
 const checkoutSchema = z.object({
+  staff_id: z.number().int().positive().nullable().optional().default(null),
   expected_total_pence: z.coerce.number().int().min(0).optional(),
   customer: z.object({
     address: cleanText(300).optional().default(''),
@@ -413,7 +417,7 @@ function checkoutValidationError(error) {
 
 async function findIdempotentOrder(referenceKey, customerId) {
   const order = await pool.query(`
-    SELECT o.id, o.reference, o.status, c.name AS customer_name, c.phone AS customer_phone,
+    SELECT o.id, o.reference, o.status, o.staff_id, o.staff_name, c.name AS customer_name, c.phone AS customer_phone,
       COALESCE(c.email, '') AS customer_email, d.address AS delivery_address,
       d.postcode AS delivery_postcode, d.preference AS delivery_preference, d.customer_notes AS notes,
       ROUND(o.subtotal_gbp * 100) AS subtotal_pence, ROUND(o.vat_gbp * 100) AS vat_pence,
@@ -433,7 +437,7 @@ async function findIdempotentOrder(referenceKey, customerId) {
     FROM order_items WHERE order_id = ? ORDER BY id
   `, [saved.id])
   return {
-    reference: saved.reference, status: saved.status,
+    reference: saved.reference, status: saved.status, staff_id: saved.staff_id === null ? null : Number(saved.staff_id), staff_name: saved.staff_name,
     customer: {
       name: saved.customer_name, phone: saved.customer_phone, email: saved.customer_email,
       address: saved.delivery_address, postcode: saved.delivery_postcode,
@@ -499,6 +503,7 @@ app.post('/api/orders', requireCustomer, asyncRoute(async (req, res) => {
   const client = await pool.connect()
   try {
     await client.query('BEGIN')
+    const staff = await selectedStaff(client, parsed.data.staff_id)
     const quote = await calculateCheckoutQuote(client, parsed.data.items, customer.preference, true)
     const { items, subtotal, vat, delivery, deliveryTreatment, deliveryAmounts, total, breakdowns } = quote
     if (parsed.data.expected_total_pence !== undefined && parsed.data.expected_total_pence !== total) {
@@ -511,11 +516,11 @@ app.post('/api/orders', requireCustomer, asyncRoute(async (req, res) => {
     const order = await client.query(`
       INSERT INTO orders
         (customer_id, reference, idempotency_key, status, subtotal_gbp, vat_gbp, delivery_gbp,
-         delivery_vat_treatment, delivery_vat_rate, delivery_vat_gbp, total_gbp, admin_notes)
-      VALUES (?, ?, ?, 'booking', ?, ?, ?, ?, ?, ?, ?, '')
+         delivery_vat_treatment, delivery_vat_rate, delivery_vat_gbp, total_gbp, admin_notes, staff_id, staff_name)
+      VALUES (?, ?, ?, 'booking', ?, ?, ?, ?, ?, ?, ?, '', ?, ?)
     `, [customerId, reference, requestKey.data, toGbp(subtotal), toGbp(vat), toGbp(delivery),
       delivery > 0 ? deliveryTreatment : null, delivery > 0 ? deliveryAmounts.rate : null,
-      toGbp(deliveryAmounts.vatPence), toGbp(total)])
+      toGbp(deliveryAmounts.vatPence), toGbp(total), staff?.id ?? null, staff?.name ?? ''])
     const orderId = order.insertId
     await client.query(
       'INSERT INTO delivery_details (order_id, preference, address, postcode, customer_notes) VALUES (?, ?, ?, ?, ?)',
@@ -549,11 +554,11 @@ app.post('/api/orders', requireCustomer, asyncRoute(async (req, res) => {
     }
     await client.query(
       'INSERT INTO order_events (order_id, event_type, details) VALUES (?, ?, ?)',
-      [orderId, 'booking_created', { source: 'storefront' }],
+      [orderId, 'booking_created', { source: 'storefront', staff_id: staff?.id ?? null, staff_name: staff?.name ?? '' }],
     )
     await client.query('COMMIT')
     res.status(201).json({
-      reference, status: 'booking', customer: { ...req.customer, ...customer },
+      reference, status: 'booking', staff_id: staff?.id ?? null, staff_name: staff?.name ?? '', customer: { ...req.customer, ...customer },
       items: items.map(({ product, quantity, unitPrice, lineTotal, amounts, discountPence }) => ({
         name: product.name, sku: product.sku, quantity, unit_price_pence: unitPrice,
         line_total_pence: lineTotal, vat_treatment: product.vat_treatment,
@@ -571,7 +576,7 @@ app.post('/api/orders', requireCustomer, asyncRoute(async (req, res) => {
       if (previous) return res.status(200).json(previous)
       return res.status(409).json({ error: 'This checkout request was already used. Refresh your basket and try again.' })
     }
-    if (checkoutValidationError(error)) {
+    if (error.status === 400 || checkoutValidationError(error)) {
       return res.status(400).json({ error: error.message })
     }
     throw error
@@ -833,7 +838,7 @@ function getIsoWeek(date) {
 
 async function orderRows(where = '', params = [], limit = 50, offset = 0) {
   const result = await pool.query(`
-    SELECT o.id, o.reference, o.status, o.admin_notes, o.stock_deducted, o.created_at, o.updated_at,
+    SELECT o.id, o.reference, o.status, o.staff_id, o.staff_name, o.admin_notes, o.stock_deducted, o.created_at, o.updated_at,
       ROUND(o.subtotal_gbp * 100) AS subtotal_pence, ROUND(o.vat_gbp * 100) AS vat_pence,
       ROUND(o.delivery_gbp * 100) AS delivery_pence, ROUND(o.delivery_vat_gbp * 100) AS delivery_vat_pence,
       ROUND(o.total_gbp * 100) AS total_pence,
@@ -851,6 +856,7 @@ async function orderRows(where = '', params = [], limit = 50, offset = 0) {
   if (!rows.length) return rows
   const itemResult = await pool.query(`
     SELECT order_id, id, product_id, product_name, sku, quantity,
+      COALESCE((SELECT pi.image_url FROM product_images pi WHERE pi.product_id=order_items.product_id ORDER BY pi.sort_order,pi.id LIMIT 1),'') AS image_url,
       ROUND(unit_price_gbp * 100) AS unit_price_pence,
       ROUND(line_total_gbp * 100) AS line_total_pence,
       vat_treatment, vat_rate, price_entry_mode, ROUND(discount_gbp * 100) AS discount_pence,
@@ -948,9 +954,9 @@ app.get('/api/admin/orders', requireAdmin, asyncRoute(async (req, res) => {
     params.push(status)
   }
   if (search) {
-    conditions.push('(o.reference LIKE ? OR c.name LIKE ? OR c.phone LIKE ?)')
+    conditions.push('(o.reference LIKE ? OR c.name LIKE ? OR c.phone LIKE ? OR EXISTS (SELECT 1 FROM order_items oi WHERE oi.order_id=o.id AND oi.product_name LIKE ?))')
     const pattern = `%${search.replace(/[\\%_]/g, '\\$&')}%`
-    params.push(pattern, pattern, pattern)
+    params.push(pattern, pattern, pattern, pattern)
   }
   if (from) { conditions.push('o.created_at >= ?'); params.push(`${from} 00:00:00`) }
   if (to) { conditions.push('o.created_at < DATE_ADD(?, INTERVAL 1 DAY)'); params.push(`${to} 00:00:00`) }
@@ -977,7 +983,8 @@ app.get('/api/admin/orders/:id', requireAdmin, asyncRoute(async (req, res) => {
     `, [id.data, id.data]),
   ])
   if (!orders.length) return res.status(404).json({ error: 'Order not found.' })
-  res.json({ order: orders[0], refund_sources: await refundSources(pool, id.data), events: history.rows, payments: payments.rows.map((p) => ({ ...p, amount_pence: Number(p.amount_pence) })) })
+  const email = await pool.query('SELECT status,attempts,last_error,sent_at FROM order_confirmation_emails WHERE order_id=?', [id.data])
+  res.json({ order: orders[0], confirmation_email: email.rowCount ? { ...email.rows[0], configured: orderEmails.isConfigured() } : null, refund_sources: await refundSources(pool, id.data), events: history.rows, payments: payments.rows.map((p) => ({ ...p, amount_pence: Number(p.amount_pence) })) })
 }))
 
 app.put('/api/admin/orders/:id/notes', requireAdmin, asyncRoute(async (req, res) => {
@@ -1019,6 +1026,10 @@ app.patch('/api/admin/orders/:id/status', requireAdmin, asyncRoute(async (req, r
     }
     const previous = current.rows[0]
     const next = parsed.data.status
+    if (next === 'booking' && previous.stock_deducted) {
+      await client.query('ROLLBACK')
+      return res.status(409).json({ error: 'A confirmed order cannot return to booking. Cancel it to restore its stock.' })
+    }
     if (previous.status === 'cancelled' && next !== 'cancelled') {
       await client.query('ROLLBACK')
       return res.status(409).json({ error: 'Cancelled orders cannot be reopened.' })
@@ -1047,9 +1058,12 @@ app.patch('/api/admin/orders/:id/status', requireAdmin, asyncRoute(async (req, r
       await client.query('UPDATE orders SET stock_deducted = FALSE WHERE id = ?', [id.data])
     }
     await client.query('UPDATE orders SET status = ? WHERE id = ?', [next, id.data])
+    if (confirmedStatuses.includes(next) && !previous.stock_deducted && previous.status !== next) await enqueueConfirmation(client, id.data)
+    if (next === 'cancelled') await client.query("UPDATE order_confirmation_emails SET status='cancelled' WHERE order_id=? AND status IN ('pending','failed')", [id.data])
     await client.query('INSERT INTO order_events (order_id, event_type, details, actor) VALUES (?, ?, ?, ?)', [id.data, 'status_changed', { from: previous.status, to: next, notes: parsed.data.notes }, req.admin.email])
     await createAudit(client, req.admin.id, 'order_status_changed', 'order', id.data, { from: previous.status, to: next })
     await client.query('COMMIT')
+    orderEmails.wake()
     res.json({ success: true, status: next })
   } catch (error) {
     await client.query('ROLLBACK')
@@ -1058,6 +1072,28 @@ app.patch('/api/admin/orders/:id/status', requireAdmin, asyncRoute(async (req, r
   } finally {
     client.release()
   }
+}))
+
+app.post('/api/admin/orders/:id/confirmation-email/retry', requireAdmin, asyncRoute(async (req, res) => {
+  const id = idSchema.safeParse(req.params.id)
+  if (!id.success) return res.status(400).json({ error: 'Invalid order id.' })
+  if (!orderEmails.isConfigured()) return res.status(409).json({ error: 'Connect the outgoing email account before retrying confirmations.' })
+  const client = await pool.connect()
+  try {
+    await client.query('BEGIN')
+    const order = (await client.query('SELECT status FROM orders WHERE id=? FOR UPDATE', [id.data])).rows[0]
+    const email = (await client.query('SELECT status,recipient FROM order_confirmation_emails WHERE order_id=? FOR UPDATE', [id.data])).rows[0]
+    if (!order || !email) { await client.query('ROLLBACK'); return res.status(404).json({ error: 'Confirmation email not found.' }) }
+    if (!confirmedStatuses.includes(order.status) || !['pending','failed'].includes(email.status) || !email.recipient) {
+      await client.query('ROLLBACK'); return res.status(409).json({ error: 'Only pending or failed confirmations for an active confirmed order can be retried.' })
+    }
+    await client.query("UPDATE order_confirmation_emails SET status='pending',attempts=0,last_error='',next_attempt_at=UTC_TIMESTAMP(),lease_token=NULL,locked_at=NULL WHERE order_id=?", [id.data])
+    await createAudit(client, req.admin.id, 'confirmation_email_retry', 'order', id.data, {})
+    await client.query('COMMIT')
+    orderEmails.wake()
+    res.json({ success: true })
+  } catch (error) { await client.query('ROLLBACK'); throw error }
+  finally { client.release() }
 }))
 
 app.post('/api/admin/orders/:id/payments', requireAdmin, asyncRoute(async (req, res) => {
@@ -1487,6 +1523,8 @@ app.put('/api/admin/settings/:key', requireAdmin, asyncRoute(async (req, res) =>
   res.json({ settings: value })
 }))
 
+registerStaffRoutes(app, { pool, requireAdmin, requireCustomer, jwtSecret })
+
 app.use('/api', (_req, res) => res.status(404).json({ error: 'API endpoint not found.' }))
 
 if (production) {
@@ -1515,7 +1553,7 @@ async function bootstrap() {
   } else {
     console.warn('Admin bootstrap is disabled: set ADMIN_EMAIL and ADMIN_PASSWORD before initial deployment.')
   }
-  app.listen(port, () => console.log(`SipUp server listening on port ${port}`))
+  app.listen(port, () => { orderEmails.start(); console.log(`SipUp server listening on port ${port}`) })
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) bootstrap().catch(async (error) => {

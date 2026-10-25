@@ -117,6 +117,19 @@ try {
     await pool.query(sql)
     await pool.query('INSERT INTO schema_migrations (version) VALUES (?)', ['006_product_media'])
   }
+  if (!applied.has('007_staff_accounts')) {
+    const sql = await readFile(new URL('./migrations/007_staff_accounts.sql', import.meta.url), 'utf8')
+    for (const statement of sql.split(/;\s*(?:\r?\n|$)/).map(s => s.trim()).filter(Boolean)) await pool.query(statement)
+    const columns = (await pool.query('SHOW COLUMNS FROM orders')).rows
+    if (!columns.some(c => c.Field === 'staff_id')) await pool.query('ALTER TABLE orders ADD COLUMN staff_id BIGINT UNSIGNED NULL, ADD CONSTRAINT orders_staff_fk FOREIGN KEY (staff_id) REFERENCES staff(id) ON DELETE SET NULL, ADD INDEX orders_staff_status_idx (staff_id,status,created_at)')
+    if (!columns.some(c => c.Field === 'staff_name')) await pool.query("ALTER TABLE orders ADD COLUMN staff_name VARCHAR(120) NOT NULL DEFAULT ''")
+    await pool.query('INSERT INTO schema_migrations (version) VALUES (?)', ['007_staff_accounts'])
+  }
+  if (!applied.has('008_order_confirmation_emails')) {
+    const sql = await readFile(new URL('./migrations/008_order_confirmation_emails.sql', import.meta.url), 'utf8')
+    await pool.query(sql)
+    await pool.query('INSERT INTO schema_migrations (version) VALUES (?)', ['008_order_confirmation_emails'])
+  }
   console.log('MySQL schema is up to date.')
 } catch (error) {
   console.error('MySQL migration failed:', error.message)

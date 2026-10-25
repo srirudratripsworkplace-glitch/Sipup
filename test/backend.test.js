@@ -27,7 +27,7 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
     for (let statement of schema.split(/;\s*(?:\r?\n|$)/).map((s) => s.trim()).filter(Boolean)) {
       if (statement.startsWith('CREATE TABLE IF NOT EXISTS order_vat_breakdowns')) continue
       if (statement.startsWith('CREATE TABLE IF NOT EXISTS products ')) statement = statement.split('\n').filter((line) => !/vat_treatment|vat_rate|vat_confirmed|price_entry_mode/.test(line)).join('\n')
-      if (statement.startsWith('CREATE TABLE IF NOT EXISTS orders ')) statement = statement.split('\n').filter((line) => !/delivery_vat_/.test(line)).join('\n')
+      if (statement.startsWith('CREATE TABLE IF NOT EXISTS orders ')) statement = statement.split('\n').filter((line) => !/delivery_vat_|staff_id|staff_name|orders_staff_/.test(line)).join('\n')
       if (statement.startsWith('CREATE TABLE IF NOT EXISTS order_items ')) statement = statement.split('\n').filter((line) => !/vat_treatment|vat_rate|price_entry_mode|discount_gbp|line_net_gbp|line_vat_gbp|line_gross_gbp/.test(line)).join('\n')
       await connection.query(statement)
     }
@@ -40,7 +40,7 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
     }
     migrate()
     ;({ pool } = await import('../server/pool.js'))
-    const { app } = await import('../server/index.js')
+    const { app, orderEmails } = await import('../server/index.js')
     const legacy = await pool.query('SELECT * FROM products WHERE sku=?', ['LEGACY'])
     assert.equal(legacy.rows[0].price_gbp, legacyBefore[0].price_gbp)
     await t.test('migration repeats without changing legacy prices or classifying products', async () => {
@@ -50,7 +50,7 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
       assert.equal(after.rows[0].vat_treatment, null)
       assert.equal(after.rows[0].vat_confirmed, 0)
       const versions = await pool.query('SELECT version FROM schema_migrations')
-      assert.equal(versions.rowCount, 6)
+      assert.equal(versions.rowCount, 8)
     })
     await pool.query('INSERT INTO admins (email,password_hash) VALUES (?,?)', ['admin@example.test', await bcrypt.hash('Test-Password-123!', 4)])
     server = app.listen(0, '127.0.0.1')
@@ -152,11 +152,28 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
       assert.equal(exempt.data.vat_breakdowns[0].vat_treatment, 'exempt')
       assert.equal(exempt.data.vat_breakdowns[0].vat_rate, null)
     })
+    await t.test('admin order rows include product images and can be found by product name', async () => {
+      await pool.query('INSERT INTO product_images (product_id,image_url,alt_text,sort_order) VALUES (?,?,?,0)', [ids[0],uploadedImage,'Test A'])
+      const result = await request('/admin/orders?search=Test%20A','GET',undefined,adminCookie)
+      assert.equal(result.status,200)
+      const order = result.data.orders.find(o => o.id === orderId)
+      assert.ok(order)
+      assert.equal(order.items.find(i => i.sku === 'A').image_url,uploadedImage)
+      assert.equal(order.items.find(i => i.sku === 'B').image_url,'')
+      const detail = await request(`/admin/orders/${orderId}`,'GET',undefined,adminCookie)
+      assert.equal(detail.data.order.items.find(i => i.sku === 'A').image_url,uploadedImage)
+      const missing = await request('/admin/orders?search=NO-SUCH-PRODUCT-NAME','GET',undefined,adminCookie)
+      assert.equal(missing.data.total,0)
+    })
     await t.test('order snapshots survive product edits; idempotent retries return the original order', async () => {
       const original = await request(`/admin/orders/${orderId}`, 'GET', undefined, adminCookie)
       assert.equal((await request(`/admin/products/${ids[0]}`, 'PUT', productBody('A', 2000, 'exempt'), adminCookie)).status, 200)
       const after = await request(`/admin/orders/${orderId}`, 'GET', undefined, adminCookie)
-      assert.deepEqual(after.data.order.items, original.data.order.items)
+      // Images follow the current catalogue; historical names, quantities and tax/price snapshots stay fixed.
+      const snapshots = items => items.map(({ image_url: _currentImage, ...snapshot }) => snapshot)
+      assert.deepEqual(snapshots(after.data.order.items), snapshots(original.data.order.items))
+      assert.equal(original.data.order.items.find(item => item.sku === 'A').image_url,uploadedImage)
+      assert.equal(after.data.order.items.find(item => item.sku === 'A').image_url,'')
       const audit = await pool.query("SELECT details FROM audit_logs WHERE entity_id=? AND entity_type='product' AND action='product_updated'", [ids[0]])
       assert.ok(audit.rowCount > 0)
       const retry = await request('/orders', 'POST', checkout, customerCookie, { 'Idempotency-Key': key })
@@ -303,6 +320,215 @@ test('MySQL migrations and authenticated VAT workflows in an isolated database',
       const global=filters.categories.find(c=>c.name==='Global'&&!c.parent_id)
       assert.equal(Number(global.product_count),2)
     })
+
+
+    await t.test('confirmation reduces 20 cases to 15 once and queues an email that retries independently', async t => {
+      // Isolate worker assertions from emails queued by the earlier workflow fixtures.
+      await pool.query("UPDATE order_confirmation_emails SET status='cancelled' WHERE status='pending'")
+      let ready = false, failSend = false
+      const delivered = []
+      t.mock.method(orderEmails, 'isConfigured', () => ready)
+      t.mock.method(orderEmails, 'send', async message => {
+        if (failSend) throw Object.assign(new Error('Private provider detail must not be stored'), { code: 'EAUTH' })
+        delivered.push(message); return { accepted: [message.to] }
+      })
+      const create = await request('/admin/products', 'POST', { ...productBody('CASE-EMAIL',1000), stock_quantity: 20 }, adminCookie)
+      assert.equal(create.status, 201); const product = create.data.product
+      await pool.query('UPDATE products SET catalogue_details=? WHERE id=?', [{ selling_unit: 'case', units_per_case: 12 },product.id])
+      const book = async (quantity, productId = product.id) => {
+        const result = await request('/orders', 'POST', { customer: { preference: 'collection' }, items: [{ productId, quantity }] }, customerCookie, { 'Idempotency-Key': randomUUID() })
+        assert.equal(result.status, 201, JSON.stringify(result.data))
+        return Number((await pool.query('SELECT id FROM orders WHERE reference=?',[result.data.reference])).rows[0].id)
+      }
+      const stock = async () => Number((await pool.query('SELECT stock_quantity FROM products WHERE id=?',[product.id])).rows[0].stock_quantity)
+      const change = (id,status) => request(`/admin/orders/${id}/status`,'PATCH',{status},adminCookie)
+      const email = async id => (await pool.query('SELECT * FROM order_confirmation_emails WHERE order_id=?',[id])).rows[0]
+      const id = await book(5)
+      assert.equal(await stock(),20); assert.equal(await email(id),undefined)
+      assert.equal((await change(id,'confirmed')).status,200)
+      assert.equal(await stock(),15); assert.equal((await email(id)).status,'pending')
+      assert.equal((await email(id)).recipient,'customer@example.test')
+      const repeat = await Promise.all([change(id,'confirmed'),change(id,'confirmed')])
+      assert.ok(repeat.every(r=>r.status===200)); assert.equal(await stock(),15)
+      assert.equal((await pool.query('SELECT * FROM stock_movements WHERE order_id=? AND reason=?',[id,'order_confirmed'])).rowCount,1)
+      assert.equal((await pool.query('SELECT * FROM order_confirmation_emails WHERE order_id=?',[id])).rowCount,1)
+      assert.equal((await change(id,'booking')).status,409)
+      assert.equal((await request(`/admin/orders/${id}/confirmation-email/retry`,'POST',{},customerCookie)).status,401)
+      assert.equal((await request(`/admin/orders/${id}/confirmation-email/retry`,'POST',{},adminCookie)).status,409)
+      await orderEmails.drain(); assert.equal(delivered.length,0); assert.equal((await email(id)).attempts,0)
+      const detail = (await request(`/admin/orders/${id}`,'GET',undefined,adminCookie)).data
+      assert.equal(detail.confirmation_email.configured,false); assert.equal(detail.confirmation_email.status,'pending')
+      // The queued message retains the original order lines and prices after product edits.
+      await pool.query('UPDATE products SET name=?,price_gbp=? WHERE id=?',['Changed after booking',99,product.id])
+      ready = true; failSend = true
+      await orderEmails.drain(1)
+      assert.equal((await email(id)).status,'failed'); assert.equal((await email(id)).last_error,'EAUTH')
+      assert.equal((await email(id)).attempts,1); assert.equal(await stock(),15)
+      await orderEmails.drain(1); assert.equal((await email(id)).attempts,1) // retry backoff
+      assert.equal((await request(`/admin/orders/${id}/confirmation-email/retry`,'POST',{},adminCookie)).status,200)
+      failSend = false
+      await Promise.all([orderEmails.drain(1),orderEmails.drain(1)])
+      assert.equal(delivered.length,1); assert.equal((await email(id)).status,'sent')
+      assert.match(delivered[0].subject,/confirmed/); assert.match(delivered[0].text,/5 cases/)
+      assert.match(delivered[0].text,/Test CASE-EMAIL/); assert.match(delivered[0].text,/\u00a350\.00/)
+      assert.ok(!delivered[0].text.includes('Changed after booking')); assert.equal(delivered[0].to,'customer@example.test')
+      assert.equal((await request(`/admin/orders/${id}/confirmation-email/retry`,'POST',{},adminCookie)).status,409)
+      await orderEmails.drain(); assert.equal(delivered.length,1)
+      assert.equal((await change(id,'delivered')).status,200); assert.equal(await stock(),15)
+      assert.equal((await change(id,'cancelled')).status,200); assert.equal(await stock(),20)
+      const cancelled = await book(1)
+      await change(cancelled,'confirmed'); await change(cancelled,'cancelled')
+      assert.equal((await email(cancelled)).status,'cancelled')
+      await orderEmails.drain(); assert.equal(delivered.length,1); assert.equal(await stock(),20)
+      // Two bookings can be placed against the same stock; confirmation must never oversell it.
+      const a = await book(15), b = await book(15)
+      const confirmed = await Promise.all([change(a,'confirmed'),change(b,'confirmed')])
+      assert.deepEqual(confirmed.map(r=>r.status).sort(),[200,409]); assert.equal(await stock(),5)
+      assert.equal((await pool.query('SELECT * FROM order_confirmation_emails WHERE order_id IN (?,?)',[a,b])).rowCount,1)
+    })
+    await t.test('insufficient stock rolls back every product deduction and creates no confirmation email',async()=>{
+      const products=[]
+      for(const sku of ['ROLLBACK-ONE','ROLLBACK-TWO']) {
+        const result=await request('/admin/products','POST',{...productBody(sku,1000),stock_quantity:20},adminCookie)
+        assert.equal(result.status,201);products.push(result.data.product.id)
+      }
+      const booking=await request('/orders','POST',{customer:{preference:'collection'},items:products.map(productId=>({productId,quantity:5}))},customerCookie,{'Idempotency-Key':randomUUID()})
+      assert.equal(booking.status,201)
+      const id=(await pool.query('SELECT id FROM orders WHERE reference=?',[booking.data.reference])).rows[0].id
+      await pool.query('UPDATE products SET stock_quantity=2 WHERE id=?',[products[1]])
+      assert.equal((await request(`/admin/orders/${id}/status`,'PATCH',{status:'confirmed'},adminCookie)).status,409)
+      const rows=(await pool.query('SELECT id,stock_quantity FROM products WHERE id IN (?,?) ORDER BY id',products)).rows
+      assert.deepEqual(rows.map(r=>r.stock_quantity),[20,2])
+      const order=(await pool.query('SELECT status,stock_deducted FROM orders WHERE id=?',[id])).rows[0]
+      assert.equal(order.status,'booking');assert.equal(order.stock_deducted,0)
+      assert.equal((await pool.query('SELECT * FROM order_confirmation_emails WHERE order_id=?',[id])).rowCount,0)
+      assert.equal((await pool.query('SELECT * FROM stock_movements WHERE order_id=?',[id])).rowCount,0)
+    })
+
+    await t.test('admin manages isolated staff logins, checkout attribution and scoped sales', async (t) => {
+      const password = 'Staff-Test-Password-123!'
+      const access = { sales_view: true, inventory_view: true, inventory_manage: false }
+      const first = { name: 'Staff One', email: 'one@staff.example.test', password, is_active: true, permissions: access }
+      const second = { ...first, name: 'Staff Two', email: 'two@staff.example.test', permissions: { ...access, inventory_view: false } }
+      let firstId, secondId, firstCookie, secondCookie, productId, assignedOrder, pendingOrder, cancelledOrder
+      const staffLogin = email => request('/staff/login', 'POST', { email, password })
+      const updateFirst = body => request(`/admin/staff/${firstId}`, 'PUT', { ...first, password: undefined, ...body }, adminCookie)
+      await t.test('only admin creates accounts and staff credentials cannot enter other account areas', async () => {
+        assert.equal((await request('/admin/staff', 'POST', first, customerCookie)).status, 401)
+        assert.equal((await request('/admin/staff', 'GET')).status, 401)
+        assert.equal((await request('/staff/register', 'POST', first)).status, 404)
+        const a = await request('/admin/staff', 'POST', first, adminCookie)
+        assert.equal(a.status, 201, JSON.stringify(a.data)); firstId = a.data.id
+        const b = await request('/admin/staff', 'POST', second, adminCookie)
+        assert.equal(b.status, 201); secondId = b.data.id
+        assert.equal((await request('/admin/staff', 'POST', first, adminCookie)).status, 409)
+        assert.equal((await request('/admin/staff', 'POST', { ...first, email: 'invalid@example.test', permissions: { sales_view: true, inventory_manage: true, inventory_view: false } }, adminCookie)).status, 400)
+        const aLogin = await staffLogin(first.email); assert.equal(aLogin.status, 200); firstCookie = aLogin.cookie
+        const bLogin = await staffLogin(second.email); assert.equal(bLogin.status, 200); secondCookie = bLogin.cookie
+        assert.equal(aLogin.data.staff.password_hash, undefined)
+        assert.equal((await request('/admin/staff', 'GET', undefined, firstCookie)).status, 401)
+        assert.equal((await request('/admin/products', 'GET', undefined, firstCookie.replace('sipup_staff_session=', 'sipup_session='))).status, 401)
+        assert.equal((await request('/account/me', 'GET', undefined, firstCookie)).status, 401)
+        assert.equal((await request('/staff/me', 'GET', undefined, customerCookie.replace('sipup_customer_session=', 'sipup_staff_session='))).status, 401)
+        assert.equal((await request('/staff/sales', 'GET', undefined, customerCookie)).status, 401)
+        assert.equal((await request('/staff/sales', 'GET', undefined, adminCookie)).status, 401)
+        const choices = await request('/checkout/staff', 'GET', undefined, customerCookie)
+        assert.equal(choices.status, 200)
+        assert.deepEqual(choices.data.staff.find(m => m.id === firstId), { id: firstId, name: first.name })
+        assert.equal((await request('/checkout/staff')).status, 401)
+        const members = (await request('/admin/staff', 'GET', undefined, adminCookie)).data.staff
+        assert.equal(members.length, 2); assert.ok(members.every(m => !('password_hash' in m)))
+      })
+      await t.test('inventory permissions apply on the server and stock adjustments are audited with concurrency checks', async () => {
+        const create = await request('/admin/products', 'POST', productBody('STAFF-SALES-FIXTURE', 1000), adminCookie)
+        assert.equal(create.status, 201)
+        productId = (await pool.query('SELECT id FROM products WHERE sku=?', ['STAFF-SALES-FIXTURE'])).rows[0].id
+        assert.equal((await request('/staff/inventory', 'GET', undefined, secondCookie)).status, 403)
+        assert.equal((await request('/staff/inventory', 'GET', undefined, firstCookie)).status, 200)
+        const change = { quantity: 105, expected_quantity: 100, reason: 'Stock received' }
+        assert.equal((await request(`/staff/inventory/${productId}`, 'PATCH', change, firstCookie)).status, 403)
+        assert.equal((await updateFirst({ permissions: { ...access, inventory_manage: true } })).status, 200)
+        assert.equal((await request(`/staff/inventory/${productId}`, 'PATCH', change, firstCookie)).status, 200)
+        assert.equal((await request(`/staff/inventory/${productId}`, 'PATCH', change, firstCookie)).status, 409)
+        assert.equal((await request(`/staff/inventory/${productId}`, 'PATCH', { ...change, quantity: -1, expected_quantity: 105 }, firstCookie)).status, 400)
+        const movement = (await pool.query('SELECT quantity_delta, actor FROM stock_movements WHERE product_id=? AND reason=?', [productId, change.reason])).rows
+        assert.equal(movement.length, 1); assert.equal(movement[0].quantity_delta, 5); assert.equal(movement[0].actor, `staff:${firstId}:Staff One`)
+        assert.equal((await updateFirst({ permissions: { ...access, inventory_view: false } })).status, 200)
+        assert.equal((await request('/staff/inventory', 'GET', undefined, firstCookie)).status, 403)
+        const product = (await pool.query('SELECT price_gbp,stock_quantity FROM products WHERE id=?', [productId])).rows[0]
+        assert.equal(product.price_gbp, '10.00'); assert.equal(product.stock_quantity, 105)
+      })
+      const orderBody = (staffId, quantity = 1) => ({ customer: { preference: 'collection' }, items: [{ productId, quantity }], staff_id: staffId })
+      const book = async (staffId, quantity, status) => {
+        const key = randomUUID()
+        const result = await request('/orders', 'POST', orderBody(staffId, quantity), customerCookie, { 'Idempotency-Key': key })
+        assert.equal(result.status, 201, JSON.stringify(result.data))
+        const id = (await pool.query('SELECT id FROM orders WHERE reference=?', [result.data.reference])).rows[0].id
+        if (status) assert.equal((await request(`/admin/orders/${id}/status`, 'PATCH', { status }, adminCookie)).status, 200)
+        return { id, key, saved: result.data }
+      }
+      await t.test('checkout assigns the chosen active staff or nobody and retries keep the original attribution', async () => {
+        assert.equal((await request('/orders', 'POST', orderBody(999999), customerCookie, { 'Idempotency-Key': randomUUID() })).status, 400)
+        assert.equal((await request('/orders', 'POST', orderBody(-1), customerCookie, { 'Idempotency-Key': randomUUID() })).status, 400)
+        assignedOrder = await book(firstId, 3, 'confirmed')
+        assert.equal(assignedOrder.saved.staff_id, firstId); assert.equal(assignedOrder.saved.staff_name, first.name)
+        await book(secondId, 5, 'confirmed')
+        const unassigned = await book(null, 2, 'confirmed')
+        assert.equal(unassigned.saved.staff_id, null); assert.equal(unassigned.saved.staff_name, '')
+        pendingOrder = await book(firstId, 4)
+        cancelledOrder = await book(firstId, 6, 'cancelled')
+        const retry = await request('/orders', 'POST', orderBody(secondId, 3), customerCookie, { 'Idempotency-Key': assignedOrder.key })
+        assert.equal(retry.status, 200); assert.equal(retry.data.staff_id, firstId); assert.equal(retry.data.staff_name, first.name)
+        const detail = await request(`/admin/orders/${assignedOrder.id}`, 'GET', undefined, adminCookie)
+        assert.equal(detail.data.order.staff_name, first.name)
+        const history = await request('/account/orders', 'GET', undefined, customerCookie)
+        assert.equal(history.data.orders.find(o => Number(o.id) === assignedOrder.id).staff_name, first.name)
+      })
+      await t.test('staff see only their own orders and confirmed quantities while admin sees every staff report', async () => {
+        const own = (await request(`/staff/sales?staff_id=${secondId}`, 'GET', undefined, firstCookie)).data
+        assert.equal(own.summary.assigned_orders, 3); assert.equal(own.summary.confirmed_orders, 1)
+        assert.equal(own.summary.pending_orders, 1); assert.equal(own.summary.cancelled_orders, 1)
+        assert.equal(own.summary.quantity_sold, 3); assert.equal(own.summary.sales_pence, 3000)
+        assert.equal(own.products.length, 1); assert.equal(own.products[0].quantity, 3)
+        assert.equal(own.orders.length, 3)
+        assert.ok(own.orders.every(o => o.staff_name === first.name)); assert.ok(own.orders.every(o => !('customer_email' in o)))
+        const other = (await request('/staff/sales', 'GET', undefined, secondCookie)).data
+        assert.equal(other.summary.quantity_sold, 5); assert.equal(other.orders.length, 1)
+        const admin = await request(`/admin/staff/${firstId}/sales`, 'GET', undefined, adminCookie)
+        assert.deepEqual(admin.data.summary, own.summary)
+        const none = (await request('/admin/staff/unassigned/sales', 'GET', undefined, adminCookie)).data
+        assert.ok(none.orders.every(o => !o.staff_name)); assert.ok(none.summary.quantity_sold >= 2)
+        const members = (await request('/admin/staff', 'GET', undefined, adminCookie)).data.staff
+        assert.equal(members.find(m => m.id === firstId).quantity_sold, 3)
+        assert.equal(members.find(m => m.id === secondId).quantity_sold, 5)
+        assert.equal((await request(`/admin/staff/${secondId}/sales`, 'GET', undefined, firstCookie)).status, 401)
+        assert.equal((await request('/staff/sales?page=0', 'GET', undefined, firstCookie)).status, 400)
+        assert.equal((await updateFirst({ permissions: { ...access, sales_view: false } })).status, 200)
+        assert.equal((await request('/staff/sales', 'GET', undefined, firstCookie)).status, 403)
+      })
+      await t.test('renaming preserves order history, resetting passwords revokes sessions and deactivation blocks checkout', async () => {
+        const newPassword = 'New-Staff-Password-456!'
+        assert.equal((await updateFirst({ name: 'Renamed Staff', password: newPassword })).status, 200)
+        assert.equal((await request('/staff/me', 'GET', undefined, firstCookie)).status, 401)
+        assert.equal((await staffLogin(first.email)).status, 401)
+        const login = await request('/staff/login', 'POST', { email: first.email, password: newPassword })
+        assert.equal(login.status, 200); firstCookie = login.cookie
+        const historical = (await request(`/admin/staff/${firstId}/sales`, 'GET', undefined, adminCookie)).data
+        assert.ok(historical.orders.every(o => o.staff_name === 'Staff One'))
+        assert.equal((await updateFirst({ name: 'Renamed Staff', is_active: false })).status, 200)
+        assert.equal((await request('/staff/me', 'GET', undefined, firstCookie)).status, 401)
+        assert.equal((await request('/staff/login', 'POST', { email: first.email, password: newPassword })).status, 401)
+        assert.equal((await request('/orders', 'POST', orderBody(firstId), customerCookie, { 'Idempotency-Key': randomUUID() })).status, 400)
+        const choices = (await request('/checkout/staff', 'GET', undefined, customerCookie)).data.staff
+        assert.ok(!choices.some(m => m.id === firstId))
+        assert.equal((await request(`/admin/staff/${firstId}/sales`, 'GET', undefined, adminCookie)).data.summary.quantity_sold, 3)
+        const retry = await request('/orders', 'POST', orderBody(null, 3), customerCookie, { 'Idempotency-Key': assignedOrder.key })
+        assert.equal(retry.status, 200); assert.equal(retry.data.staff_name, 'Staff One')
+        assert.equal((await request('/staff/logout', 'POST', {}, secondCookie)).status, 200)
+        assert.equal((await request('/staff/me', 'GET', undefined, secondCookie)).status, 401)
+      })
+    })
+
   } finally {
     if (server) await new Promise((resolve) => server.close(resolve))
     if (pool) await pool.end()

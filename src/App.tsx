@@ -1,4 +1,9 @@
 import ProductImage from './ProductImage'
+import OrderProductSummary from './OrderProductSummary'
+import PromoTicker from './PromoTicker'
+import OrderEmailStatus from './OrderEmailStatus'
+import type { ConfirmationEmailStatus } from './OrderEmailStatus'
+import { StaffApp, StaffAdmin, CheckoutStaffSelect } from './Staff'
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import AisleSection from './AisleSection'
@@ -122,7 +127,7 @@ export default function App() {
     return () => window.clearTimeout(timeout)
   }, [toast])
   useEffect(() => {
-    if (location.pathname.startsWith('/admin')) return
+    if (location.pathname.startsWith('/admin') || location.pathname.startsWith('/staff')) return
     const controller = new AbortController()
     api<{ customer: CustomerAccount }>('/account/me', { signal: controller.signal })
       .then(result => setCustomer(result.customer))
@@ -166,7 +171,7 @@ export default function App() {
       <RouteScroll />
       {(location.pathname.startsWith('/account') || location.pathname === '/admin/login') && <div className="account-theme-control"><ThemeToggle /></div>}
       <Routes>
-        <Route path="/admin/*" element={<AdminApp />} />
+        <Route path="/admin/*" element={<AdminApp />} /><Route path="/staff/*" element={<StaffApp />} />
         <Route path="/account/login" element={<AccountPage mode="login" />} />
         <Route path="/account/register" element={<AccountPage mode="register" />} />
         <Route path="/account" element={<AccountPage mode="account" />} />
@@ -221,13 +226,13 @@ function Header({ store, count }: { store: StoreSettings; count: number }) {
         <nav id="store-navigation" className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
           <NavLink to="/shop">Shop all</NavLink>
           {categories.filter(c=>!c.parent_id&&Number(c.product_count)>0).map(c=><NavLink key={c.id} to={`/category/${c.slug}`}>{c.name}</NavLink>)}
-          <NavLink to="/shop?sort=featured">Wholesale</NavLink>
+          <NavLink to="/shop?sort=featured">Wholesale</NavLink><NavLink to="/staff/login">Staff Login</NavLink>
         </nav>
         <div className="header-actions">
           <ThemeToggle />
           <button type="button" className="icon-btn search-btn" aria-label="Search products" onClick={() => { setOpen(false); setSearch(new URLSearchParams(location.search).get('search') || ''); searchDialog.current?.showModal() }}><Search size={19} /></button>
           {store.whatsapp_number && <a className="whatsapp-header" href={`https://wa.me/${store.whatsapp_number.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"><Zap size={15} /><span>WhatsApp</span></a>}
-          <Link to="/account" className="account-link" aria-label={customer ? 'My account' : 'Sign in or create an account'}><LockKeyhole size={17} /><span>{customer ? 'My account' : 'Sign in / Join'}</span></Link>
+          <Link to="/account" className="account-link" aria-label={customer ? 'My account' : 'Store / Customer Login'}><LockKeyhole size={17} /><span>{customer ? 'My account' : 'Store / Customer Login'}</span></Link>
           <Link to="/cart" className="cart-link" aria-label={`Cart, ${count} items`}>
             <ShoppingBag size={19} /><span>Bag</span><b className="cart-count">{count}</b>
           </Link>
@@ -245,7 +250,7 @@ function Footer({ store }: { store: StoreSettings }) {
       <div className="footer-top">
         <div><Link to="/" className="brand footer-brand"><BrandLogo /></Link>
           <p>Good stock. Good energy.<br />Wholesale favourites for every shelf.</p></div>
-        <div className="footer-links"><strong>Explore</strong><Link to="/shop">Shop all</Link><Link to="/#products">Product catalogue</Link><Link to="/account/register">Create customer account</Link><Link to="/admin/login">Business login</Link></div>
+        <div className="footer-links"><strong>Explore</strong><Link to="/shop">Shop all</Link><Link to="/#products">Product catalogue</Link><Link to="/account/register">Create customer account</Link><Link to="/account/login">Store / Customer Login</Link><Link to="/staff/login">Staff Login</Link><Link to="/admin/login">Admin Login</Link></div>
         <div className="footer-links"><strong>Here to help</strong><Link to="/delivery">Delivery information</Link><Link to="/returns">Returns & refunds</Link><Link to="/contact">Contact us</Link><Link to="/terms">Terms & conditions</Link></div>
         <div className="footer-links"><strong>Get in touch</strong>{store.email && <a href={`mailto:${store.email}`}>{store.email}</a>}{store.phone && <a href={`tel:${store.phone}`}>{store.phone}</a>}<Link to="/privacy">Privacy policy</Link><Link to="/cookies">Cookie policy</Link></div>
       </div>
@@ -355,7 +360,7 @@ function Storefront({ store, home, cart, onAdd, initialCategory, vatDisplayMode,
               <HomeHeroVisual image={home.hero_image} products={products} />
               <div className="hero-side-label">DRINKS · SNACKS · EVERYDAY FAVOURITES</div>
             </section>
-            <div className="ticker"><span>{home.promo_message || 'Stock up on the good stuff'}</span><span>✳</span><span>Good things for your shelves</span><span>✳</span><span>{home.promo_message || 'Stock up on the good stuff'}</span></div>
+            <PromoTicker message={home.promo_message} />
             <section className="trust-strip"><div><Truck /><span>Delivery & collection<br /><small>Options at checkout</small></span></div><div><Box /><span>Wholesale ready<br /><small>Pack sizes shown clearly</small></span></div><div><BadgeCheck /><span>Simple ordering<br /><small>Bookings saved before handoff</small></span></div><div><CircleHelp /><span>Need a hand?<br /><small>Contact the SipUp team</small></span></div></section>
             <AisleSection categories={catalogueFilters.categories} renderSymbol={name => <CategorySymbol name={name} />} />
           </>
@@ -489,7 +494,7 @@ function CheckoutPage({ store, cart }: { store: StoreSettings; cart: ReturnType<
       sessionStorage.setItem(keyName, requestKey)
       const order = await api<SavedOrder>('/orders', { method: 'POST', headers: { 'Idempotency-Key': requestKey }, body: JSON.stringify({
         customer, items: cart.items.map(({ product, quantity }) => ({ productId: product.id, quantity })),
-        expected_total_pence: quote.total_pence,
+        expected_total_pence: quote.total_pence, staff_id: form.get('staff_id') ? Number(form.get('staff_id')) : null,
       }) })
       sessionStorage.setItem(`sipup-order-${order.reference}`, JSON.stringify(order))
       sessionStorage.removeItem(keyName)
@@ -517,6 +522,7 @@ function CheckoutPage({ store, cart }: { store: StoreSettings; cart: ReturnType<
         {preference === 'delivery' && <><label>Delivery address <textarea name="address" required rows={3} maxLength={300} autoComplete="street-address" placeholder="Building, street and town" /></label><label>UK postcode <input name="postcode" required maxLength={16} autoComplete="postal-code" placeholder="e.g. SW1A 1AA" /></label></>}
         <label>Order notes <span className="optional">(optional)</span><textarea name="notes" rows={2} maxLength={1000} placeholder="Anything else we should know?" /></label>
       </section>
+      <CheckoutStaffSelect />
       {error && <div className="inline-error" role="alert">{error}</div>}
     </div><aside className="order-summary checkout-summary"><h2>Your order</h2>
       {quoteLoading && <p className="summary-note" aria-live="polite">Refreshing server-side prices and VAT...</p>}
@@ -621,11 +627,11 @@ function AccountPage({ mode }: { mode: 'login' | 'register' | 'account' }) {
     <Link to="/shop" className="button button-dark account-shop-link">Browse the shop <ArrowRight size={16} /></Link>
   </main>
 
-  if (mode === 'account') return <main className="login-page"><Link to="/" className="brand login-brand"><BrandLogo /></Link><div className="login-card account-choice"><div className="login-icon"><LockKeyhole size={22} /></div><span className="eyebrow">YOUR SIPUP ACCOUNT</span><h1>Book with<br /><em>confidence.</em></h1><p>Create an account or sign in to place an order and keep track of your bookings.</p><Link to="/account/register" className="button button-dark button-wide">Create a free account <ArrowRight size={16} /></Link><Link to="/account/login" className="button button-outline button-wide">I already have an account</Link><Link to="/" className="text-link login-back"><ArrowLeft size={15} /> Return to storefront</Link></div></main>
+  if (mode === 'account') return <main className="login-page"><Link to="/" className="brand login-brand"><BrandLogo /></Link><div className="login-card account-choice"><div className="login-icon"><LockKeyhole size={22} /></div><span className="eyebrow">YOUR SIPUP ACCOUNT</span><h1>Store / Customer Login</h1><Link to="/staff/login" className="text-link">Looking for Staff Login?</Link><p>Create an account or sign in to place an order and keep track of your bookings.</p><Link to="/account/register" className="button button-dark button-wide">Create a free account <ArrowRight size={16} /></Link><Link to="/account/login" className="button button-outline button-wide">I already have an account</Link><Link to="/" className="text-link login-back"><ArrowLeft size={15} /> Return to storefront</Link></div></main>
 
   if (customer) return null
   const registering = mode === 'register'
-  return <main className="login-page"><Link to="/" className="brand login-brand"><BrandLogo /></Link><div className="login-card"><div className="login-icon"><LockKeyhole size={22} /></div><span className="eyebrow">{registering ? 'JOIN SIPUP' : 'CUSTOMER & STORE SIGN IN'}</span><h1>{registering ? <>Make it<br /><em>official.</em></> : <>Good to have<br />you <em>back.</em></>}</h1><p>{registering ? 'Create your free customer or store account to order and follow your bookings.' : addingToBag ? 'Sign in to add this product to your bag. Your product and quantity will be ready after sign-in.' : 'Sign in with your customer or store account to continue shopping.'}</p>
+  return <main className="login-page"><Link to="/" className="brand login-brand"><BrandLogo /></Link><div className="login-card"><div className="login-icon"><LockKeyhole size={22} /></div><span className="eyebrow">{registering ? 'JOIN SIPUP' : 'STORE / CUSTOMER LOGIN'}</span><h1>{registering ? <>Make it<br /><em>official.</em></> : <>Good to have<br />you <em>back.</em></>}</h1><p>{registering ? 'Create your free customer or store account to order and follow your bookings.' : addingToBag ? 'Sign in to add this product to your bag. Your product and quantity will be ready after sign-in.' : 'Sign in with your customer or store account to continue shopping.'}</p>
     <form onSubmit={submit}>
       {registering && <><label>Full name<input autoComplete="name" required minLength={2} maxLength={120} value={name} onChange={(event) => setName(event.target.value)} placeholder="Your name" /></label><label>Mobile / WhatsApp<input autoComplete="tel" type="tel" required minLength={7} maxLength={30} value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="+44 ..." /></label></>}
       <label>Email address<input type="email" autoComplete="email" required maxLength={254} value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" /></label>
@@ -633,6 +639,7 @@ function AccountPage({ mode }: { mode: 'login' | 'register' | 'account' }) {
       {error && <div className="inline-error" role="alert">{error}</div>}<button className="button button-dark button-wide" disabled={busy}>{busy ? 'Please wait...' : <>{registering ? 'Create account' : 'Sign in'} <ArrowRight size={16} /></>}</button>
     </form>
     <div className="login-security"><ShieldCheck size={15} /> Your account and bookings are stored securely</div>
+    <div className="staff-login-links"><strong>Store / Customer Login</strong><Link to="/staff/login">Staff Login</Link></div>
     <p className="account-mode-switch">{registering ? 'Already have an account?' : 'New to SipUp?'} <Link to={`/account/${registering ? 'login' : 'register'}${location.search}`}>{registering ? 'Sign in' : 'Create an account'}</Link></p>
     <Link to="/shop" className="text-link login-back"><ArrowLeft size={15} /> Return to storefront</Link>
   </div></main>
@@ -655,6 +662,7 @@ function ConfirmationPage({ store }: { store: StoreSettings }) {
       `Delivery ex. VAT: ${formatMoney(order.delivery_pence)}`,
       `Delivery VAT: ${formatMoney(order.delivery_vat_pence || 0)}`,
       `Total: ${formatMoney(order.total_pence)}`,
+      `Sales staff: ${order.staff_name || 'None of the above'}`,
       '', `Name: ${order.customer.name}`, `Phone: ${order.customer.phone}`,
       order.customer.email ? `Email: ${order.customer.email}` : '',
       order.customer.preference === 'delivery' ? `Address: ${order.customer.address}, ${order.customer.postcode}` : 'Preference: Collection',
@@ -674,6 +682,7 @@ function ConfirmationPage({ store }: { store: StoreSettings }) {
   }
   return <><Header store={store} count={0} /><main className="confirmation-wrap">
     <div className="confirmation-card"><div className="confirmation-icon"><Check size={30} /></div><span className="eyebrow">BOOKING REQUEST SAVED</span><h1>One good thing<br />at a <em>time.</em></h1><p className="confirmation-lead">Your order request is safely recorded. To get things moving, send the details to our team on WhatsApp.</p><div className="reference-box"><span>YOUR BOOKING REFERENCE</span><strong>{reference}</strong><small>Saved in SipUp · {new Date().toLocaleDateString('en-GB')}</small></div>
+      {order && <p>Sales staff: <strong>{order.staff_name || 'None of the above'}</strong></p>}
       {order && <div className="confirmation-total"><span>{order.items.length} line {order.items.length === 1 ? 'item' : 'items'}</span><strong>{formatMoney(order.total_pence)}</strong></div>}
       {store.whatsapp_number ? <button className="button button-whatsapp button-wide" onClick={openWhatsApp}><Zap size={17} /> Continue in WhatsApp <ExternalLink size={15} /></button>
         : <div className="inline-note"><CircleHelp size={17} /> The store hasn't configured a WhatsApp number yet. Your booking is saved; please contact the business using the details in the footer.</div>}
@@ -747,13 +756,14 @@ function AdminLayout({ email, store }: { email: string; store: StoreSettings }) 
     { to: '/admin/categories', title: 'Categories', icon: Box },
     { to: '/admin/vat-pricing', title: 'VAT & Pricing', icon: BadgeCheck },
     { to: '/admin/customers', title: 'Customers', icon: ShoppingBag },
+    { to: '/admin/staff', title: 'Staff & Sales', icon: BadgeCheck },
     { to: '/admin/delivery', title: 'Delivery & Collection', icon: Truck },
     { to: '/admin/reports', title: 'Reports', icon: Download },
     { to: '/admin/settings', title: 'Settings', icon: Settings },
   ]
   return <div className="admin-shell"><aside className={`admin-sidebar ${menuOpen ? 'menu-open' : ''}`}><Link to="/" className="brand admin-brand"><BrandLogo /><span className="admin-badge">ADMIN</span></Link><span className="sidebar-label">WORKSPACE</span><nav>{nav.map(({ to, title, icon: Icon, exact }) => <NavLink end={exact} to={to} key={to} onClick={() => setMenuOpen(false)}><Icon size={18} />{title}{title === 'Orders' && <ChevronRight className="nav-chevron" size={15} />}</NavLink>)}</nav><div className="sidebar-bottom"><div className="sidebar-user"><div className="user-avatar">{email.slice(0, 1).toUpperCase()}</div><span><strong>{email}</strong><small>Store admin</small></span></div><button onClick={logout}><LogOut size={17} /> Sign out</button></div></aside>
     <div className="admin-main"><header className="admin-topbar"><button className="icon-btn admin-mobile-toggle" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}><Menu /></button><div><span>Workspace</span><ChevronRight size={13} /><b>{store.name}</b></div><Link to="/" target="_blank" rel="noreferrer" className="view-store-link">View storefront <ArrowUpRight size={15} /></Link></header>
-      <div className="admin-content"><Routes><Route index element={<Dashboard />} /><Route path="orders" element={<OrdersAdmin />} /><Route path="products" element={<ProductsAdmin />} /><Route path="import-history" element={<ImportHistoryAdmin />} /><Route path="categories" element={<CategoriesAdmin />} /><Route path="customers" element={<CustomersAdmin />} /><Route path="delivery" element={<SettingsAdmin deliveryPage />} /><Route path="reports" element={<VatPricingAdmin reportPage />} /><Route path="vat-pricing" element={<VatPricingAdmin />} /><Route path="settings" element={<SettingsAdmin />} /><Route path="*" element={<Dashboard />} /></Routes></div>
+      <div className="admin-content"><Routes><Route index element={<Dashboard />} /><Route path="orders" element={<OrdersAdmin />} /><Route path="products" element={<ProductsAdmin />} /><Route path="import-history" element={<ImportHistoryAdmin />} /><Route path="categories" element={<CategoriesAdmin />} /><Route path="customers" element={<CustomersAdmin />} /><Route path="staff" element={<StaffAdmin />} /><Route path="delivery" element={<SettingsAdmin deliveryPage />} /><Route path="reports" element={<VatPricingAdmin reportPage />} /><Route path="vat-pricing" element={<VatPricingAdmin />} /><Route path="settings" element={<SettingsAdmin />} /><Route path="*" element={<Dashboard />} /></Routes></div>
     </div></div>
 }
 
@@ -892,7 +902,7 @@ function OrdersAdmin() {
   const [selected, setSelected] = useState<Order | null>(null)
   const [adminNotes, setAdminNotes] = useState('')
   const [savingNotes, setSavingNotes] = useState(false)
-  const [details, setDetails] = useState<{ refund_sources: RefundSource[]; events: Array<{ event_type: string; details: Record<string, string>; created_at: string }>; payments: Array<{ id: number | string; type: string; amount_pence: number; method: string; paid_at: string }> } | null>(null)
+  const [details, setDetails] = useState<{ confirmation_email: ConfirmationEmailStatus | null; refund_sources: RefundSource[]; events: Array<{ event_type: string; details: Record<string, string>; created_at: string }>; payments: Array<{ id: number | string; type: string; amount_pence: number; method: string; paid_at: string }> } | null>(null)
   const [error, setError] = useState('')
   const load = () => {
     const params = new URLSearchParams({ status, search, page: String(page), limit: '25' })
@@ -908,7 +918,7 @@ function OrdersAdmin() {
   }, [status, from, to, search, page])
   const open = async (order: Order) => {
     setSelected(order); setDetails(null)
-    try { const detail = await api<{ order: Order; refund_sources: RefundSource[]; events: Array<{ event_type: string; details: Record<string, string>; created_at: string }>; payments: Array<{ id: number | string; type: string; amount_pence: number; method: string; paid_at: string }> }>(`/admin/orders/${order.id}`); setSelected(detail.order); setAdminNotes(detail.order.admin_notes || ''); setDetails(detail) }
+    try { const detail = await api<{ order: Order; confirmation_email: ConfirmationEmailStatus | null; refund_sources: RefundSource[]; events: Array<{ event_type: string; details: Record<string, string>; created_at: string }>; payments: Array<{ id: number | string; type: string; amount_pence: number; method: string; paid_at: string }> }>(`/admin/orders/${order.id}`); setSelected(detail.order); setAdminNotes(detail.order.admin_notes || ''); setDetails(detail) }
     catch (reason) { setError(reason instanceof Error ? reason.message : 'Could not load order.') }
   }
   const saveAdminNotes = async (event: FormEvent<HTMLFormElement>) => {
@@ -936,17 +946,19 @@ function OrdersAdmin() {
   }
   return <div className="orders-page"><div className="admin-page-heading"><div><span className="eyebrow">CUSTOMER BOOKINGS</span><h1>Orders<span className="brand-dot">.</span></h1><p>Keep every booking and payment in one place.</p></div><a href="/api/admin/orders/export.csv" className="button button-outline"><Download size={16} /> Export CSV</a></div>
     {error && <div className="inline-error">{error}<button onClick={() => setError('')}>Dismiss</button></div>}
-    <section className="admin-panel orders-panel"><div className="order-toolbar"><div className="admin-search"><Search size={17} /><input placeholder="Search reference, name or phone..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1) }} /></div><button type="button" className="filter-toggle" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(!filtersOpen)}><SlidersHorizontal size={15} /> Filters</button><div className={`order-filters ${filtersOpen ? 'filters-open' : ''}`}><label className="admin-filter"><span>Status</span><select value={status} onChange={(event) => { setStatus(event.target.value); setPage(1) }}><option value="all">All bookings</option><option value="booking">New bookings</option><option value="confirmed">Confirmed</option><option value="processing">Processing</option><option value="dispatched">Dispatched</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select><ChevronDown size={15} /></label><label className="date-filter">From<input type="date" value={from} onChange={(event) => { setFrom(event.target.value); setPage(1) }} /></label><label className="date-filter">To<input type="date" value={to} onChange={(event) => { setTo(event.target.value); setPage(1) }} /></label></div></div>
-      <div className="table-wrap"><table><thead><tr><th>BOOKING</th><th>CUSTOMER</th><th>STATUS</th><th>ORDER VALUE</th><th>PAID</th><th></th></tr></thead><tbody>{orders.map((order) => <tr key={order.id} onClick={() => open(order)} className="click-row"><td><strong>{order.reference}</strong><small>{new Date(order.created_at).toLocaleDateString('en-GB')}</small></td><td><strong>{order.customer_name}</strong><small>{order.customer_phone}</small></td><td><StatusBadge status={order.status} /></td><td>{formatMoney(order.total_pence)}</td><td>{formatMoney(order.paid_pence)}</td><td><button className="table-open" aria-label={`View ${order.reference}`}><ArrowUpRight size={16} /></button></td></tr>)}</tbody></table>
+    <section className="admin-panel orders-panel"><div className="order-toolbar"><div className="admin-search"><Search size={17} /><input placeholder="Search product, customer or phone..." value={search} onChange={(event) => { setSearch(event.target.value); setPage(1) }} /></div><button type="button" className="filter-toggle" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(!filtersOpen)}><SlidersHorizontal size={15} /> Filters</button><div className={`order-filters ${filtersOpen ? 'filters-open' : ''}`}><label className="admin-filter"><span>Status</span><select value={status} onChange={(event) => { setStatus(event.target.value); setPage(1) }}><option value="all">All bookings</option><option value="booking">New bookings</option><option value="confirmed">Confirmed</option><option value="processing">Processing</option><option value="dispatched">Dispatched</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select><ChevronDown size={15} /></label><label className="date-filter">From<input type="date" value={from} onChange={(event) => { setFrom(event.target.value); setPage(1) }} /></label><label className="date-filter">To<input type="date" value={to} onChange={(event) => { setTo(event.target.value); setPage(1) }} /></label></div></div>
+      <div className="table-wrap"><table><thead><tr><th>PRODUCTS</th><th>CUSTOMER</th><th>STATUS</th><th>ORDER VALUE</th><th>PAID</th><th></th></tr></thead><tbody>{orders.map((order) => <tr key={order.id} data-order-id={order.id} onClick={() => open(order)} className="click-row"><td><div className="order-products-list">{order.items.map((item, index) => <OrderProductSummary key={`${item.sku}-${index}`} item={item} openOrder={() => open(order)} />)}{!order.items.length && <strong>Order details</strong>}</div><small>{new Date(order.created_at).toLocaleDateString('en-GB')}</small></td><td><strong>{order.customer_name}</strong><small>{order.customer_phone}</small></td><td><StatusBadge status={order.status} /></td><td>{formatMoney(order.total_pence)}</td><td>{formatMoney(order.paid_pence)}</td><td><button className="table-open" aria-label={`View order for ${order.items.map(item => item.product_name).join(', ') || order.customer_name}`}><ArrowUpRight size={16} /></button></td></tr>)}</tbody></table>
         {!orders.length && <div className="admin-empty">No bookings match those filters.</div>}</div><div className="table-pagination"><span>{total ? `${(page - 1) * 25 + 1}–${Math.min(page * 25, total)} of ${total} bookings` : '0 bookings'}</span><div><button className="button button-outline" disabled={page <= 1} onClick={() => setPage(page - 1)}>Previous</button><span>Page {page} of {pages}</span><button className="button button-outline" disabled={page >= pages} onClick={() => setPage(page + 1)}>Next</button></div></div>
     </section>
     {selected && <div className="drawer-backdrop" onClick={() => setSelected(null)}><aside className="order-drawer" onClick={(event) => event.stopPropagation()}><div className="drawer-heading"><div><span className="eyebrow">BOOKING DETAILS</span><h2>{selected.reference}</h2></div><button className="icon-btn" onClick={() => setSelected(null)} aria-label="Close details"><X /></button></div><div className="drawer-scroll">
+      {error && <p className="inline-error" role="alert">{error}</p>}
       <div className="drawer-customer"><StatusBadge status={selected.status} /><h3>{selected.customer_name}</h3><a href={`tel:${selected.customer_phone}`}>{selected.customer_phone}</a>{selected.customer_email && <a href={`mailto:${selected.customer_email}`}>{selected.customer_email}</a>}<p>{selected.delivery_preference === 'delivery' ? `${selected.delivery_address}, ${selected.delivery_postcode}` : 'Collection preference'}</p>{selected.notes && <div className="customer-note"><b>Customer note</b>{selected.notes}</div>}</div>
       <form className="payment-form" onSubmit={saveAdminNotes}><label>Internal admin notes<textarea value={adminNotes} onChange={(event) => setAdminNotes(event.target.value)} rows={3} maxLength={2000} placeholder="Notes for the team (not shared with the customer)" /></label><button className="button button-outline button-wide" disabled={savingNotes}>{savingNotes ? 'Saving notes...' : 'Save internal note'}</button></form>
-      <div className="drawer-products"><h3>Items</h3>{selected.items.map((item, index) => <div key={`${item.sku}-${index}`}><span>{item.product_name}<small>{item.sku} · Qty {item.quantity} · {item.vat_treatment ? vatTreatmentName(item.vat_treatment) : 'Legacy VAT snapshot unavailable'}{item.discount_pence ? ` · discount ${formatMoney(item.discount_pence)}` : ''}</small></span><strong>{formatMoney(item.line_gross_pence ?? item.line_total_pence)}</strong></div>)}</div>
+      <div className="drawer-products"><h3>Items</h3>{selected.items.map((item, index) => <div className="order-product-line" key={`${item.sku}-${index}`}><div><OrderProductSummary item={item} /><small>{item.vat_treatment ? vatTreatmentName(item.vat_treatment) : 'Legacy VAT snapshot unavailable'}{item.discount_pence ? ` discount ${formatMoney(item.discount_pence)}` : ''}</small></div><strong>{formatMoney(item.line_gross_pence ?? item.line_total_pence)}</strong></div>)}</div>
       {!!selected.vat_breakdowns.length && <div className="drawer-products"><h3>VAT breakdown</h3>{selected.vat_breakdowns.map((row, index) => <div key={`${row.vat_treatment}-${row.vat_rate}-${row.is_delivery}-${index}`}><span>{vatTreatmentName(row.vat_treatment)}{row.is_delivery ? ' · Delivery' : ''}<small>Net {formatMoney(row.net_pence)} · VAT {formatMoney(row.vat_pence)}</small></span><strong>{formatMoney(row.gross_pence)}</strong></div>)}</div>}
       <div className="drawer-totals"><div><span>Product subtotal (ex. VAT)</span><b>{formatMoney(selected.subtotal_pence)}</b></div><div><span>Product VAT</span><b>{formatMoney(selected.vat_pence - selected.delivery_vat_pence)}</b></div><div><span>Delivery (ex. VAT)</span><b>{formatMoney(selected.delivery_pence)}</b></div><div><span>Delivery VAT</span><b>{formatMoney(selected.delivery_vat_pence)}</b></div><hr /><div><strong>Total (inc. VAT)</strong><strong>{formatMoney(selected.total_pence)}</strong></div><div><span>Recorded net payments</span><b>{formatMoney(selected.paid_pence)}</b></div><div><span>Outstanding</span><b>{formatMoney(Math.max(selected.total_pence - selected.paid_pence, 0))}</b></div></div>
-      <div className="drawer-status-update"><label>Update order status<select value={selected.status} onChange={(event) => updateStatus(event.target.value)}>{['booking','confirmed','processing','dispatched','delivered','cancelled'].map((value) => <option value={value} key={value}>{value[0].toUpperCase() + value.slice(1)}</option>)}</select></label></div>
+      <p className="staff-order-attribution">Sales staff: <strong>{selected.staff_name || 'None of the above'}</strong></p><div className="drawer-status-update"><label>Update order status<select value={selected.status} onChange={(event) => updateStatus(event.target.value)}>{['booking','confirmed','processing','dispatched','delivered','cancelled'].map((value) => <option value={value} key={value} disabled={(value === 'booking' && selected.status !== 'booking') || (selected.status === 'cancelled' && value !== 'cancelled')}>{value[0].toUpperCase() + value.slice(1)}</option>)}</select></label></div>
+      {details && <OrderEmailStatus orderId={selected.id} orderStatus={selected.status} email={details.confirmation_email} refresh={() => open(selected)} />}
       {selected.status !== 'booking' && selected.status !== 'cancelled' && selected.total_pence > selected.paid_pence && <form className="payment-form" onSubmit={(event) => recordPayment(event, 'payment')}><h3>Record payment</h3><div><label>Amount (£)<input name="amount" type="number" step="0.01" min="0.01" max={(selected.total_pence - selected.paid_pence) / 100} required /></label><label>Method<select name="method"><option value="bank_transfer">Bank transfer</option><option value="cash">Cash</option><option value="card">Card</option><option value="other">Other</option></select></label></div><button className="button button-dark button-wide">Record payment</button></form>}
       {selected.paid_pence > 0 && details && <RefundForm key={selected.id + '-' + selected.paid_pence} orderId={selected.id} paidPence={selected.paid_pence} sources={details.refund_sources} onSaved={async () => { await load(); await open(selected) }} />}
       {details?.payments.length ? <div className="drawer-products"><h3>Payment history</h3>{details.payments.map((payment) => <div key={payment.id}><span>{payment.type === 'payment' ? 'Received' : 'Refund'}<small>{payment.method.replace('_', ' ')} · {new Date(payment.paid_at).toLocaleDateString('en-GB')}</small></span><strong>{formatMoney(payment.amount_pence)}</strong></div>)}</div> : null}
